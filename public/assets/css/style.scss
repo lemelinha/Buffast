@@ -4,6 +4,9 @@ $primary: #ffd166;
 $seconndary: #ef486f;
 $accent: #26547d;
 
+$background-input: #e2e2e2;
+$background-input-focus: #d1d1d1;
+
 * {
     padding: 0;
     margin: 0;
@@ -14,6 +17,7 @@ $accent: #26547d;
 
 body {
     overflow-x: hidden;
+    background-color: $background;
 }
 
 a {
@@ -53,6 +57,44 @@ body#home {
 
         section + section {
             margin-top: 20px;
+        }
+    }
+}
+
+body#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        input {
+            background-color: $background-input;
+            border-radius: 4px;
+            padding: 5px 10px;
+
+            &:hover,
+            &:focus {
+                background-color: $background-input-focus;
+            }
+
+            transition: 200ms;
+        }
+
+        input[type="submit"]{
+            background-color: $accent;
+            color: $background;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                background-color: $text;
+            }
         }
     }
 }

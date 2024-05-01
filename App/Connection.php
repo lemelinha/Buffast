@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use PDO;
+use \PDO;
 
 abstract class Connection {
     public static function connect(){
@@ -11,7 +11,13 @@ abstract class Connection {
         $pwd = $_ENV['DB_PASSWORD'];
         $port = $_ENV['DB_PORT'];
 
-        $conn = new PDO("mysql:server=$host;port={$port};dbname=$dbname", $user, $pwd);
-        return $conn;
+        try {
+            $conn = new PDO("mysql:host={$host};port={$port};dbname={$dbname};", $user, $pwd);
+            $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+
+            return $conn;
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 }

@@ -10,6 +10,18 @@ abstract class Router {
             'method' => 'index'
         ];
 
+        $routes['login'] = [
+            'router' => '/login',
+            'controller' => 'LoginController',
+            'method' => 'index'
+        ];
+
+        $routes['loginAuth'] = [
+            'router' => '/login/auth',
+            'controller' => 'LoginController',
+            'method' => 'auth'
+        ];
+
         $this->routes = $routes;
     }
 }

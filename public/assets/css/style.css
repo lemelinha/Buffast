@@ -8,6 +8,7 @@
 
 body {
   overflow-x: hidden;
+  background-color: #f7f7f7;
 }
 
 a {
@@ -42,6 +43,36 @@ body#home main {
 }
 body#home main section + section {
   margin-top: 20px;
+}
+
+body#login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+body#login form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+body#login form input {
+  background-color: #e2e2e2;
+  border-radius: 4px;
+  padding: 5px 10px;
+  transition: 200ms;
+}
+body#login form input:hover, body#login form input:focus {
+  background-color: #d1d1d1;
+}
+body#login form input[type=submit] {
+  background-color: #26547d;
+  color: #f7f7f7;
+  cursor: pointer;
+}
+body#login form input[type=submit]:hover, body#login form input[type=submit]:focus {
+  background-color: #073a4b;
 }
 
 /*# sourceMappingURL=style.css.map */
