@@ -75,4 +75,76 @@ body#login form input[type=submit]:hover, body#login form input[type=submit]:foc
   background-color: #073a4b;
 }
 
+body#adminLayout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas: "sidebar header" "sidebar main";
+  height: 100vh;
+  margin: 0;
+}
+body#adminLayout header {
+  grid-area: header;
+  background-color: #26547d;
+  color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+}
+@media screen and (max-width: 763px) {
+  body#adminLayout header {
+    align-items: flex-end;
+  }
+}
+body#adminLayout img {
+  position: absolute;
+  top: 40px;
+  left: 12.5vw;
+  transform: translate(-50%, -50%);
+}
+body#adminLayout nav {
+  grid-area: sidebar;
+  background-color: #26547d;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  font-size: clamp(18px, 2vw, 28px);
+}
+body#adminLayout nav a {
+  transition: 150ms ease-in;
+}
+body#adminLayout nav a:hover {
+  scale: 1.05;
+}
+@media screen and (max-width: 763px) {
+  body#adminLayout nav {
+    flex-direction: row;
+    column-gap: 40px;
+    flex-wrap: wrap;
+  }
+}
+body#adminLayout main {
+  grid-area: main;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+@media screen and (max-width: 763px) {
+  body#adminLayout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 90px 100px 1fr;
+    grid-template-areas: "header" "sidebar" "main";
+  }
+  body#adminLayout img {
+    top: 20px;
+    left: 20px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -9,7 +9,7 @@ abstract class Controller {
 
         if(!empty($layout)){
             if(file_exists('../App/Layouts/' . $layout . '.php')){
-                require '../App/layouts/' . $layout . '.php';
+                require '../App/Layouts/' . $layout . '.php';
                 die();
             }
             echo "Layout $layout inexistente";
@@ -21,6 +21,5 @@ abstract class Controller {
 
     protected function loadView(){
         require '../App/Views/' . $this->directory . '/' . $this->page . '.php';
-        die();
     }
 }

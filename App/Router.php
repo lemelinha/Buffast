@@ -22,6 +22,13 @@ abstract class Router {
             'method' => 'auth'
         ];
 
+        // Área de Admin
+        $routes['AdminDashboard'] = [
+            'router' => '/admin/dashboard',
+            'controller' => 'AdminController',
+            'method' => 'dashboard'
+        ];
+
         $this->routes = $routes;
     }
 }

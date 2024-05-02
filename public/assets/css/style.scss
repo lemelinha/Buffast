@@ -98,3 +98,90 @@ body#login {
         }
     }
 }
+
+body#adminLayout {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 80px 1fr;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+
+    height: 100vh;
+    margin: 0;
+
+    header {
+        grid-area: header;
+        background-color: $accent;
+        color: $background;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+
+        @media screen and (max-width: 763px) {
+            align-items: flex-end;
+        }
+    }
+
+    img {
+        position: absolute;
+        top: 40px;
+        left: 12.5vw;
+        transform: translate(-50%, -50%);
+    }
+
+    nav {
+        grid-area: sidebar;
+        background-color: $accent;
+        
+        padding: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 20px;
+
+        font-size: clamp(18px, 2vw, 28px);
+
+        a {
+            transition: 150ms ease-in;
+        }
+
+        a:hover {
+            scale: 1.05;
+        }
+
+        @media screen and (max-width: 763px){
+            flex-direction: row;
+            column-gap: 40px;
+            flex-wrap: wrap;
+        }
+    }
+
+    main {
+        grid-area: main;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: $background;
+
+        padding: 20px
+    }
+
+    @media screen and (max-width: 763px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 90px 100px 1fr;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main";
+
+        img {
+            top: 20px;
+            left: 20px;
+        }
+    }
+}
