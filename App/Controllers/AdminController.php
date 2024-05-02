@@ -16,4 +16,9 @@ class AdminController extends Controller{
         $this->title = 'Admin - Dashboard';
         $this->render('dashboard', 'Admin', 'AdminLayout');
     }
+
+    public function registerBuffet(){
+        $this->title = 'Admin - Cadastrar Buffet';
+        $this->render('cadastrarBuffet', 'Admin', 'AdminLayout');
+    }
 }

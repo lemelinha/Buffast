@@ -10,6 +10,12 @@ class LoginController extends Controller {
     }
 
     public function auth(){
+        if (!(isset($_POST['usuario']) && isset($_POST['senha']) && isset($_POST['login']))){
+            $_SESSION['msg_erro'] = 'Algo deu errado!';
+            header('Location: /login');
+            die();
+        }
+
         $user = $_POST['usuario']??'';
         $password = $_POST['senha']??'';
 

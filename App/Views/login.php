@@ -26,7 +26,7 @@
                 }
             ?>
         </p>
-        <input type="submit" value="Entrar">
+        <input type="submit" value="Entrar" name="login">
     </form>
 </body>
 </html>

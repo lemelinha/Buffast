@@ -7,6 +7,9 @@ $accent: #26547d;
 $background-input: #e2e2e2;
 $background-input-focus: #d1d1d1;
 
+$button-submit: #073a4b;
+$button-submit-focus: #042935;
+
 * {
     padding: 0;
     margin: 0;
@@ -168,8 +171,79 @@ body#adminLayout {
         overflow-y: scroll;
         background-color: $background;
 
-        padding: 20px
+        padding: 20px;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        
+        form {
+            max-width: 800px;
+            font-size: 18px;
+            
+            input, select {
+                padding: 10px 20px;
+                border-radius: 4px;
+                background-color: $background-input;
+                
+                transition: 200ms;
+
+                &:hover,
+                &:focus {
+                    background-color: $background-input-focus;
+                }
+            }
+
+            button[type="submit"] {
+                background-color: $button-submit;
+                color: $background;
+                padding: 10px 20px;
+                border-radius: 3px;
+
+                font-size: 22px;
+
+                transition: 200ms;
+                cursor: pointer;
+
+                &:hover,
+                &:focus {
+                    background-color: $button-submit-focus;
+                }
+            }
+        }
+
+        form#formCadastroBuffet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            
+            row-gap: 15px;
+
+            fieldset {
+                display: flex;
+                flex-direction: column;
+                row-gap: 20px;
+                
+                &>label {
+                    margin-bottom: -15px;
+                }
+
+                section {
+                    display: flex;
+                    flex-wrap: wrap;
+                    row-gap: 10px;
+                    column-gap: 10px;
+                    justify-content: center;
+                }
+
+                select#cidade {
+                    width: 260px;
+                }
+            }
+        }
     }
+
 
     @media screen and (max-width: 763px) {
         grid-template-columns: 1fr;

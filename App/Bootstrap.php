@@ -17,12 +17,15 @@ class Bootstrap extends Router{
         foreach($this->routes as $key => $router){
             if ($uri == $router['router']){
                 $controllerClass = 'App\\Controllers\\' . $router['controller'];
-                $method = $router['method'];
+                $action = $router['action'];
 
                 $controllerInstance = new $controllerClass();
-                $controllerInstance->$method();
+                $controllerInstance->$action();
+                die();
             } 
         }
+
+        require 'Views/erro.php';
     }
     
     private function getUri(){

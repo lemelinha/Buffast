@@ -7,26 +7,32 @@ abstract class Router {
         $routes['index'] = [
             'router' => '/',
             'controller' => 'IndexController',
-            'method' => 'index'
+            'action' => 'index'
         ];
 
         $routes['login'] = [
             'router' => '/login',
             'controller' => 'LoginController',
-            'method' => 'index'
+            'action' => 'index'
         ];
 
         $routes['loginAuth'] = [
             'router' => '/login/auth',
             'controller' => 'LoginController',
-            'method' => 'auth'
+            'action' => 'auth'
         ];
 
         // Área de Admin
         $routes['AdminDashboard'] = [
             'router' => '/admin/dashboard',
             'controller' => 'AdminController',
-            'method' => 'dashboard'
+            'action' => 'dashboard'
+        ];
+
+        $routes['AdminCadastroBuffet'] = [
+            'router' => '/admin/cadastrar/buffet',
+            'controller' => 'AdminController',
+            'action' => 'registerBuffet'
         ];
 
         $this->routes = $routes;
