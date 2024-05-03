@@ -49,10 +49,10 @@
 
         <!-- Informações de login -->
         <fieldset>
-            <label for="nome-buffet">Nome do Buffet</label>
-            <input type="text" name="nome-buffet" id="nome-buffet" placeholder="Nome do Buffet" required>
-            <label for="nome-buffet">Nome do Buffet</label>
-            <input type="text" name="nome-buffet" id="nome-buffet" placeholder="Nome do Buffet" required>
+            <label for="usuario-inicial">Usuário Inicial</label>
+            <input type="text" name="usuario-inicial" id="usuario-inicial" placeholder="Usuário Inicial" required>
+            <label for="senha-inicial">Senha Inicial</label>
+            <input type="text" name="senha-inicial" id="senha-inicial" placeholder="Senha Inicial" required>
         </fieldset>
 
         <button type="submit">Cadastrar</button>
