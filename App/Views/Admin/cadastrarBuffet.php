@@ -34,7 +34,7 @@
             <label for="rua">Rua</label>
             <input type="text" name="rua" id="rua" placeholder="Rua" required>
             <label for="complemeto">Complemeto</label>
-            <input type="text" name="complemeto" id="complemeto" placeholder="Complemento" required>
+            <input type="text" name="complemeto" id="complemeto" placeholder="Complemento">
         </fieldset>
 
         <!-- Configurações iniciais -->

@@ -1,58 +1,89 @@
-const searchCities = async () => {
+const searchCities = async (callback) => {
     $('form select#cidade').prop("disabled", false);
-
-    var URL = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${$('form select#uf').val()}/distritos`;
-
-    var res = await fetch(URL);
-
-    cities = await res.json();
-    cities = cities.sort((a, b) => { // ordenando pelo nome
-        if (a.nome < b.nome) {
-            return -1;
+    await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${$('form select#uf').val()}/distritos`)
+    .then(response => {
+        if(!response.ok){
+            return;
         }
+        return response.json();
+    })
+
+    .then(cities => {
+        cities = cities.sort((a, b) => { // ordenando pelo nome
+            if (a.nome < b.nome) {
+                return -1;
+            }
+        });
+    
+        $('select#cidade').empty();
+        cities.map(city => {
+            const option = document.createElement('option');
+            option.setAttribute('value', city.nome);
+            option.textContent = city.nome;
+    
+            $('select#cidade').append(option);
+        });
     });
 
-    $('select#cidade').empty();
-    cities.map(city => {
-        const option = document.createElement('option');
-        option.setAttribute('value', city.nome);
-        option.textContent = city.nome;
-
-        $('select#cidade').append(option);
-    });
+    callback();
 }
 
-$(document).ready(async function () {
-    var res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
-    states = await res.json();
-    states = states.sort((a, b) => { // ordenando pela sigla
-        if (a.sigla < b.sigla) {
-            return -1;
+$(document).ready(function () {
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+    .then(response => {
+        if(!response.ok){
+            return;
         }
-    });
+        return response.json();
+    })
 
-    states.map(state => {
-        const option = document.createElement('option');
-        option.setAttribute('value', state.sigla);
-        option.textContent = state.nome;
-
-        $('select#uf').append(option);
-    });
+    .then(states => {
+        states = states.sort((a, b) => { // ordenando pela sigla
+            if (a.sigla < b.sigla) {
+                return -1;
+            }
+        });
+    
+        states.map(state => {
+            const option = document.createElement('option');
+            option.setAttribute('value', state.sigla);
+            option.textContent = state.nome;
+    
+            $('select#uf').append(option);
+        });
+    })
 });
 
 // colocar as cidades no select
-$('form select#uf').on('change', searchCities);
+$('form select#uf').change(searchCities);
 
 // consulta do cep
-$('form input#cep').on('change', async function () {
-    var cepInfo = await fetch(`https://viacep.com.br/ws/${$(this).val()}/json/`);
-    cepInfo = await cepInfo.json();
+$('form input#cep').keyup(function () {
+    fetch(`https://viacep.com.br/ws/${$(this).val()}/json/`)
+    .then(response => {
+        if (!response.ok) {
+          return;
+        }
+        return response.json();
+    })
 
-    // $('form select#uf').val(cepInfo.uf).change();
-    $('form select#uf').val(cepInfo.uf);
-    await searchCities();
-    $('form select#cidade').val(cepInfo.localidade);
-    $('form input#bairro').val(cepInfo.bairro);
-    $('form input#rua').val(cepInfo.logradouro);
+    .then(cep => {
+        $('form select#uf').val(cep.uf);
+        searchCities(function(){
+            $('form select#cidade').val(cep.localidade);
+            $('form input#bairro').val(cep.bairro);
+            $('form input#rua').val(cep.logradouro);
+        });
+        $('form input#cep + p').remove();
+    })
+
+    .catch(() => {
+        $('form input#cep + p').remove(); // remove se ja existe
+
+        const p = document.createElement('p');
+        p.textContent = 'Informe um CEP válido';
+        p.style.color = '#fd2419';
+        p.style.textAlign = 'center';
+        $(this).parent().append(p);
+    })
 });
-
