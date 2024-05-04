@@ -58,7 +58,7 @@ $(document).ready(function () {
 $('form select#uf').change(searchCities);
 
 // consulta do cep
-$('form input#cep').keyup(function () {
+$('form input#cep').change(function () {
     fetch(`https://viacep.com.br/ws/${$(this).val()}/json/`)
     .then(response => {
         if (!response.ok) {
@@ -68,6 +68,9 @@ $('form input#cep').keyup(function () {
     })
 
     .then(cep => {
+        if(cep?.erro){
+            throw new Error();
+        }
         $('form select#uf').val(cep.uf);
         searchCities(function(){
             $('form select#cidade').val(cep.localidade);

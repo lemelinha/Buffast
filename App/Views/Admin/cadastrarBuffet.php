@@ -31,8 +31,16 @@
 
             <label for="bairro">Bairro</label>
             <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
-            <label for="rua">Rua</label>
-            <input type="text" name="rua" id="rua" placeholder="Rua" required>
+            <section>
+                <fieldset style="flex: 14">
+                    <label for="rua">Rua</label>
+                    <input type="text" name="rua" id="rua" placeholder="Rua" required>
+                </fieldset>
+                <fieldset style="flex: 1">
+                    <label for="numero">Número</label>
+                    <input type="number" name="numero" id="numero" placeholder="Número" min="1" required>
+                </fieldset>
+            </section>
             <label for="complemeto">Complemeto</label>
             <input type="text" name="complemeto" id="complemeto" placeholder="Complemento">
         </fieldset>
