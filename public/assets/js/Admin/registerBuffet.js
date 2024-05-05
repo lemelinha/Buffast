@@ -25,7 +25,7 @@ const searchCities = async (callback) => {
         });
     });
 
-    callback();
+    callback(); // somente preencher as informações quando a requisição for concluida
 }
 
 $(document).ready(function () {
@@ -72,11 +72,13 @@ $('form input#cep').change(function () {
             throw new Error();
         }
         $('form select#uf').val(cep.uf);
-        searchCities(function(){
+
+        searchCities(function () { // callback
             $('form select#cidade').val(cep.localidade);
             $('form input#bairro').val(cep.bairro);
             $('form input#rua').val(cep.logradouro);
         });
+        
         $('form input#cep + p').remove();
     })
 
