@@ -12,7 +12,7 @@
     </header>
     <img src="" alt="logo">
     <nav>
-        <a href="/admin/cadastrar/buffet">Cadastrar Buffet</a>
+        <a href="/admin/buffet/form">Cadastrar Buffet</a>
         <a href="/admin/dashboard">Buffets Cadastrados</a>
     </nav>
     <?php $this->loadView() ?>

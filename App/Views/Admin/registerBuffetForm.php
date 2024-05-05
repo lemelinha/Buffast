@@ -41,18 +41,20 @@
                     <input type="number" name="numero" id="numero" placeholder="Número" min="1" required>
                 </fieldset>
             </section>
-            <label for="complemeto">Complemeto</label>
-            <input type="text" name="complemeto" id="complemeto" placeholder="Complemento">
+            <label for="complemento">Complemeto</label>
+            <input type="text" name="complemento" id="complemento" placeholder="Complemento">
         </fieldset>
 
         <!-- Configurações iniciais -->
         <fieldset>
-            <label for="nome-buffet">Nome do Buffet</label>
-            <input type="text" name="nome-buffet" id="nome-buffet" placeholder="Nome do Buffet" required>
-            <label for="nome-buffet">Nome do Buffet</label>
-            <input type="text" name="nome-buffet" id="nome-buffet" placeholder="Nome do Buffet" required>
-            <label for="nome-buffet">Nome do Buffet</label>
-            <input type="text" name="nome-buffet" id="nome-buffet" placeholder="Nome do Buffet" required>
+            <label for="intervalo-pedidos">Intervalo entre pedidos (minutos) </label>
+            <input type="number" name="intervalo-pedidos" id="intervalo-pedidos" min="1" required>
+            <label for="qtd-maxima-produtos-pedido">Quantidade máxima de produtos por pedido</label>
+            <input type="number" name="qtd-maxima-produtos-pedido" id="qtd-maxima-produtos-pedido" min="1" required>
+            <label for="qtd-maxima-cada-produto">Quantidade máxima de cada produto</label>
+            <input type="number" name="qtd-maxima-cada-produto" id="qtd-maxima-cada-produto" min="1" required>
+            <label for="qtd-maxima-convidados">Quantidade máxima de convidados</label>
+            <input type="number" name="qtd-maxima-convidados" id="qtd-maxima-convidados" min="1" required>
         </fieldset>
 
         <!-- Informações de login -->

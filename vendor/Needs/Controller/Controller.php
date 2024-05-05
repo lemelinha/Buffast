@@ -4,6 +4,8 @@ namespace Needs\Controller;
 
 abstract class Controller {
     protected function render($view, $directory, $layout=''){
+        require 'Codes.php'; // link dos scripts (JQuery, GSap, FontAwesome)
+
         $this->page = $view;
         $this->directory = $directory;
 

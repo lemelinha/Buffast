@@ -90,5 +90,23 @@ $('form input#cep').change(function () {
         p.style.color = '#fd2419';
         p.style.textAlign = 'center';
         $(this).parent().append(p);
-    })
+    });
+});
+
+$('form').on('submit', function(event) {
+    event.preventDefault(); // impede que a pagina seja recarregada
+  
+    $.ajax({
+        url: '/admin/buffet/register',
+        type: 'get',
+        dataType: 'json',
+        data: $(this).serialize(),
+        success: function(data) {
+            if (!data.erro){
+                createModal(data.modalText);
+                $('form')[0].reset();
+                $('form select#cidade').empty();
+            }
+        }
+    });
 });

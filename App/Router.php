@@ -29,8 +29,14 @@ abstract class Router {
             'action' => 'dashboard'
         ];
 
-        $routes['AdminCadastroBuffet'] = [
-            'router' => '/admin/cadastrar/buffet',
+        $routes['AdminCadastroBuffetForm'] = [ // formulario de cadastro
+            'router' => '/admin/buffet/form',
+            'controller' => 'AdminController',
+            'action' => 'registerBuffetForm'
+        ];
+
+        $routes['AdminCadastrarBuffet - AJAX'] = [ // validacao e registro dos dados
+            'router' => '/admin/buffet/register',
             'controller' => 'AdminController',
             'action' => 'registerBuffet'
         ];
