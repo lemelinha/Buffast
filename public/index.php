@@ -8,16 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
 <script src="/assets/js/Modal.js"></script>
-<link rel="stylesheet" href="assets/css/style.css">
-<body>
-    
-</body>
-<script>
-    createModal('testo');
-</script>
+
 <?php
 
-die();
     session_start();
     require '../vendor/autoload.php';
 
