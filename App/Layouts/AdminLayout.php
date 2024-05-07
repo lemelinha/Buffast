@@ -8,13 +8,14 @@
 </head>
 <body id="adminLayout">
     <header>
-        Admin Area
+        <img src="" alt="logo">
+        <h1>Admin Area</h1>
     </header>
-    <img src="" alt="logo">
     <nav>
         <a href="/admin/buffet/form">Cadastrar Buffet</a>
         <a href="/admin/dashboard">Buffets Cadastrados</a>
     </nav>
     <?php $this->loadView() ?>
+    <script src="/assets/js/Admin/registerBuffet.js"></script>
 </body>
 </html>

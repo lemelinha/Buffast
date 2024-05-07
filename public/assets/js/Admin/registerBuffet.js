@@ -59,6 +59,7 @@ $('form select#uf').change(searchCities);
 
 // consulta do cep
 $('form input#cep').change(function () {
+    $('form input#cep + p').remove();
     fetch(`https://viacep.com.br/ws/${$(this).val()}/json/`)
     .then(response => {
         if (!response.ok) {
@@ -78,13 +79,9 @@ $('form input#cep').change(function () {
             $('form input#bairro').val(cep.bairro);
             $('form input#rua').val(cep.logradouro);
         });
-        
-        $('form input#cep + p').remove();
     })
 
     .catch(() => {
-        $('form input#cep + p').remove(); // remove se ja existe
-
         const p = document.createElement('p');
         p.textContent = 'Informe um CEP válido';
         p.style.color = '#fd2419';
@@ -106,7 +103,11 @@ $('form').on('submit', function(event) {
                 createModal(data.modalText);
                 $('form')[0].reset();
                 $('form select#cidade').empty();
+                $('form select#cidade').prop("disabled", true);
+                return;
             }
+
+            createModal(data.modalText);
         }
     });
 });

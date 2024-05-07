@@ -68,5 +68,3 @@
         <button type="submit">Cadastrar</button>
     </form>
 </main>
-
-<script src="/assets/js/Admin/registerBuffet.js"></script>

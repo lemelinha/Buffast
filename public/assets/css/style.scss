@@ -1,4 +1,7 @@
-$text: #073a4b;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$text: #031920;
 $background: #f7f7f7;
 $primary: #ffd166;
 $seconndary: #ef486f;
@@ -19,13 +22,21 @@ $button-submit-focus: #042935;
 }
 
 body {
+    position: relative;
     overflow-x: hidden;
     background-color: $background;
+    color: $text;
+
+    font-family: "Montserrat", sans-serif;
 }
 
 a {
     color: #fff;
     text-decoration: none;
+}
+
+form {
+    font-family: "Poppins", sans-serif;
 }
 
 body#home {
@@ -103,79 +114,96 @@ body#login {
 }
 
 body#adminLayout {
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 80px 1fr;
-    grid-template-areas:
-        "sidebar header"
-        "sidebar main";
-
     height: 100vh;
     margin: 0;
 
+    header, nav {
+        position: fixed;
+        background-color: $background;
+        z-index: 1;
+    }
+
     header {
-        grid-area: header;
-        background-color: $accent;
-        color: $background;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 36px;
+        color: $text;
+        z-index: 2;
 
-        @media screen and (max-width: 763px) {
-            align-items: flex-end;
-        }
-    }
-
-    img {
-        position: absolute;
-        top: 40px;
-        left: 12.5vw;
-        transform: translate(-50%, -50%);
-    }
-
-    nav {
-        grid-area: sidebar;
-        background-color: $accent;
-        
-        padding: 20px;
+        height: 80px;
+        width: 100vw;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        row-gap: 20px;
-
-        font-size: clamp(18px, 2vw, 28px);
-
-        a {
-            transition: 150ms ease-in;
-        }
-
-        a:hover {
-            scale: 1.05;
-        }
-
-        @media screen and (max-width: 763px){
-            flex-direction: row;
-            column-gap: 40px;
-            flex-wrap: wrap;
+        
+        h1 {
+            font-size: 36px;
         }
     }
-
-    main {
-        grid-area: main;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        background-color: $background;
-
+    
+    nav {
         padding: 20px;
-
+        
+        width: 100vw;
+        margin-top: 80px;
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+        row-gap: 20px;
+        column-gap: 20px;
+        
+        font-size: clamp(22px, 4vw, 28px);
+        
+        box-shadow: 0px -6px 14px #0000004d;
+        a {
+            position: relative;
+            color: $text;
+            
+            padding: 0 2px;
+            
+            overflow: hidden;
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: $accent;
+                
+                height: 2px;
+                width: 100%;
+                
+                top: 100%;
+                left: 0;
+                z-index: -1;
+                transform: translate(-110%, -100%);
+                transition: 200ms ease-in-out;
+            }
+            
+            &:hover::before {
+                transform: translate(0, -100%);
+            }
+        }
+    }
+    
+    img {
+        z-index: 2;
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+    
+    main {
+        overflow-x: hidden;
+        background-color: $background;
+        
+        padding: 20px;
+        transform: translateY(160px);
+        
         display: flex;
         align-items: flex-start;
         justify-content: center;
+        
         
         form {
             max-width: 800px;
@@ -243,25 +271,9 @@ body#adminLayout {
             }
         }
     }
-
-
-    @media screen and (max-width: 763px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: 90px 100px 1fr;
-        grid-template-areas:
-            "header"
-            "sidebar"
-            "main";
-
-        img {
-            top: 20px;
-            left: 20px;
-        }
-    }
 }
 
 dialog {
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
