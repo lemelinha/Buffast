@@ -17,9 +17,11 @@
     </nav>
     <?php $this->loadView() ?>
     <script>
-        window.addEventListener('resize', function () {
+        const resizeMainHeigh = () => {
             $('main').css('transform', `translateY(${ $('header').outerHeight() + $('nav').outerHeight() }px)`)
-        });
+        }
+        $(document).ready(resizeMainHeigh)
+        $(window).on('resize', resizeMainHeigh);
     </script>
 </body>
 </html>
