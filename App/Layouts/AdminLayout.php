@@ -16,6 +16,10 @@
         <a href="/admin/dashboard">Buffets Cadastrados</a>
     </nav>
     <?php $this->loadView() ?>
-    <script src="/assets/js/Admin/registerBuffet.js"></script>
+    <script>
+        window.addEventListener('resize', function () {
+            $('main').css('transform', `translateY(${ $('header').outerHeight() + $('nav').outerHeight() }px)`)
+        });
+    </script>
 </body>
 </html>

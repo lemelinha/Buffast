@@ -28,9 +28,9 @@ class AdminController extends Controller{
             'nome-buffet',
             'cep',
             'uf',
-            'cidade',
+            'localidade',
             'bairro',
-            'rua',
+            'logradouro',
             'numero',
             'complemento',
             'intervalo-pedidos',
@@ -43,17 +43,31 @@ class AdminController extends Controller{
 
         $optionalInputs = ['complemento'];
 
-        if (Tools::validateFormData($formInputs, $optionalInputs)){
+        if (!Tools::validateFormData($formInputs, $optionalInputs)){
             echo json_encode([
-                'erro' => false,
-                'modalText' => 'Buffet Cadastrado com sucesso!'
+                'erro' => true,
+                'modal' => ['text' => 'ERRO: Verifique os dados do formulário!']
             ]);
             return;
         }
-
+        
+        $cep = $_POST['cep'];
+        $uf = $_POST['uf'];
+        $cidade = $_POST['localidade'];
+        $bairro = $_POST['bairro'];
+        $rua = $_POST['logradouro'];
+        
+        if (!Tools::validadeCEP($cep, $uf, $cidade, $bairro, $rua)){
+            echo json_encode([
+                'erro' => true,
+                'modal' => ['text' => 'ERRO: Verifique os dados de endereço!']
+            ]);
+            return;
+        }
+        
         echo json_encode([
-            'erro' => true,
-            'modalText' => 'ERRO: Verifique os dados do formulário!'
+            'erro' => false,
+            'modal' => ['text' => 'Buffet Cadastrado com sucesso!']
         ]);
     }
 }

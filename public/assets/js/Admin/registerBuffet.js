@@ -1,5 +1,5 @@
 const searchCities = async (callback) => {
-    $('form select#cidade').prop("disabled", false);
+    $('form select#localidade').prop("disabled", false);
     await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${$('form select#uf').val()}/distritos`)
     .then(response => {
         if(!response.ok){
@@ -15,13 +15,13 @@ const searchCities = async (callback) => {
             }
         });
     
-        $('select#cidade').empty();
+        $('select#localidade').empty();
         cities.map(city => {
             const option = document.createElement('option');
             option.setAttribute('value', city.nome);
             option.textContent = city.nome;
     
-            $('select#cidade').append(option);
+            $('select#localidade').append(option);
         });
     });
 
@@ -75,9 +75,9 @@ $('form input#cep').change(function () {
         $('form select#uf').val(cep.uf);
 
         searchCities(function () { // callback
-            $('form select#cidade').val(cep.localidade);
+            $('form select#localidade').val(cep.localidade);
             $('form input#bairro').val(cep.bairro);
-            $('form input#rua').val(cep.logradouro);
+            $('form input#logradouro').val(cep.logradouro);
         });
     })
 
@@ -95,19 +95,19 @@ $('form').on('submit', function(event) {
   
     $.ajax({
         url: '/admin/buffet/register',
-        type: 'get',
+        type: 'post',
         dataType: 'json',
-        data: $(this).serialize(),
+        data: $('form').serialize(),
         success: function(data) {
             if (!data.erro){
-                createModal(data.modalText);
+                createModal(data.modal.text);
                 $('form')[0].reset();
-                $('form select#cidade').empty();
-                $('form select#cidade').prop("disabled", true);
+                $('form select#localidade').empty();
+                $('form select#localidade').prop("disabled", true);
                 return;
             }
 
-            createModal(data.modalText);
+            createModal(data.modal.text);
         }
     });
 });

@@ -7,7 +7,7 @@
         </fieldset>
 
         <!-- Endereço -->
-        <fieldset>
+        <fieldset style="width: 100%">
             <section>
                 <div>
                     <label for="cep">CEP</label>
@@ -22,8 +22,8 @@
                 </div>
 
                 <div>
-                    <label for="cidade">Cidade</label>
-                    <select name="cidade" id="cidade" disabled required>
+                    <label for="localidade">Cidade</label>
+                    <select name="localidade" id="localidade" disabled required>
                         <option value="">Selecione um Cidade</option>
                     </select>
                 </div>
@@ -33,8 +33,8 @@
             <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
             <section>
                 <fieldset style="flex: 14">
-                    <label for="rua">Rua</label>
-                    <input type="text" name="rua" id="rua" placeholder="Rua" required>
+                    <label for="logradouro">Rua</label>
+                    <input type="text" name="logradouro" id="logradouro" placeholder="Rua" required>
                 </fieldset>
                 <fieldset style="flex: 1">
                     <label for="numero">Número</label>
@@ -68,3 +68,4 @@
         <button type="submit">Cadastrar</button>
     </form>
 </main>
+<script src="/assets/js/Admin/registerBuffet.js"></script>
