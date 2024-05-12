@@ -15,16 +15,17 @@ class Login extends Model {
         ";
         
         $query = $this->db->prepare($sql);
-        $query->bindValue(':user', $user);
+        $query->bindParam(':user', $user);
         $query->execute();
 
-        $result = $query->fetchAll();
+        $result = $query->fetchAll()[0];
 
         if(password_verify($password, $result->cd_senha)){
-            unset($_SESSION['logged']);
+            //unset($_SESSION['logged']);
             $_SESSION['logged'] = [
                 'type' => 'buffet',
-                'buffetId' => $result->cd_buffet
+                'buffetId' => $result->cd_buffet,
+                'username' => $result->nm_usuario
             ];
             return true;
         }
@@ -35,7 +36,6 @@ class Login extends Model {
         if($user == $_ENV['ADMIN_USER'] && password_verify($password, $_ENV['ADMIN_PASSWORD_HASH'])){
             $_SESSION['logged'] = [
                 'type' => 'admin',
-                'buffetId' => $result->cd_buffet
             ];
             return true;
         }

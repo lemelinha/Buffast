@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Tools\Tools;
 use Needs\Controller\Controller;
+use App\Models\Admin\Admin;
 
 class AdminController extends Controller{
     public function __construct(){
@@ -50,7 +51,7 @@ class AdminController extends Controller{
             ]);
             return;
         }
-        
+
         $cep = $_POST['cep'];
         $uf = $_POST['uf'];
         $cidade = $_POST['localidade'];
@@ -65,9 +66,30 @@ class AdminController extends Controller{
             return;
         }
         
+        if (Tools::usernameExists($_POST['usuario-inicial'])){
+            echo json_encode([
+                'erro' => true,
+                'modal' => ['text' => 'ERRO: Nome de usuário já existente']
+            ]);
+            return;
+        }
+        
+        $AdminModel = new Admin();
+        
+        $result = $AdminModel->registerBuffet(); // se passar pelo try catch foi sucesso
+        
+        if ($result['erro']){
+            echo json_encode([
+                'erro' => true,
+                'modal' => ['text' => 'ERRO NO SERVIDOR LOG: ' . $result['log']->getMessage()]
+            ]);
+            return;
+        }
+        
         echo json_encode([
             'erro' => false,
             'modal' => ['text' => 'Buffet Cadastrado com sucesso!']
         ]);
+        return;
     }
 }
