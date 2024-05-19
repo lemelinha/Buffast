@@ -17,11 +17,14 @@ class Login extends Model {
         $query = $this->db->prepare($sql);
         $query->bindParam(':user', $user);
         $query->execute();
+        
+        if($query->rowCount() == 0){
+            return false;
+        }
 
         $result = $query->fetchAll()[0];
 
         if(password_verify($password, $result->cd_senha)){
-            //unset($_SESSION['logged']);
             $_SESSION['logged'] = [
                 'type' => 'buffet',
                 'buffetId' => $result->cd_buffet,

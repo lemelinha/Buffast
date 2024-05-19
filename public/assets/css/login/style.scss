@@ -1,0 +1,48 @@
+@import '../global.css.scss';
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        flex-wrap: wrap;
+
+        max-width: 300px;
+        width: 200px;
+
+        input {
+            background-color: $background-input;
+            border-radius: 4px;
+            padding: 5px 10px;
+
+            &:hover,
+            &:focus {
+                background-color: $background-input-focus;
+            }
+
+            transition: 200ms;
+        }
+
+        input[type="submit"]{
+            background-color: $accent;
+            color: $background;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                background-color: $text;
+            }
+        }
+
+        p {
+            color: #ec2419;
+        }
+    }
+}

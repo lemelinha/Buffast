@@ -1,0 +1,161 @@
+@import '../global.css.scss';
+
+body {    
+    header, nav {
+        position: fixed;
+        background-color: $background;
+        z-index: 1;
+    }
+
+    header {
+        color: $text;
+        z-index: 2;
+
+        height: 80px;
+        width: 100vw;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        h1 {
+            font-size: 36px;
+        }
+    }
+    
+    nav {
+        padding: 20px;
+        
+        width: 100vw;
+        margin-top: 80px;
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+        row-gap: 20px;
+        column-gap: 20px;
+        
+        box-shadow: 0px -6px 14px #0000004d;
+        button {
+            cursor: pointer;
+            position: relative;
+            color: $text;
+            background-color: $background;
+
+            font-size: clamp(22px, 4vw, 28px);
+
+            padding: 0 2px;
+            
+            overflow: hidden;
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: $accent;
+                
+                height: 2px;
+                width: 100%;
+                
+                top: 100%;
+                left: 0;
+                z-index: 1;
+                transform: translate(-110%, -100%);
+                transition: 200ms ease-in-out;
+            }
+            
+            &:hover::before {
+                transform: translate(0, -100%);
+            }
+        }
+    }
+    
+    img {
+        z-index: 2;
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+    
+    main {
+        overflow-x: hidden;
+        background-color: $background;
+        
+        padding: 20px;
+        transform: translateY(160px);
+        
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        
+        
+        form {
+            max-width: 800px;
+            width: 100%;
+            font-size: 18px;
+            
+            input, select {
+                padding: 10px 20px;
+                border-radius: 4px;
+                background-color: $background-input;
+                
+                transition: 200ms;
+
+                &:hover,
+                &:focus {
+                    background-color: $background-input-focus;
+                }
+            }
+
+            button[type="submit"] {
+                background-color: $button-submit;
+                color: $background;
+                padding: 10px 20px;
+                border-radius: 3px;
+
+                font-size: 22px;
+
+                transition: 200ms;
+                cursor: pointer;
+
+                &:hover,
+                &:focus {
+                    background-color: $button-submit-focus;
+                }
+            }
+        }
+
+        form#formCadastroBuffet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            
+            row-gap: 15px;
+
+            fieldset {
+                display: flex;
+                flex-direction: column;
+                row-gap: 20px;
+                
+                &>label {
+                    margin-bottom: -15px;
+                }
+
+                section {
+                    display: flex;
+                    flex-wrap: wrap;
+                    row-gap: 10px;
+                    column-gap: 10px;
+                    justify-content: center;
+                }
+
+                select#cidade {
+                    width: 260px;
+                }
+            }
+        }
+    }
+}

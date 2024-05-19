@@ -1,4 +1,4 @@
-const searchCities = async (callback) => {
+var searchCities = async (callback) => {
     $('form select#localidade').prop("disabled", false);
     await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${$('form select#uf').val()}/distritos`)
     .then(response => {

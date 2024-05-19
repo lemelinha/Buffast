@@ -3,7 +3,18 @@
 namespace App;
 use \PDO;
 
+/**
+ *  Classe de conexão com banco de dados
+ * 
+ */
 abstract class Connection {
+    /**
+     *  Função de conexão
+     * 
+     *  Faz conexão com banco de dados via PDO
+     * 
+     * @return object
+     */
     public static function connect(){
         $host = $_ENV['HOST'];
         $dbname = $_ENV['DB_NAME'];

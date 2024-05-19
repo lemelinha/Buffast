@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+  color: #031920;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+form {
+  font-family: "Poppins", sans-serif;
+}
+
+body header, body nav {
+  position: fixed;
+  background-color: #f7f7f7;
+  z-index: 1;
+}
+body header {
+  color: #031920;
+  z-index: 2;
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body header h1 {
+  font-size: 36px;
+}
+body nav {
+  padding: 20px;
+  width: 100vw;
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  column-gap: 20px;
+  box-shadow: 0px -6px 14px rgba(0, 0, 0, 0.3019607843);
+}
+body nav button {
+  cursor: pointer;
+  position: relative;
+  color: #031920;
+  background-color: #f7f7f7;
+  font-size: clamp(22px, 4vw, 28px);
+  padding: 0 2px;
+  overflow: hidden;
+}
+body nav button::before {
+  content: "";
+  position: absolute;
+  background-color: #26547d;
+  height: 2px;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  transform: translate(-110%, -100%);
+  transition: 200ms ease-in-out;
+}
+body nav button:hover::before {
+  transform: translate(0, -100%);
+}
+body img {
+  z-index: 2;
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  transform: translateY(-50%);
+}
+body main {
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+  padding: 20px;
+  transform: translateY(160px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+body main form {
+  max-width: 800px;
+  width: 100%;
+  font-size: 18px;
+}
+body main form input, body main form select {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #e2e2e2;
+  transition: 200ms;
+}
+body main form input:hover, body main form input:focus, body main form select:hover, body main form select:focus {
+  background-color: #d1d1d1;
+}
+body main form button[type=submit] {
+  background-color: #073a4b;
+  color: #f7f7f7;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 22px;
+  transition: 200ms;
+  cursor: pointer;
+}
+body main form button[type=submit]:hover, body main form button[type=submit]:focus {
+  background-color: #042935;
+}
+body main form#formCadastroBuffet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  row-gap: 15px;
+}
+body main form#formCadastroBuffet fieldset {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+body main form#formCadastroBuffet fieldset > label {
+  margin-bottom: -15px;
+}
+body main form#formCadastroBuffet fieldset section {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+  justify-content: center;
+}
+body main form#formCadastroBuffet fieldset select#cidade {
+  width: 260px;
+}
+
+/*# sourceMappingURL=style.css.map */

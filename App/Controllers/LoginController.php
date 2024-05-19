@@ -6,33 +6,31 @@ use App\Models\Login;
 
 class LoginController extends Controller {
     public function index(){
-        $this->render('login', '');
+        $this->renderView('login');
     }
 
     public function auth(){
-        if (!(isset($_POST['usuario']) && isset($_POST['senha']) && isset($_POST['login']))){
-            $_SESSION['msg_erro'] = 'Algo deu errado!';
-            header('Location: /login');
+        if (empty($_POST)){
+            echo json_encode(["erro" => "Algo está de errado!"]);
             die();
         }
-
+        
         $user = $_POST['usuario']??'';
         $password = $_POST['senha']??'';
-
+        
         $LoginModel = new Login();
         
         if($LoginModel->Auth($user, $password)){
-            header('Location: /buffet/dashboard');
+            echo json_encode(['url' => '/buffet']);
             die();
         }
-
+        
         if($LoginModel->AuthAdmin($user, $password)){
-            header('Location: /admin/dashboard');
+            echo json_encode(['url' => '/admin']);
             die();
         }
-
-        $_SESSION['msg_erro'] = 'ERRO! Usuário ou senha inválido';
-        header('Location: /login');
+        
+        echo json_encode(['erro' => 'Erro: Usuário ou senha inválido']);
         die();
     }
 }

@@ -2,7 +2,19 @@
 
 namespace App;
 
+/**
+ *  Classe referente às rotas do projeto.
+ * 
+ */
 abstract class Router {
+    /**
+     *  Função de declaração de rotas
+     * 
+     *  Esta função declara as rotas do projeto e
+     *  armazena no atributo 'routes' da instância
+     * 
+     *  @return void
+     */
     protected function declareRoutes(){
         $routes['index'] = [
             'router' => '/',
@@ -23,6 +35,12 @@ abstract class Router {
         ];
 
         // Área de Admin
+        $routes['AdminIndex'] = [
+            'router' => '/admin',
+            'controller' => 'AdminController',
+            'action' => 'index'
+        ];
+
         $routes['AdminDashboard'] = [
             'router' => '/admin/dashboard',
             'controller' => 'AdminController',
@@ -30,7 +48,7 @@ abstract class Router {
         ];
 
         $routes['AdminCadastroBuffetForm'] = [ // formulario de cadastro
-            'router' => '/admin/buffet/form',
+            'router' => '/admin/buffet/register/form',
             'controller' => 'AdminController',
             'action' => 'registerBuffetForm'
         ];
