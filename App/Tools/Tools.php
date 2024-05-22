@@ -10,7 +10,7 @@ abstract class Tools {
     *   Percorrendo a SuperGlobal $_POST ou $_GET e verificando cada
     *   índice com os índices declarados no array $formInputs
     *
-    *   @param array $method Array de referência para superglobal $_GET ou $_POST
+    *   @param array &$method Array de referência para superglobal $_GET ou $_POST
     *   @param array $formInputs Array com os inputs do formulário
     *                           Com cada índice sendo seu name e 
     *                           seus value sendo outro array com
