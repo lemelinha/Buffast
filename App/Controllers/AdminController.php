@@ -15,7 +15,7 @@ class AdminController extends Controller{
     }
 
     public function index(){
-        $this->title = 'Admin';
+        $this->pageTitle = 'Admin';
         $this->renderLayout('AdminLayout');
     }
 
@@ -24,7 +24,7 @@ class AdminController extends Controller{
     }
 
     public function registerBuffetForm(){
-        $this->title = 'Admin - Cadastrar Buffet';
+        $this->pageTitle = 'Admin - Cadastrar Buffet';
         $this->renderView('registerBuffetForm', 'Admin');
     }
 }

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *  Este arquivo faz referência a declaração das rotas
+ * do projeto
+ *  
+ */
 namespace App;
 
 /**
@@ -7,6 +11,7 @@ namespace App;
  * 
  */
 abstract class Router {
+    protected $routes;
     /**
      *  Função de declaração de rotas
      * 
@@ -55,6 +60,13 @@ abstract class Router {
 
         $routes['AdminCadastrarBuffet - AJAX'] = [ // validacao e registro dos dados
             'router' => '/admin/buffet/register',
+            'controller' => 'AdminController',
+            'action' => 'registerBuffet'
+        ];
+
+        $routes['Teste'] = [ 
+            'router' => '/nome/[a-z]+/id/[0-9]+',
+            'params' => ['nome', 'id'],
             'controller' => 'AdminController',
             'action' => 'registerBuffet'
         ];

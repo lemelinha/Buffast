@@ -30,10 +30,10 @@ class Bootstrap extends Router{
                 $action = $router['action'];
                 
                 $uri = explode('/', ltrim($uri, '/'));
-                $data = array_diff($uri, explode('/', ltrim($router['router'], '/')));
+                $data = array_values(array_diff($uri, explode('/', ltrim($router['router'], '/'))));
                 $newData = [];
                 foreach ($data as $i => $d){
-                    $newData[$uri[$i - 1]] = $d;
+                    $newData[$router['params'][$i]] = $d;
                 }
 
                 $controllerInstance = new $controllerClass();

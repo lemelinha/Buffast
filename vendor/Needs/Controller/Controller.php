@@ -3,6 +3,9 @@
 namespace Needs\Controller;
 
 abstract class Controller {
+    protected $page;
+    protected $pageTitle;
+    
     protected function render($view, $layout, $viewDirectory='', $layoutDirectory='') {
         $this->page = new \stdClass();
         $this->page->view = $view;
