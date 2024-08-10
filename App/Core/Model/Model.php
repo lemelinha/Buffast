@@ -1,6 +1,6 @@
 <?php
 
-namespace Needs\Model;
+namespace Core\Model;
 use App\Connection;
 
 abstract class Model {
@@ -13,6 +13,6 @@ abstract class Model {
     protected function executeStatement($sql, $params=[]){
         $query = $this->db->prepare($sql);
         $query->execute($params);
-        return $query->fetchAll();
+        return $query;
     }
 }

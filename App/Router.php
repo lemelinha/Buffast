@@ -24,51 +24,59 @@ abstract class Router {
         $routes['index'] = [
             'router' => '/',
             'controller' => 'IndexController',
-            'action' => 'index'
+            'action' => 'index',
+            'method' => 'GET'
         ];
 
         $routes['login'] = [
             'router' => '/login',
             'controller' => 'LoginController',
-            'action' => 'index'
+            'action' => 'index',
+            'method' => 'GET'
         ];
 
         $routes['loginAuth'] = [
             'router' => '/login/auth',
             'controller' => 'LoginController',
-            'action' => 'auth'
+            'action' => 'auth',
+            'method' => 'GET'
         ];
 
         // Área de Admin
         $routes['AdminIndex'] = [
             'router' => '/admin',
             'controller' => 'AdminController',
-            'action' => 'index'
+            'action' => 'index',
+            'method' => 'GET'
         ];
 
         $routes['AdminDashboard'] = [
             'router' => '/admin/dashboard',
             'controller' => 'AdminController',
-            'action' => 'dashboard'
+            'action' => 'dashboard',
+            'method' => 'GET'
         ];
 
         $routes['AdminCadastroBuffetForm'] = [ // formulario de cadastro
             'router' => '/admin/buffet/register/form',
             'controller' => 'AdminController',
-            'action' => 'registerBuffetForm'
+            'action' => 'registerBuffetForm',
+            'method' => 'GET'
         ];
 
         $routes['AdminCadastrarBuffet - AJAX'] = [ // validacao e registro dos dados
             'router' => '/admin/buffet/register',
             'controller' => 'AdminController',
-            'action' => 'registerBuffet'
+            'action' => 'registerBuffet',
+            'method' => 'POST'
         ];
 
         $routes['Teste'] = [ 
             'router' => '/nome/[a-z]+/id/[0-9]+',
             'params' => ['nome', 'id'],
             'controller' => 'AdminController',
-            'action' => 'registerBuffet'
+            'action' => 'registerBuffet',
+            'method' => 'GET'
         ];
 
         $this->routes = $routes;

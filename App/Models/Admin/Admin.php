@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models\Admin;
-use Needs\Model\Model;
+use Core\Model\Model;
 
 class Admin extends Model {
     public function registerBuffet() {

@@ -14,7 +14,12 @@ class Bootstrap extends Router{
     }
     
     private function run($uri){
-        foreach($this->routes as $key => $router){
+        foreach($this->routes as $router){
+            if ($_SERVER['REQUEST_METHOD'] != $router['method']) {
+                require 'Erro405.php';
+                die();
+            }
+
             if ($uri == $router['router']){
                 $controllerClass = 'App\\Controllers\\' . $router['controller'];
                 $action = $router['action'];
@@ -37,12 +42,13 @@ class Bootstrap extends Router{
                 }
 
                 $controllerInstance = new $controllerClass();
-                $controllerInstance->$action($newData);
+                call_user_func_array([$controllerInstance, $action], $newData);
                 die();
             }
         }
 
-        require 'Views/erro.php';
+        require 'Erro404.php';
+        die();
     }
     
     private function getUri(){

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 use App\Tools\Tools;
-use Needs\Controller\Controller;
+use Core\Controller\Controller;
 use App\Models\Admin\Admin;
 
 class AdminController extends Controller{

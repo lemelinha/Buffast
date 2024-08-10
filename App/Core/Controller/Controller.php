@@ -1,6 +1,6 @@
 <?php
 
-namespace Needs\Controller;
+namespace Core\Controller;
 
 abstract class Controller {
     protected $page;
