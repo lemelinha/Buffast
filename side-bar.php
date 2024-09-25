@@ -5,7 +5,7 @@
 		<div class="h-10 flex items-center w-full p-2 mb-4 mt-2">
 			<a class="h-12 w-12 mx-auto">
 				<img
-					src="logoo.svg"
+					src="./assets/logoo.svg"
 					alt="svelte logo" />
 			</a>
 		</div>
