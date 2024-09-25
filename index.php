@@ -6,7 +6,7 @@ require_once 'header.php';
 
 ?>
 
-<body class='flex row'>
+<body class='flex'>
 
 <?php
 
