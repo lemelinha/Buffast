@@ -2,15 +2,14 @@
 <div class="h-screen flex bg-gray-200">
 	<aside
 		class="flex flex-col items-center bg-theme text-gray-700 shadow h-full">
-		<div class="h-12 flex items-center w-full p-2 mb-8 mt-4">
-			<a class="h-16 w-16 mx-auto">
+		<div class="h-10 flex items-center w-full p-2 mb-4 mt-2">
+			<a class="h-12 w-12 mx-auto">
 				<img
 					src="logoo.svg"
 					alt="svelte logo" />
 			</a>
 		</div>
 		<ul>
-
 		<li class="hover:bg-amber-300">
 				<a  href="."
 					class="h-16 px-6 flex flex justify-center items-center w-full
