@@ -1,0 +1,17 @@
+html {overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    margin-left: 5rem;
+}
+
+.bg-theme{
+    background-color: #803469;
+}
