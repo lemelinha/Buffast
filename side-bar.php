@@ -1,5 +1,5 @@
 
-<div class="min-h-dvh flex bg-gray-200">
+<div class="min-h-dvh flex bg-gray-200 shadow">
 	<aside
 		class="flex flex-col items-center bg-theme text-gray-700 shadow h-full">
 		<div class="h-10 flex items-center w-full p-2 mb-4 mt-2">
