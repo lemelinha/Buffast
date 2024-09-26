@@ -5,7 +5,7 @@ html {overflow-y: scroll;
 }
 
 @font-face{
-    src: url("/fonts/Quick-Caps.otf");
+    src: url("../fonts/Quick-Caps.otf");
     font-family:"Quick-Caps";
 }
 
