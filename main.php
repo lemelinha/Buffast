@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 p-2 gap-12 md:grid-cols-3 md:gap-16 lg:grid-cols-4 p-8 lg:gap-12">
         <div class="bg-card rounded-lg shadow-2xl p-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                <section class="grid grid-cols-1">
+                <section class="grid grid-cols-1 p-2">
                     <a href="." class="text-white font-bold">Nome do Produto: Coxinha</a>
                     <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
                     <a href="." class="text-white font-bold ">Descrição do Produto: Coxinha de Frango</a>
@@ -14,7 +14,15 @@
         </div>
         <div class="bg-card rounded-lg shadow-2xl p-4">
                 <img src="./assets/queijo.jpg" class="rounded-lg shadow-2xl">
-                 <section class="grid grid-cols-1">
+                 <section class="grid grid-cols-1 p-2">
+                    <a href="." class="text-white font-bold">Nome do Produto: Bolinha</a>
+                    <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
+                    <a href="." class="text-white font-bold ">Descrição do Produto: Bolinha de Queijo</a>
+                </section>
+        </div>
+        <div class="bg-card rounded-lg shadow-2xl p-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
+                 <section class="grid grid-cols-1 p-2">
                     <a href="." class="text-white font-bold">Nome do Produto: Coxinha</a>
                     <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
                     <a href="." class="text-white font-bold ">Descrição do Produto: Coxinha de Frango</a>
@@ -22,7 +30,7 @@
         </div>
         <div class="bg-card rounded-lg shadow-2xl p-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                 <section class="grid grid-cols-1">
+                 <section class="grid grid-cols-1 p-2">
                     <a href="." class="text-white font-bold">Nome do Produto: Coxinha</a>
                     <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
                     <a href="." class="text-white font-bold ">Descrição do Produto: Coxinha de Frango</a>
@@ -30,7 +38,7 @@
         </div>
         <div class="bg-card rounded-lg shadow-2xl p-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                 <section class="grid grid-cols-1">
+                 <section class="grid grid-cols-1 p-2">
                     <a href="." class="text-white font-bold">Nome do Produto: Coxinha</a>
                     <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
                     <a href="." class="text-white font-bold ">Descrição do Produto: Coxinha de Frango</a>
@@ -38,7 +46,7 @@
         </div>
         <div class="bg-card rounded-lg shadow-2xl p-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                 <section class="grid grid-cols-1">
+                 <section class="grid grid-cols-1 p-2">
                     <a href="." class="text-white font-bold">Nome do Produto: Coxinha</a>
                     <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
                     <a href="." class="text-white font-bold ">Descrição do Produto: Coxinha de Frango</a>
@@ -46,7 +54,7 @@
         </div>
         <div class="bg-card rounded-lg shadow-2xl p-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                 <section class="grid grid-cols-1">
+                 <section class="grid grid-cols-1 p-2">
                     <a href="." class="text-white font-bold">Nome do Produto: Coxinha</a>
                     <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
                     <a href="." class="text-white font-bold ">Descrição do Produto: Coxinha de Frango</a>
@@ -54,15 +62,7 @@
         </div>
         <div class="bg-card rounded-lg shadow-2xl p-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                 <section class="grid grid-cols-1">
-                    <a href="." class="text-white font-bold">Nome do Produto: Coxinha</a>
-                    <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
-                    <a href="." class="text-white font-bold ">Descrição do Produto: Coxinha de Frango</a>
-                </section>
-        </div>
-        <div class="bg-card rounded-lg shadow-2xl p-4">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                 <section class="grid grid-cols-1">
+                 <section class="grid grid-cols-1 p-2">
                     <a href="." class="text-white font-bold">Nome do Produto: Coxinha</a>
                     <a href="." class="text-white font-bold">Quantidade no Pote: 5</a>
                     <a href="." class="text-white font-bold ">Descrição do Produto: Coxinha de Frango</a>
