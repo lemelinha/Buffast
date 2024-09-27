@@ -1,5 +1,5 @@
 
-<div class="min-h-dvh flex bg-gray-200 shadow">
+<div class="h-screen flex bg-gray-200 shadow fixed">
 	<aside
 		class="flex flex-col items-center bg-theme text-gray-700 shadow h-full">
 		<div class="h-10 flex items-center w-full p-2 mb-4 mt-2">
@@ -168,7 +168,7 @@
 		</ul>
 		<div class="mt-auto h-16 flex items-center w-full">
 			<button
-				class="h-16 w-10 mx-auto flex flex justify-center items-center
+				class="h-16 w-10 mb-8 mx-auto flex flex justify-center items-center
 				w-full focus:text-orange-500 hover:bg-amber-300 focus:outline-none">
 				<svg
 					class="h-5 w-5 text-red-700"
