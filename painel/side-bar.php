@@ -11,7 +11,7 @@
 		</div>
 		<ul>
 		<li class="hover:bg-amber-300">
-				<a  href="."
+				<a  href="main.php"
 					class="h-16 px-6 flex flex justify-center items-center w-full
 					focus:text-orange-500">
 					<svg
@@ -36,7 +36,7 @@
 
 			<li class="hover:bg-amber-300">
 				<a
-					href="."
+					href="cadastrar.php"
 					class="h-16 px-6 flex flex justify-center items-center w-full
 					focus:text-orange-500">
 					<svg
