@@ -167,4 +167,8 @@ input[type="text"] {
 			rgba(228, 228, 228, 0.05) 100%
 		),
 		linear-gradient(90deg, rgb(131, 24, 67), rgb(128, 52, 105));
+		transition: transform 0.5s ease;
+}
+.bg-btn:hover {
+	transform: scale(1.1);
 }
