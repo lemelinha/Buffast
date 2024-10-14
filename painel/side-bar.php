@@ -2,7 +2,7 @@
 <div class="h-screen flex bg-gray-200 shadow fixed">
 	<aside
 		class="flex flex-col items-center bg-theme text-gray-700 shadow h-full">
-		<div class="h-10 flex items-center w-full p-2 mb-4 mt-2">
+		<div class="h-12 flex items-center w-full p-2 mb-4 mt-2">
 			<a class="h-12 w-12 mx-auto">
 				<img
 					src="../assets/logoo.svg"
