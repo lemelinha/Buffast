@@ -62,7 +62,7 @@
 			</li>
 			<li class="hover:bg-amber-300">
 				<a
-					href="."
+					href="estoque.php"
 					class="h-16 px-6 flex flex justify-center items-center w-full
 					focus:text-orange-500">
 					<svg
