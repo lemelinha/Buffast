@@ -2,7 +2,7 @@
 <div class="h-screen flex bg-gray-200 shadow fixed">
 	<aside
 		class="flex flex-col items-center bg-theme text-gray-700 shadow h-full gap-3">
-		<div class="h-12 flex items-center w-full mt-4 lg:">
+		<div class="h-10 flex items-center w-full mt-4">
 			<a class="h-12 w-16 mx-auto lg:w-20"
 			href="main.php">
 				<img
