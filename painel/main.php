@@ -12,7 +12,7 @@
         <label class=" font-tittle main-font text-lg  md:text-2xl lg:text-3xl">Filtro</label>
         <input type="text" class="bg-btn text-white font-bold rounded-full p-2 ml-4 mr-8 w-36 h-8 md:w-52 md:h-8 lg:w-52 lg:h-8 "></input>
     </aside>
-    <div class="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-16 p-8 lg:gap-12">
+    <div class="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 p-12">
         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                 <header class="card-header text-base md:text-lg lg:text-2xl">
                 <p class="pb-3">Coxinha</p>
