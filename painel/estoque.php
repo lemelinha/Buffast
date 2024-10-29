@@ -18,8 +18,8 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                        <p>Quantidade Estoque: 500</p>
-                        <p>Quantidade minima Estoque: 200</p>
+                        <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
+                        <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
                     </section>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
@@ -33,8 +33,8 @@
                     <img src="../assets/queijo.jpg" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                        <p>Quantidade Estoque: 500</p>
-                        <p>Quantidade minima Estoque: 200</p>
+                        <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
+                        <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
                     </section>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
@@ -44,12 +44,12 @@
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3">Pastel</p>
+                    <p class="pb-3">Pastel de Queijo</p>
                     <img src="../assets/pastel.jpg" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                        <p>Quantidade Estoque: 500</p>
-                        <p>Quantidade minima Estoque: 200</p>
+                        <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
+                       <p><p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p></p>
                     </section>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
@@ -59,12 +59,12 @@
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3">Pastel</p>
+                    <p class="pb-3">Pastel de Carne</p>
                     <img src="../assets/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
                     </header>
                     <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                        <p>Quantidade Estoque: 500</p>
-                        <p>Quantidade minima Estoque: 200</p>
+                        <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
+                        <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
                     </section>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="edit" data-modal-toggle="edit" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
