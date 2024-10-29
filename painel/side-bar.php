@@ -37,7 +37,7 @@
 
 			<li class="hover:bg-amber-300">
 				<a
-					href="cadastrar.php"
+					href="festa.php"
 					class="h-16 px-6 flex flex justify-center items-center w-full
 					focus:text-orange-500">
 					<img
@@ -93,9 +93,12 @@
 				</a>
 			</li>
 		</ul>
-		<div class="mt-auto h-16 flex items-center w-full">
+
+		<div class="mt-auto h-16 flex items-center justify-center w-full">
+			<div class="session bg-white border-2 border-amber-300 rounded-full h-14 w-14" id="login-img"></div>
+		</div>
 			<button
-				class="h-16 w-10 mb-8 mx-auto flex flex justify-center items-center
+				class="h-16 w-10 mb-2 mx-auto flex flex justify-center items-center
 				w-full focus:text-orange-500 hover:bg-amber-300 focus:outline-none">
 				<svg
 					class="h-5 w-5 text-red-700"
