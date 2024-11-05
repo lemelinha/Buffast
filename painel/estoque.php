@@ -11,7 +11,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#803469"><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path></svg>
      <h1 class="text-4xl font-tittle p-8 md:text-5xl lg:text-6xl lg:p-0">Estoque</h1>
     </header>
-    <div class="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 p-12 xl:grid-cols-4 min-[2020px]:grid-cols-7">
+    <div class="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 p-12 xl:grid-cols-4 min-[2020px]:grid-cols-6">
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Coxinha</p>

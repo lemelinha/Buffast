@@ -144,6 +144,31 @@ input[type="text"] {
 	transition: transform 0.5s ease;
 }
 
+.bg-card-modal {
+	background-image: radial-gradient(
+			circle at 32% 86%,
+			rgba(255, 0, 252, 0.05) 0%,
+			rgba(255, 0, 252, 0.05) 50%,
+			rgba(98, 78, 190, 0.05) 50%,
+			rgba(98, 78, 190, 0.05) 100%
+		),
+		radial-gradient(
+			circle at 62% 1%,
+			rgba(99, 99, 99, 0.05) 0%,
+			rgba(99, 99, 99, 0.05) 50%,
+			rgba(70, 70, 70, 0.05) 50%,
+			rgba(70, 70, 70, 0.05) 100%
+		),
+		radial-gradient(
+			circle at 16% 3%,
+			rgba(80, 80, 80, 0.05) 0%,
+			rgba(80, 80, 80, 0.05) 50%,
+			rgba(228, 228, 228, 0.05) 50%,
+			rgba(228, 228, 228, 0.05) 100%
+		),
+		linear-gradient(90deg, rgb(131, 24, 67), rgb(128, 52, 105));
+}
+
 .bg-btn {
 	background-image: radial-gradient(
 			circle at 32% 86%,

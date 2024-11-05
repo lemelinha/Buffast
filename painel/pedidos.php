@@ -11,7 +11,7 @@
 
     <div class="grid grid-rows-subgrid row-span-2 h-3/5">
         <div class="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 p-12">
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font min-[2020px]:max-h-96">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -36,7 +36,7 @@
                         </button>            
                     </div>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font min-[2020px]:max-h-96">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -61,7 +61,7 @@
                         </button>            
                     </div>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font min-[2020px]:max-h-96">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -81,7 +81,7 @@
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font min-[2020px]:max-h-96">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Festa de: </span>Lucas</p>
                     <div class="flex justify-center items-center">
