@@ -184,8 +184,8 @@ input[type=number] {
 }
 
 #login-img{
-	background-image: url("../assets/logo.png");
-            background-size: 100%;
+	background-image: url("../assets/test2.jpg");
+            background-size: 100% 100%;
             background-position: center; 
             background-repeat: no-repeat; 
 }
