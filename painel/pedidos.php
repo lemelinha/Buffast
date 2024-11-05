@@ -30,6 +30,11 @@
                         <p><span class="text-amber-300">Horario do pedido</span> : <span class="font-bold">19:23</span></p>
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
+                    <div class="flex align-center justify-center">
+                        <button class="p-1 bg-amber-300 rounded-md">
+                            <p>Concluir</p>
+                        </button>            
+                    </div>
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
@@ -50,6 +55,11 @@
                         <p><span class="text-amber-300">Horario do pedido :</span><span class="font-bold"> 19:40</span></p>
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
+                    <div class="flex align-center justify-center">
+                        <button class="p-1 bg-amber-300 rounded-md">
+                            <p>Concluir</p>
+                        </button>            
+                    </div>
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
