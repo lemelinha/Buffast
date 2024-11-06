@@ -1,9 +1,4 @@
 <?php
-/**
- *  Este arquivo faz referência a declaração das rotas
- * do projeto
- *  
- */
 namespace App;
 
 /**
