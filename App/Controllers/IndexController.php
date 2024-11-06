@@ -9,6 +9,6 @@ class IndexController extends Controller {
     }
     
     public function Login() {
-
+        $this->renderView('login');
     }
 }

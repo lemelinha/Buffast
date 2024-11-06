@@ -24,22 +24,22 @@ abstract class Router {
         $routes['index'] = [
             'router' => '/',
             'controller' => 'IndexController',
-            'action' => 'index',
+            'action' => 'Index',
             'method' => ['GET']
         ];
 
         $routes['login'] = [
             'router' => '/login',
             'controller' => 'IndexController',
-            'action' => 'index',
+            'action' => 'Login',
             'method' => ['GET']
         ];
 
         $routes['loginAuth'] = [
             'router' => '/login/auth',
-            'controller' => 'IndexController',
-            'action' => 'auth',
-            'method' => ['GET']
+            'controller' =>'IndexController',
+            'action' => 'LoginAuth',
+            'method' => ['POST']
         ];
 
         $this->routes = $routes;
