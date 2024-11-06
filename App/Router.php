@@ -44,6 +44,13 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $routes['painel festas'] = [
+            'router' => '/painel/festas',
+            'controller' =>'AdminController',
+            'action' => 'Index',
+            'method' => ['GET']
+        ];
+
         $this->routes = $routes;
     }
 }

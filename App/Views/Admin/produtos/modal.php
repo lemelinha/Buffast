@@ -19,8 +19,12 @@
             <form class="p-4 md:p-5">
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
+                        <label for="imagem" class="block mb-2 text-sm font-medium text-white ">Imagem</label>
+                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="">
+                    </div>
+                    <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>
-                        <input type="text" name="produto" id="produto" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
+                        <input type="text" name="produto" id="produto" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
                         <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade por Pote</label>
@@ -56,6 +60,10 @@
             <!-- Modal body -->
             <form class="p-4 md:p-5">
                 <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <label for="imagem" class="block mb-2 text-sm font-medium text-white ">Imagem</label>
+                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="">
+                    </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>
                         <input type="text" name="produto" id="produto" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">

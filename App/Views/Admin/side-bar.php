@@ -10,9 +10,9 @@
 					alt="buffast logo" />
 			</a>
 		</div>
-		<ul> 
+		<ul>
 		<li class="hover:bg-amber-300">
-				<a  href="main.php"
+				<a  href="/painel"
 					class="h-16 px-5 flex flex justify-center items-center w-full lg:px-8 
 					focus:text-orange-500">
 					<svg
@@ -37,7 +37,7 @@
 
 			<li class="hover:bg-amber-300">
 				<a
-					href="festa.php"
+					href="/painel/festas"
 					class="h-16 px-6 flex flex justify-center items-center w-full
 					focus:text-orange-500">
 					<img
@@ -48,7 +48,7 @@
 			</li>
 			<li class="hover:bg-amber-300">
 				<a
-					href="estoque.php"
+					href="/painel/estoque"
 					class="h-16 px-6 flex flex justify-center items-center w-full
 					focus:text-orange-500">
 					<svg
@@ -74,7 +74,7 @@
 			</li>
 
 			<li class="hover:bg-amber-300">
-				<a  href="mesas.php"
+				<a  href="/painel/mesas"
 					class="h-16 px-6 flex flex justify-center items-center w-full
 					focus:text-orange-500">
 					<img
@@ -84,7 +84,7 @@
 			</li>
 
 			<li class="hover:bg-amber-300">
-				<a  href="pedidos.php"
+				<a  href="/painel/pedidos"
 					class="h-16 px-6 flex flex justify-center items-center w-full
 					focus:text-orange-500">
 					<img
