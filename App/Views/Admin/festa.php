@@ -1,9 +1,4 @@
-<?php require_once "header.php";?>
-
-<?php require_once "side-bar.php";?>
-
-<?php require_once "./festas/modal.php";?>
-
+<?php $this->renderView('modal', 'Admin/festas') ?>
 <body>
 <main class="grid grid-rows-[4fr_6fr_1fr] ml-16 h-screen">
 
@@ -34,7 +29,7 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/cake (1).svg"/>
+                        src="/assets/images/cake (1).svg"/>
                     </div>
                     </header>
                     <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
@@ -59,7 +54,7 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/cake (1).svg"/>
+                        src="/assets/images/cake (1).svg"/>
                     </div>
                     </header>
                      <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
@@ -84,7 +79,7 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/cake (1).svg"/>
+                        src="/assets/images/cake (1).svg"/>
                     </div>
                     </header>
                      <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
@@ -109,7 +104,7 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/cake (1).svg"/>
+                        src="/assets/images/cake (1).svg"/>
                     </div>
                     </header>
                      <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
@@ -136,7 +131,7 @@
     </div>
     
 </main>
-<?php require_once "footer.php";?>
+<?php $this->renderView('footer', 'Admin') ?>
 </body>
 
 

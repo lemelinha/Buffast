@@ -47,7 +47,28 @@ abstract class Router {
         $routes['painel festas'] = [
             'router' => '/painel/festas',
             'controller' =>'AdminController',
-            'action' => 'Index',
+            'action' => 'Festas',
+            'method' => ['GET']
+        ];
+
+        $routes['painel estoque'] = [
+            'router' => '/painel/estoque',
+            'controller' =>'AdminController',
+            'action' => 'Estoque',
+            'method' => ['GET']
+        ];
+
+        $routes['painel mesas'] = [
+            'router' => '/painel/mesas',
+            'controller' =>'AdminController',
+            'action' => 'Mesas',
+            'method' => ['GET']
+        ];
+
+        $routes['painel pedidos'] = [
+            'router' => '/painel/pedidos',
+            'controller' =>'AdminController',
+            'action' => 'Pedidos',
             'method' => ['GET']
         ];
 

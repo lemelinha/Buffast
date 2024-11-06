@@ -1,7 +1,3 @@
-<?php require_once "header.php";?>
-
-<?php require_once "side-bar.php";?>
-
 <body>
 <main class="grid grid-rows-[4fr_6fr_1fr] ml-16 h-screen">
 
@@ -32,14 +28,14 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/table.svg"/>
+                        src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
                     <label>QR-Code</label>
                         <img
                         class="h-16 sm:h-24 mb-5 mx-auto"
-                        src="../assets/qr_code.png"/>
+                        src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
@@ -56,14 +52,14 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/table.svg"/>
+                        src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
                     <label>QR-Code</label>
                         <img
                         class="h-16 sm:h-24 mb-5 mx-auto"
-                        src="../assets/qr_code.png"/>
+                        src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
@@ -80,14 +76,14 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/table.svg"/>
+                        src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
                     <label>QR-Code</label>
                         <img
                         class="h-16 sm:h-24 mb-5 mx-auto"
-                        src="../assets/qr_code.png"/>
+                        src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
@@ -104,14 +100,14 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/table.svg"/>
+                        src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
                     <label>QR-Code</label>
                         <img
                         class="h-16 sm:h-24 mb-5 mx-auto"
-                        src="../assets/qr_code.png"/>
+                        src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
@@ -128,14 +124,14 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/table.svg"/>
+                        src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
                     <label>QR-Code</label>
                         <img
                         class="h-16 sm:h-24 mb-5 mx-auto"
-                        src="../assets/qr_code.png"/>
+                        src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
@@ -152,14 +148,14 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/table.svg"/>
+                        src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
                     <label>QR-Code</label>
                         <img
                         class="h-16 sm:h-24 mb-5 mx-auto"
-                        src="../assets/qr_code.png"/>
+                        src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
@@ -176,14 +172,14 @@
                     <div class="flex justify-center items-center">
                         <img
                        class="h-16 sm:h-24"
-                        src="../assets/table.svg"/>
+                        src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
                     <label>QR-Code</label>
                         <img
                         class="h-16 sm:h-24 mb-5 mx-auto"
-                        src="../assets/qr_code.png"/>
+                        src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
@@ -202,7 +198,7 @@
     </div>
    
 </main>
-<?php require_once "footer.php";?>
+<?php $this->renderView('footer', 'Admin') ?>
 </body>
 
 

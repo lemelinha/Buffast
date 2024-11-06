@@ -7,4 +7,20 @@ class AdminController extends Controller {
     public function Index() {
         $this->render('main', 'AdminLayout', 'Admin');
     }
+
+    public function Festas() {
+        $this->render('festa', 'AdminLayout', 'Admin');
+    }
+
+    public function Estoque() {
+        $this->render('estoque', 'AdminLayout', 'Admin');
+    }
+
+    public function Mesas() {
+        $this->render('mesas', 'AdminLayout', 'Admin');
+    }
+
+    public function Pedidos() {
+        $this->render('pedidos', 'AdminLayout', 'Admin');
+    }
 }

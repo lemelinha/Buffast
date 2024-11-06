@@ -1,10 +1,4 @@
-<?php require_once "header.php";?>
-
-<?php require_once "side-bar.php";?>
-
-<?php require_once "./estoque/modal.php";?>
-
-
+<?php $this->renderView('modal', 'Admin/estoque') ?>
 <body>
 <main class="grid grid-rows-[1fr_1fr_1fr] ml-16 h-screen">
     <header class="text-center main-font text-white font-bold h-1/5">
@@ -44,7 +38,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Bolinha</p>
-                    <img src="../assets/queijo.jpg" class="rounded-lg shadow-2xl">
+                    <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -59,7 +53,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Pastel de Queijo</p>
-                    <img src="../assets/pastel.jpg" class="rounded-lg shadow-2xl">
+                    <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -74,7 +68,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Pastel de Carne</p>
-                    <img src="../assets/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
+                    <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -104,7 +98,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Bolinha</p>
-                    <img src="../assets/queijo.jpg" class="rounded-lg shadow-2xl">
+                    <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -119,7 +113,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Pastel de Queijo</p>
-                    <img src="../assets/pastel.jpg" class="rounded-lg shadow-2xl">
+                    <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -134,7 +128,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Pastel de Carne</p>
-                    <img src="../assets/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
+                    <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -164,7 +158,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Bolinha</p>
-                    <img src="../assets/queijo.jpg" class="rounded-lg shadow-2xl">
+                    <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -179,7 +173,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Pastel de Queijo</p>
-                    <img src="../assets/pastel.jpg" class="rounded-lg shadow-2xl">
+                    <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -194,7 +188,7 @@
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Pastel de Carne</p>
-                    <img src="../assets/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
+                    <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
                     </header>
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
@@ -208,7 +202,7 @@
             </div>
         </div>
 </main>
-<?php require_once "footer.php";?>
+<?php $this->renderView('footer', 'Admin') ?>
 </body>
 
 <!-- <div class="grid h-screen p-8 grid-cols-1 lg:pr-24 lg:pl-24 pt-4 lg:min-h-3.5">

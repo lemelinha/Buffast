@@ -1,7 +1,3 @@
-<?php require_once "header.php";?>
-
-<?php require_once "side-bar.php";?>
-
 <body>
 <main class="grid grid-row ml-16 h-screen">
     <header class="text-center main-font text-white font-bold">
@@ -30,7 +26,7 @@
                     <div class="flex justify-center items-center">
                         <img
                         class="h-16 sm:h-36"
-                        src="../assets/snack.svg"/>
+                        src="/assets/images/snack.svg"/>
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
@@ -55,7 +51,7 @@
                     <div class="flex justify-center items-center">
                         <img
                         class="h-16 sm:h-36"
-                        src="../assets/snack.svg"/>
+                        src="/assets/images/snack.svg"/>
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
@@ -80,7 +76,7 @@
                     <div class="flex justify-center items-center">
                         <img
                         class="h-16 sm:h-36"
-                        src="../assets/snack.svg"/>
+                        src="/assets/images/snack.svg"/>
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
@@ -100,7 +96,7 @@
                     <div class="flex justify-center items-center">
                         <img
                         class="h-16 sm:h-36"
-                        src="../assets/snack.svg"/>
+                        src="/assets/images/snack.svg"/>
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
@@ -120,7 +116,7 @@
                     <div class="flex justify-center items-center">
                         <img
                         class="h-16 sm:h-36"
-                        src="../assets/snack.svg"/>
+                        src="/assets/images/snack.svg"/>
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
@@ -145,7 +141,7 @@
                     <div class="flex justify-center items-center">
                         <img
                         class="h-16 sm:h-36"
-                        src="../assets/snack.svg"/>
+                        src="/assets/images/snack.svg"/>
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
@@ -170,7 +166,7 @@
                     <div class="flex justify-center items-center">
                         <img
                         class="h-16 sm:h-36"
-                        src="../assets/snack.svg"/>
+                        src="/assets/images/snack.svg"/>
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
@@ -190,7 +186,7 @@
                     <div class="flex justify-center items-center">
                         <img
                         class="h-16 sm:h-36"
-                        src="../assets/snack.svg"/>
+                        src="/assets/images/snack.svg"/>
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
@@ -209,7 +205,7 @@
     <div class="grid grid-rows-subgrid row-span-2 h-3/5">
     </div>
 </main>
-<?php require_once "footer.php";?>
+<?php $this->renderView('footer', 'Admin') ?>
 </body>
 <!-- <div class="grid h-screen p-8 grid-cols-1 lg:pr-24 lg:pl-24 pt-4 lg:min-h-3.5">
         <div class="bg-card-cad rounded-lg shadow-2xl p-4">
