@@ -42,6 +42,13 @@ abstract class Router {
             'method' => ['POST']
         ];
 
+        $routes['painel'] = [
+            'router' => '/painel',
+            'controller' =>'AdminController',
+            'action' => 'Index',
+            'method' => ['GET']
+        ];
+
         $this->routes = $routes;
     }
 }
