@@ -2,12 +2,15 @@
 
 namespace App;
 use Dotenv\Dotenv;
+use App\Tools\Tools;
 
 class Bootstrap extends Router{
     public function __construct(){
         $this->loadEnvironmentVariables();
 
         $this->declareRoutes();
+        define('ERRO404', dirname(__FILE__, 1).'/Erro404.php');
+        define('ERRO405', dirname(__FILE__, 1).'/Erro405.php');
 
         $uri = $this->getUri();
         $this->run($uri);
@@ -15,12 +18,12 @@ class Bootstrap extends Router{
     
     private function run($uri){
         foreach($this->routes as $router){
-            if ($_SERVER['REQUEST_METHOD'] != $router['method']) {
-                require 'Erro405.php';
-                die();
-            }
-
             if ($uri == $router['router']){
+                if (!in_array($_SERVER['REQUEST_METHOD'], $router['method'])) {
+                    // http_response_code(405);
+                    require ERRO405;
+                    die();
+                }
                 $controllerClass = 'App\\Controllers\\' . $router['controller'];
                 $action = $router['action'];
 
@@ -31,6 +34,11 @@ class Bootstrap extends Router{
             
             $regex = str_replace("/", "\/", ltrim($router['router'], "/"));
             if (preg_match("/^$regex$/", ltrim($uri, "/"))) {
+                if (!in_array($_SERVER['REQUEST_METHOD'], $router['method'])) {
+                    // http_response_code(405);
+                    require ERRO405;
+                    die();
+                }
                 $controllerClass = 'App\\Controllers\\' . $router['controller'];
                 $action = $router['action'];
                 
@@ -46,8 +54,8 @@ class Bootstrap extends Router{
                 die();
             }
         }
-
-        require 'Erro404.php';
+        // http_response_code(404);
+        require ERRO404;
         die();
     }
     

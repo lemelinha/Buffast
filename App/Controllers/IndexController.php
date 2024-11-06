@@ -3,8 +3,12 @@
 namespace App\Controllers;
 use Core\Controller\Controller;
 
-class IndexController extends Controller {
-    public function index(){
-        $this->renderView('index');
+class IndexController extends Controller { 
+    public function Index() {
+
+    }
+    
+    public function Login() {
+
     }
 }

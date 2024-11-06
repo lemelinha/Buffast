@@ -4,118 +4,82 @@ namespace App\Tools;
 use App\Connection;
 
 abstract class Tools {
-    /**
-    *   Função para validação dos dados enviados de algum formulário. 
-    *    
-    *   Percorrendo a SuperGlobal $_POST ou $_GET e verificando cada
-    *   índice com os índices declarados no array $formInputs
-    *
-    *   @param array &$method Array de referência para superglobal $_GET ou $_POST
-    *   @param array $formInputs Array com os inputs do formulário
-    *                           Com cada índice sendo seu name e 
-    *                           seus value sendo outro array com
-    *                           o tipo de dado daquele input e 
-    *                           seu comprimento máximo.
-    *                           Pattern:
-    *                               ["input-name" => ["type", min_length, max_length]]
-    *   @param array $optionalInputs Array com Inputs não obrigatórios
-    *
-    *   @return bool
-    */
-    static public function validateFormData(&$method, $formInputs, $optionalInputs=[]) {
-        if (empty($method)){
-            return false;
-        }
+    public static function random_strings($length_of_string) {
+        $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
-        foreach($method as $key => $value){
-            if (!in_array($key, array_keys($formInputs))){
-                return false;
+        return substr(str_shuffle($str_result), 
+                           0, $length_of_string);
+    }
+
+    public static function encrypt($data) {
+        $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+        $encrypted = openssl_encrypt($data, 'aes-256-cbc', $_ENV['CRYPT_KEY'], 0, $iv);
+        return base64_encode($encrypted . '::' . $iv);
+    }
+
+    public static function decrypt($data) {
+        list($encryptedData, $iv) = explode('::', base64_decode($data), 2);
+	    return openssl_decrypt($encryptedData, 'aes-256-cbc', $_ENV['CRYPT_KEY'], 0, $iv);
+    }
+
+    public static function decryptRecursive(&$input) {
+        $keysToDecrypt = ['nome', 'telefone', 'cpf', 'rg', 'email', 'nascimento', 'uf', 'cidade', 'bairro', 'logradouro', 'numero', 'complemento', 'cep'];
+        if (is_object($input)) {
+            foreach ($input as $key => $value) {
+                if (!Tools::startsWithAny($key, $keysToDecrypt)) continue;
+                $input->$key = Tools::decrypt($value);
             }
-
-            if (empty($value) && !in_array($key, $optionalInputs)){
-                return false;
-            }
-
-            if ($formInputs[$key][0] == "string" && !($formInputs[$key][1] <= strlen($value) && strlen($value) <= $formInputs[$key][2])) {
-                return false;
-            }
-
-            if ($formInputs[$key][0] == "integer"){
-                if (intval($value)) { // se for numero
-                    
+            // Verifica recursão em propriedades que são arrays
+            foreach ($input as $key => $value) {
+                if (is_array($value)) {
+                    Tools::decryptRecursive($input->$key);
                 }
-                return false;
             }
         }
-
-        return true;
+        
+        if (is_array($input)) {
+            $ordenar = false;
+            foreach ($input as &$value) {
+                Tools::decryptRecursive($value);
+                if (property_exists($value, 'cd_aluno') || property_exists($value, 'cd_docente')) {
+                    $ordenar = true;
+                }
+            }
+            if ($ordenar) {
+                $grupos = [];
+                foreach ($input as $objeto) {
+                    $grupos[$objeto->id_cargo!=1?$objeto->id_cargo:$objeto->id_turma][] = $objeto;
+                }
+                // Ordenando os nomes dentro de cada grupo
+                foreach ($grupos as $cargo => $grupo) {
+                    usort($grupo, function($a, $b) {
+                        return strcmp($a->nome_aluno??$a->nome_docente, $b->nome_aluno??$b->nome_docente);
+                    });
+                    $grupos[$cargo] = $grupo;
+                }
+                // Mantendo a estrutura original do input
+                $resultado = [];
+                foreach ($grupos as $grupo) {
+                    foreach ($grupo as $objeto) {
+                        $resultado[] = $objeto; // Adiciona os objetos ordenados ao resultado
+                    }
+                }
+                $input = $resultado;
+            }
+        }
     }
 
-    /**
-     *  Função para o CEP
-     *  
-     *  Essa função verifica os dados atrelados ao CEP
-     *  e os compara com os dados passados pelo usuário
-     * 
-     *  @param string|int $cep CEP
-     *  @param string $uf Sigla do estado
-     *  @param string $localidade Cidade
-     *  @param string $bairro Bairro
-     *  @param string $logradouro Rua
-     *  
-     *  @return bool
-     */
-    static public function validadeCEP($cep, $uf, $localidade, $bairro, $logradouro){
-        $api = "https://viacep.com.br/ws/$cep/json/";
-        $data = json_decode(file_get_contents($api));
-
-        if (!empty($data->uf) && $data->uf != $uf) {
-            return false;
+    public static function startsWithAny($string, $words) {
+        foreach ($words as $word) {
+            // Verifica se a string começa com a palavra
+            if (strpos($string, $word) === 0) {
+                return true; // Retorna verdadeiro se a string começar com uma das palavras
+            }
         }
-
-        if (!empty($data->localidade) && $data->localidade != $localidade) {
-            return false;
-        }
-
-        if (!empty($data->bairro) && $data->bairro != $bairro) {
-            return false;
-        }
-
-        if (!empty($data->logradouro) && $data->logradouro != $logradouro) {
-            return false;
-        }
-
-        return true;
+        return false; // Retorna falso se não começar com nenhuma das palavras
     }
 
-    /**
-     *  Verifica se um usuário já existe
-     * 
-     *  Acessa o banco de dados para 
-     *  verificar se um nome de usuário já 
-     *  está em uso
-     * 
-     *  @param string $usuario 
-     * 
-     *  @return bool
-     */
-    static public function usernameExists($username){
-        $sql = "
-            SELECT 
-                nm_usuario
-            FROM
-                tb_buffet
-            WHERE 
-                nm_usuario = :usuario
-        ";
-        $query = Connection::connect()->prepare($sql);
-        $query->bindParam(':usuario', $username);
-        $query->execute();
-
-        if (empty($query->fetchAll())){
-            return false;
-        }
-
-        return true;
+    public static function isAjax() {
+        return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
     }
 }
