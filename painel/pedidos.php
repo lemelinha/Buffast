@@ -10,9 +10,9 @@
     </header>
 
     <div class="grid grid-rows-subgrid row-span-2 h-3/5">
-        <div class="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 p-12">
+    <div class="cards scroll-container h-96 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 px-12 py-2 xl:grid-cols-4">
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
                         <img
@@ -21,23 +21,23 @@
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
-                        <button class="p-1 bg-red-600  rounded-md">
+                        <button class="p-1 bg-red-600 text-xs rounded-md">
                             <p>Pendente</p>
                         </button>            
                     </div>
-                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-xl">
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
                         <p><span class="text-amber-300">Mesa:</span> <span class="font-bold">10</span></p>
                         <p><span class="text-amber-300">Horario do pedido</span> : <span class="font-bold">19:23</span></p>
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
                     <div class="flex align-center justify-center">
-                        <button class="p-1 bg-amber-300 rounded-md">
+                        <button class="p-1 bg-amber-300 text-sm rounded-md">
                             <p>Concluir</p>
                         </button>            
                     </div>
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
                         <img
@@ -46,23 +46,23 @@
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
-                        <button class="p-1 bg-red-600  rounded-md">
+                        <button class="p-1 bg-red-600 text-xs rounded-md">
                             <p>Pendente</p>
                         </button>            
                     </div>
-                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-xl">
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
                         <p><span class="text-amber-300">Mesa:</span><span class="font-bold"> 1</span></p>
                         <p><span class="text-amber-300">Horario do pedido :</span><span class="font-bold"> 19:40</span></p>
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
                     <div class="flex align-center justify-center">
-                        <button class="p-1 bg-amber-300 rounded-md">
+                        <button class="p-1 bg-amber-300 text-sm rounded-md">
                             <p>Concluir</p>
                         </button>            
                     </div>
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
                         <img
@@ -71,18 +71,18 @@
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
-                        <button class="p-1 bg-green-600  rounded-md">
+                        <button class="p-1 bg-green-600 text-xs rounded-md">
                             <p>Entregue</p>
                         </button>            
                     </div>
-                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-xl">
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
                         <p><span class="text-amber-300">Mesa: </span><span class="font-bold">7</span></p>
                         <p><span class="text-amber-300">Horario do pedido :</span><span class="font-bold"> 19:12</span></p>
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de: </span>Lucas</p>
                     <div class="flex justify-center items-center">
                         <img
@@ -91,11 +91,101 @@
                     </div>
                     </header>
                     <div class="flex align-end justify-end">
-                        <button class="p-1 bg-green-600  rounded-md">
+                        <button class="p-1 bg-green-600 text-xs rounded-md">
                             <p>Entregue</p>
                         </button>            
                     </div>
-                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-xl">
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
+                        <p><span class="text-amber-300">Mesa:</span><span class="font-bold"> 5</span></p>
+                        <p><span class="text-amber-300">Horario do pedido :</span><span class="font-bold"> 19:10</span></p>
+                        <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
+                    </section>
+            </div>
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
+                    <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
+                    <div class="flex justify-center items-center">
+                        <img
+                        class="h-36"
+                        src="../assets/snack.svg"/>
+                    </div>
+                    </header>
+                    <div class="flex align-end justify-end">
+                        <button class="p-1 bg-red-600 text-xs rounded-md">
+                            <p>Pendente</p>
+                        </button>            
+                    </div>
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
+                        <p><span class="text-amber-300">Mesa:</span> <span class="font-bold">10</span></p>
+                        <p><span class="text-amber-300">Horario do pedido</span> : <span class="font-bold">19:23</span></p>
+                        <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
+                    </section>
+                    <div class="flex align-center justify-center">
+                        <button class="p-1 bg-amber-300 text-sm rounded-md">
+                            <p>Concluir</p>
+                        </button>            
+                    </div>
+            </div>
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
+                    <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
+                    <div class="flex justify-center items-center">
+                        <img
+                        class="h-36"
+                        src="../assets/snack.svg"/>
+                    </div>
+                    </header>
+                    <div class="flex align-end justify-end">
+                        <button class="p-1 bg-red-600 text-xs rounded-md">
+                            <p>Pendente</p>
+                        </button>            
+                    </div>
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
+                        <p><span class="text-amber-300">Mesa:</span><span class="font-bold"> 1</span></p>
+                        <p><span class="text-amber-300">Horario do pedido :</span><span class="font-bold"> 19:40</span></p>
+                        <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
+                    </section>
+                    <div class="flex align-center justify-center">
+                        <button class="p-1 bg-amber-300 text-sm rounded-md">
+                            <p>Concluir</p>
+                        </button>            
+                    </div>
+            </div>
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
+                    <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
+                    <div class="flex justify-center items-center">
+                        <img
+                        class="h-36"
+                        src="../assets/snack.svg"/>
+                    </div>
+                    </header>
+                    <div class="flex align-end justify-end">
+                        <button class="p-1 bg-green-600 text-xs rounded-md">
+                            <p>Entregue</p>
+                        </button>            
+                    </div>
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
+                        <p><span class="text-amber-300">Mesa: </span><span class="font-bold">7</span></p>
+                        <p><span class="text-amber-300">Horario do pedido :</span><span class="font-bold"> 19:12</span></p>
+                        <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
+                    </section>
+            </div>
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
+                    <p class="pb-3"><span class="text-amber-300">Festa de: </span>Lucas</p>
+                    <div class="flex justify-center items-center">
+                        <img
+                        class="h-36"
+                        src="../assets/snack.svg"/>
+                    </div>
+                    </header>
+                    <div class="flex align-end justify-end">
+                        <button class="p-1 bg-green-600 text-xs rounded-md">
+                            <p>Entregue</p>
+                        </button>            
+                    </div>
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
                         <p><span class="text-amber-300">Mesa:</span><span class="font-bold"> 5</span></p>
                         <p><span class="text-amber-300">Horario do pedido :</span><span class="font-bold"> 19:10</span></p>
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>

@@ -115,7 +115,7 @@ input[type="text"] {
 }
 
 .bg-card:hover {
-	transform: scale(1.1);
+	transform: scale(1.05);
 }
 
 .bg-card-cad {
@@ -192,25 +192,38 @@ input[type="text"] {
 			rgba(228, 228, 228, 0.05) 100%
 		),
 		linear-gradient(90deg, rgb(131, 24, 67), rgb(128, 52, 105));
-		transition: transform 0.5s ease;
+	transition: transform 0.5s ease;
 }
 .bg-btn:hover {
-	transform: scale(1.1);
+	transform: scale(1.06);
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
 
-input[type=number] {
-    -moz-appearance: textfield;
+input[type="number"] {
+	-moz-appearance: textfield;
 }
 
-#login-img{
+#login-img {
 	background-image: url("../assets/test2.jpg");
-            background-size: 100% 100%;
-            background-position: center; 
-            background-repeat: no-repeat; 
+	background-size: 100% 100%;
+	background-position: center;
+	background-repeat: no-repeat;
 }
+
+.scroll-container {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	scrollbar-width: none;
+	scroll-behavior: smooth;
+}
+
+.h-85 {
+	height: 22rem;
+}
+
+

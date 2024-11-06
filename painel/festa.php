@@ -13,17 +13,17 @@
     </header>
 
     <div class="grid grid-rows-subgrid row-span-2 h-3/5">
-        <div class="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-3 lg:text-base gap-12 lg:gap-12 p-12">
+    <div class="cards scroll-container h-85 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:text-sm lg:grid-cols-3 lg:text-base gap-12 lg:gap-12 px-12 py-2 xl:grid-cols-3">
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Aniversariante:</span> Lucas</p>
                     <div class="flex justify-center items-center">
                         <img
-                        class="h-36"
+                       class="h-16 sm:h-24"
                         src="../assets/cake (1).svg"/>
                     </div>
                     </header>
-                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
+                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
                         <p><span class="text-amber-300">Data de Nascimento:</span> <span class="font-bold"> 23/08/2009</span></p>
                         <p><span class="text-amber-300">Responsável:</span> Isaac</p>
                         <p><span class="text-amber-300">Inicio Festa: </span><span class="font-bold"> 30/11/2024 19:00</span></p>
@@ -31,24 +31,24 @@
                         <p><span class="text-amber-300">Quantidade de Convidados:</span> <span class="font-bold"> 50</span></p>
                     </section>
                     <footer class="flex align-end justify-end">
-                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
+                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
                             Alterar
                         </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm">
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Aniversariante:</span> Matheus</p>
                     <div class="flex justify-center items-center">
                         <img
-                        class="h-36"
+                       class="h-16 sm:h-24"
                         src="../assets/cake (1).svg"/>
                     </div>
                     </header>
-                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
+                     <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
                         <p><span class="text-amber-300">Data de Nascimento:</span> <span class="font-bold"> 10/01/2010</span></p>
                         <p><span class="text-amber-300">Responsável:</span> Joao</p>
                         <p><span class="text-amber-300">Inicio Festa:</span> <span class="font-bold"> 03/12/2024 19:00</span></p>
@@ -56,24 +56,24 @@
                         <p><span class="text-amber-300">Quantidade de Convidados:</span> <span class="font-bold"> 45</span></p>
                     </section>
                     <footer class="flex align-end justify-end">
-                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
+                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
                             Alterar
                         </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm">
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Aniversariante:</span> Luísa</p>
                     <div class="flex justify-center items-center">
                         <img
-                        class="h-36"
+                       class="h-16 sm:h-24"
                         src="../assets/cake (1).svg"/>
                     </div>
                     </header>
-                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
+                     <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
                         <p><span class="text-amber-300">Data de Nascimento:</span> <span class="font-bold"> 12/04/2011</span></p>
                         <p><span class="text-amber-300">Responsável:</span> Pedro</p>
                         <p><span class="text-amber-300">Inicio Festa:</span> <span class="font-bold"> 05/12/2024 19:00</span></p>
@@ -81,24 +81,24 @@
                         <p><span class="text-amber-300">Quantidade de Convidados: </span><span class="font-bold"> 30</span></p>
                     </section>
                     <footer class="flex align-end justify-end">
-                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
+                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
                             Alterar
                         </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm">
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
+                    <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Aniversariante: </span>Maria</p>
                     <div class="flex justify-center items-center">
                         <img
-                        class="h-36"
+                       class="h-16 sm:h-24"
                         src="../assets/cake (1).svg"/>
                     </div>
                     </header>
-                    <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
+                     <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
                         <p><span class="text-amber-300">Data de Nascimento:</span> <span class="font-bold"> 23/08/2009</span></p>
                         <p><span class="text-amber-300">Responsável:</span> Marcos</p>
                         <p><span class="text-amber-300">Inicio Festa: </span><span class="font-bold"> 07/12/2024 19:00</span></p>
@@ -106,10 +106,10 @@
                         <p><span class="text-amber-300">Quantidade de Convidados:</span> <span class="font-bold"> 40</span></p>
                     </section>
                     <footer class="flex align-end justify-end">
-                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
+                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
                             Alterar
                         </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm">
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2">
                             Deletar
                         </button>
                     </footer>
