@@ -69,6 +69,10 @@ body {
 	height: 100dvh;
 }
 
+main {
+	overflow-y: hidden;
+}
+
 .bg-theme {
 	background-color: #803469;
 }
@@ -226,4 +230,16 @@ input[type="number"] {
 	height: 22rem;
 }
 
+@media (max-height: 1080px) {
+	.h-85 {
+		height: 18.5rem;
+	}
+}
 
+.h-90 {
+	height: 23rem;
+}
+
+.h-87 {
+	height: 20rem;
+}

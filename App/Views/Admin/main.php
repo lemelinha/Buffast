@@ -26,14 +26,14 @@
                     <p class="pb-3 text-amber-300">Coxinha</p>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl w-full h-11/12">
                     </header>
-                    <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
+                    <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-base">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold">  5</span></p>
                     </section>
                     <footer class="flex align-end justify-end">
-                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
+                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-xs mr-2">
                             Alterar
                         </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm">
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-xs">
                             Deletar
                         </button>
                     </footer>
@@ -159,7 +159,7 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-rows-subgrid row-span-3 justify-center justify-items-center p-8 font-bold md: md:p-8 lg: lg:p-8">
+    <div class="grid grid-rows-subgrid row-span-3 justify-center justify-items-center p-8 font-bold md: md:p-8 lg: lg:p-4">
         <button data-modal-target="upload" data-modal-toggle="upload" class="row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Cadastrar</button>
     </div>
 </main>

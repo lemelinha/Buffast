@@ -19,7 +19,7 @@
             </form>
         </div>
     </header>
-    <div class="mt-11 cards scroll-container h-96 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 px-12 py-2 xl:grid-cols-4">
+    <div class="cards scroll-container h-90 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 px-12 py-2 xl:grid-cols-4">
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font max-h-96 max-w-96">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                     <p class="pb-3">Coxinha</p>

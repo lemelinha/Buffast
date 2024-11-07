@@ -19,7 +19,7 @@
         </div>
     </header>
     <div class="grid grid-rows-subgrid row-span-2">
-    <div class="mt-10 cards scroll-container h-96 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 px-12 py-2 xl:grid-cols-4">
+    <div class="cards scroll-container h-90 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:text-sm lg:grid-cols-4 lg:text-base gap-12 lg:gap-12 px-12 py-2 xl:grid-cols-4">
             <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
