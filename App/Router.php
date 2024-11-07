@@ -1,9 +1,4 @@
 <?php
-/**
- *  Este arquivo faz referência a declaração das rotas
- * do projeto
- *  
- */
 namespace App;
 
 /**
@@ -24,59 +19,57 @@ abstract class Router {
         $routes['index'] = [
             'router' => '/',
             'controller' => 'IndexController',
-            'action' => 'index',
-            'method' => 'GET'
+            'action' => 'Index',
+            'method' => ['GET']
         ];
 
         $routes['login'] = [
             'router' => '/login',
-            'controller' => 'LoginController',
-            'action' => 'index',
-            'method' => 'GET'
+            'controller' => 'IndexController',
+            'action' => 'Login',
+            'method' => ['GET']
         ];
 
         $routes['loginAuth'] = [
             'router' => '/login/auth',
-            'controller' => 'LoginController',
-            'action' => 'auth',
-            'method' => 'GET'
+            'controller' =>'IndexController',
+            'action' => 'LoginAuth',
+            'method' => ['POST']
         ];
 
-        // Área de Admin
-        $routes['AdminIndex'] = [
-            'router' => '/admin',
-            'controller' => 'AdminController',
-            'action' => 'index',
-            'method' => 'GET'
+        $routes['painel'] = [
+            'router' => '/painel',
+            'controller' =>'AdminController',
+            'action' => 'Index',
+            'method' => ['GET']
         ];
 
-        $routes['AdminDashboard'] = [
-            'router' => '/admin/dashboard',
-            'controller' => 'AdminController',
-            'action' => 'dashboard',
-            'method' => 'GET'
+        $routes['painel festas'] = [
+            'router' => '/painel/festas',
+            'controller' =>'AdminController',
+            'action' => 'Festas',
+            'method' => ['GET']
         ];
 
-        $routes['AdminCadastroBuffetForm'] = [ // formulario de cadastro
-            'router' => '/admin/buffet/register/form',
-            'controller' => 'AdminController',
-            'action' => 'registerBuffetForm',
-            'method' => 'GET'
+        $routes['painel estoque'] = [
+            'router' => '/painel/estoque',
+            'controller' =>'AdminController',
+            'action' => 'Estoque',
+            'method' => ['GET']
         ];
 
-        $routes['AdminCadastrarBuffet - AJAX'] = [ // validacao e registro dos dados
-            'router' => '/admin/buffet/register',
-            'controller' => 'AdminController',
-            'action' => 'registerBuffet',
-            'method' => 'POST'
+        $routes['painel mesas'] = [
+            'router' => '/painel/mesas',
+            'controller' =>'AdminController',
+            'action' => 'Mesas',
+            'method' => ['GET']
         ];
 
-        $routes['Teste'] = [ 
-            'router' => '/nome/[a-z]+/id/[0-9]+',
-            'params' => ['nome', 'id'],
-            'controller' => 'AdminController',
-            'action' => 'registerBuffet',
-            'method' => 'GET'
+        $routes['painel pedidos'] = [
+            'router' => '/painel/pedidos',
+            'controller' =>'AdminController',
+            'action' => 'Pedidos',
+            'method' => ['GET']
         ];
 
         $this->routes = $routes;

@@ -23,10 +23,6 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
         array (
             'PhpOption\\' => 10,
         ),
-        'N' => 
-        array (
-            'Needs\\' => 6,
-        ),
         'G' => 
         array (
             'GrahamCampbell\\ResultType\\' => 26,
@@ -34,6 +30,10 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
         'D' => 
         array (
             'Dotenv\\' => 7,
+        ),
+        'C' => 
+        array (
+            'Core\\' => 5,
         ),
         'A' => 
         array (
@@ -58,10 +58,6 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
-        'Needs\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/Needs',
-        ),
         'GrahamCampbell\\ResultType\\' => 
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
@@ -70,6 +66,10 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
             1 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App/Core',
         ),
         'App\\' => 
         array (
@@ -80,10 +80,17 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
     public static $classMap = array (
         'App\\Bootstrap' => __DIR__ . '/../..' . '/App/Bootstrap.php',
         'App\\Connection' => __DIR__ . '/../..' . '/App/Connection.php',
+        'App\\Controllers\\AdminController' => __DIR__ . '/../..' . '/App/Controllers/AdminController.php',
         'App\\Controllers\\IndexController' => __DIR__ . '/../..' . '/App/Controllers/IndexController.php',
+        'App\\Controllers\\LoginController' => __DIR__ . '/../..' . '/App/Controllers/LoginController.php',
+        'App\\Models\\Admin\\Admin' => __DIR__ . '/../..' . '/App/Models/Admin/Admin.php',
+        'App\\Models\\Login' => __DIR__ . '/../..' . '/App/Models/Login.php',
         'App\\Router' => __DIR__ . '/../..' . '/App/Router.php',
+        'App\\Tools\\Tools' => __DIR__ . '/../..' . '/App/Tools/Tools.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Core\\Controller\\Controller' => __DIR__ . '/../..' . '/App/Core/Controller/Controller.php',
+        'Core\\Model\\Model' => __DIR__ . '/../..' . '/App/Core/Model/Model.php',
         'Dotenv\\Dotenv' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Dotenv.php',
         'Dotenv\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/ExceptionInterface.php',
         'Dotenv\\Exception\\InvalidEncodingException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/InvalidEncodingException.php',
@@ -128,8 +135,6 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',
         'GrahamCampbell\\ResultType\\Result' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Result.php',
         'GrahamCampbell\\ResultType\\Success' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Success.php',
-        'Needs\\Controller\\Controller' => __DIR__ . '/..' . '/Needs/Controller/Controller.php',
-        'Needs\\Model\\Model' => __DIR__ . '/..' . '/Needs/Model/Model.php',
         'PhpOption\\LazyOption' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/LazyOption.php',
         'PhpOption\\None' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/None.php',
         'PhpOption\\Option' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Option.php',
