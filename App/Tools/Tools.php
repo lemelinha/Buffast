@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Tools;
-use PDO;
+use Ramsey\Uuid\Uuid;
 
 abstract class Tools {
     private static $cipher = 'aes-256-cbc';
@@ -109,20 +109,20 @@ abstract class Tools {
         return $decrypted;
     }
     
-    public static function decryptRecursive(&$input) {
+    public static function decryptRecursive($table, &$input) {
         if (is_array($input)) {
             foreach ($input as &$item) {
                 if (is_object($item) || is_array($item)) {
-                    self::decryptRecursive($item);
+                    self::decryptRecursive($table, $item);
                 }
             }
         } elseif (is_object($input)) {
             $vars = get_object_vars($input);
             foreach ($vars as $key => $value) {
-                if (self::shouldEncrypt('pessoas', $key)) {
+                if (self::shouldEncrypt($table, $key)) {
                     $input->$key = self::decrypt($value);
                 } elseif (is_object($value) || is_array($value)) {
-                    self::decryptRecursive($input->$key);
+                    self::decryptRecursive($table, $input->$key);
                 }
             }
         }
@@ -151,13 +151,9 @@ abstract class Tools {
         return $results;
     }
 
-    public static function startsWithAny($string, $words) {
-        foreach ($words as $word) {
-            if (str_starts_with($string, $word)) {
-                return true;
-            }
-        }
-        return false; 
+    public static function UUID() {
+        $uuid = Uuid::uuid4();
+        return $uuid->toString();
     }
 
     public static function isAjax() {
