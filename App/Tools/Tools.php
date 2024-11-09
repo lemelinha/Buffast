@@ -7,11 +7,10 @@ abstract class Tools {
     private static $cipher = 'aes-256-cbc';
     private static $cache = [];
     
-    // Define quais campos devem ser criptografados para cada tabela/modelo
+    // Define quais campos que criptografa: tabela => [campos]
     private static $encryptedFields = [
         'tb_buffet' => ['nome_buffet', 'cnpj', 'email', 'senha'],
         'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'convidados', 'nome_responsavel', 'inicio', 'fim']
-        // Adicione outras tabelas/modelos conforme necessário
     ];
     
     // Verifica se um campo específico deve ser criptografado
@@ -149,15 +148,6 @@ abstract class Tools {
             $results[$key] = base64_encode($encrypted . '::' . $iv);
         }
         
-        return $results;
-    }
-
-    // Exemplo de uso com PDO
-    public static function processQueryResults($table, $stmt) {
-        $results = [];
-        while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
-            $results[] = self::decryptRecord($table, $row);
-        }
         return $results;
     }
 
