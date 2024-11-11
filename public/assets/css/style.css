@@ -227,17 +227,11 @@ input[type="number"] {
 }
 
 .h-85 {
-	height: 22rem;
-}
-
-@media (max-height: 1080px) {
-	.h-85 {
-		height: 18.5rem;
-	}
+	height: 23rem;
 }
 
 .h-90 {
-	height: 23rem;
+	height: 24rem;
 }
 
 .h-87 {

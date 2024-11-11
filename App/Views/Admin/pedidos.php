@@ -1,5 +1,5 @@
 <body>
-<main class="grid grid-row ml-16 w-screen">
+<main class="grid grid-rows-[4fr_6fr_2fr] ml-16 w-screen">
     <header class="text-center main-font text-white font-bold">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#803469"><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path></svg>
     <div class="grid grid-cols-1 lg:grid lg:grid-cols-[1fr_3fr_1fr]">

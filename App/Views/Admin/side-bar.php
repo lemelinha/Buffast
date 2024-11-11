@@ -46,6 +46,18 @@
 				</a>
 				
 			</li>
+			
+
+			<li class="hover:bg-amber-300">
+				<a  href="/painel/mesas"
+					class="h-16 px-6 flex flex justify-center items-center w-full
+					focus:text-orange-500">
+					<img
+					src="/assets/images/table.svg"
+					alt="buffast logo"/>
+				</a>
+			</li>
+
 			<li class="hover:bg-amber-300">
 				<a
 					href="/painel/estoque"
@@ -71,16 +83,6 @@
 					</svg>
 				</a>
 				
-			</li>
-
-			<li class="hover:bg-amber-300">
-				<a  href="/painel/mesas"
-					class="h-16 px-6 flex flex justify-center items-center w-full
-					focus:text-orange-500">
-					<img
-					src="/assets/images/table.svg"
-					alt="buffast logo"/>
-				</a>
 			</li>
 
 			<li class="hover:bg-amber-300">
