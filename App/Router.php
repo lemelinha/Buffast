@@ -6,7 +6,7 @@ namespace App;
  * 
  */
 abstract class Router {
-    protected $routes;
+    protected $routes = [];
     /**
      *  Função de declaração de rotas
      * 
@@ -44,6 +44,12 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $this->AdminRoutes();
+
+        $this->routes = array_merge($this->routes, $routes);
+    }
+
+    private function AdminRoutes() {
         $routes['painel'] = [
             'router' => '/painel',
             'controller' =>'AdminController',
@@ -79,6 +85,6 @@ abstract class Router {
             'method' => ['GET']
         ];
 
-        $this->routes = $routes;
+        $this->routes = array_merge($this->routes, $routes);
     }
 }
