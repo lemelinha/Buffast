@@ -1,120 +1,112 @@
 <?php
 
 namespace App\Tools;
+
 use Ramsey\Uuid\Uuid;
 
-abstract class Tools {
-    private static $cipher = 'aes-256-cbc';
-    private static $cache = [];
-    private static $key;
+class Tools {
+    private const CIPHER = 'aes-256-cbc';
+    private static array $cache = [];
+    private static string $key;
+    private static ?string $iv = null;
+
+    // Mapa de campos criptografados por tabela
+    private const ENCRYPTED_FIELDS = [
+        'tb_buffet' => ['nome_buffet', 'cnpj', 'email', 'senha'],
+        'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'nome_responsavel']
+    ];
 
     public function __construct() {
         self::$key = hash('sha256', $_ENV['CRYPT_KEY'], true);
     }
-    
-    // Define quais campos que criptografa: tabela => [campos]
-    private static $encryptedFields = [
-        'tb_buffet' => ['nome_buffet', 'cnpj', 'email', 'senha'],
-        'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'nome_responsavel',]
-    ];
-    
-    // Verifica se um campo específico deve ser criptografado
-    public static function shouldEncrypt($table, $field) {
-        return isset(self::$encryptedFields[$table]) && 
-               in_array($field, self::$encryptedFields[$table]);
+
+    public static function shouldEncrypt(string $table, string $field): bool {
+        return isset(self::ENCRYPTED_FIELDS[$table]) && 
+               in_array($field, self::ENCRYPTED_FIELDS[$table], true);
     }
-    
-    public static function encryptRecord($table, $data) {
+
+    /**
+     * Processa um registro para criptografia/descriptografia
+     *
+     * @param string $table Nome da tabela
+     * @param array|object $data Dados a serem processados
+     * @param bool $encrypt True para criptografar, false para descriptografar
+     * @return array|object
+     */
+    private static function processRecord(string $table, $data, bool $encrypt) {
         if (!is_array($data) && !is_object($data)) {
             return $data;
         }
-        
-        // Converte objeto para array se necessário
+
         $isObject = is_object($data);
         $array = $isObject ? get_object_vars($data) : $data;
         
-        // Prepara arrays para processamento em lote
-        $batchData = [];
-        $fields = [];
-        
-        // Separa campos que precisam ser criptografados
-        foreach ($array as $field => $value) {
-            if (self::shouldEncrypt($table, $field)) {
-                $batchData[$field] = $value;
-                $fields[] = $field;
+        if ($encrypt) {
+            $batchData = [];
+            foreach ($array as $field => $value) {
+                if (self::shouldEncrypt($table, $field)) {
+                    $batchData[$field] = $value;
+                }
+            }
+            
+            if (!empty($batchData)) {
+                $processed = self::encryptBatch($batchData);
+                $array = array_merge($array, $processed);
+            }
+        } else {
+            foreach ($array as $field => $value) {
+                if (self::shouldEncrypt($table, $field)) {
+                    $array[$field] = self::decrypt($value);
+                }
             }
         }
-        
-        // Se houver campos para criptografar, processa em lote
-        if (!empty($batchData)) {
-            $encrypted = self::encryptBatch($batchData);
-            foreach ($fields as $field) {
-                $array[$field] = $encrypted[$field];
-            }
-        }
-        
-        // Retorna no mesmo formato que recebeu
+
         return $isObject ? (object)$array : $array;
     }
-    
-    public static function decryptRecord($table, $data) {
-        if (!is_array($data) && !is_object($data)) {
-            return $data;
-        }
-        
-        // Converte objeto para array se necessário
-        $isObject = is_object($data);
-        $array = $isObject ? get_object_vars($data) : $data;
-        
-        // Decriptografa apenas os campos necessários
-        foreach ($array as $field => &$value) {
-            if (self::shouldEncrypt($table, $field)) {
-                $value = self::decrypt($value);
-            }
-        }
-        
-        // Retorna no mesmo formato que recebeu
-        return $isObject ? (object)$array : $array;
+
+    public static function encryptRecord(string $table, $data) {
+        return self::processRecord($table, $data, true);
     }
-    
-    public static function encrypt($data) {
-        // Se o dado for nulo ou vazio, retorna imediatamente
+
+    public static function decryptRecord(string $table, $data) {
+        return self::processRecord($table, $data, false);
+    }
+
+    private static function getIV(): string {
+        if (self::$iv === null) {
+            self::$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length(self::CIPHER));
+        }
+        return self::$iv;
+    }
+
+    public static function encrypt(?string $data): ?string {
         if ($data === null || $data === '') {
             return $data;
         }
-        
-        // Gera IV uma vez e reutiliza para o mesmo batch de dados
-        static $iv = null;
-        if ($iv === null) {
-            $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length(self::$cipher));
-        }
-        
-        $encrypted = openssl_encrypt($data, self::$cipher, self::$key, OPENSSL_RAW_DATA, $iv);
+
+        $iv = self::getIV();
+        $encrypted = openssl_encrypt($data, self::CIPHER, self::$key, OPENSSL_RAW_DATA, $iv);
         return base64_encode($encrypted . '::' . $iv);
     }
-    
-    public static function decrypt($data) {
-        // Se o dado for nulo ou vazio, retorna imediatamente
+
+    public static function decrypt(?string $data): ?string {
         if ($data === null || $data === '') {
             return $data;
         }
-        
-        // Verifica se já foi descriptografado antes
+
         $cacheKey = md5($data);
         if (isset(self::$cache[$cacheKey])) {
             return self::$cache[$cacheKey];
         }
+
+        [$encryptedData, $iv] = explode('::', base64_decode($data), 2);
+        $decrypted = openssl_decrypt($encryptedData, self::CIPHER, self::$key, OPENSSL_RAW_DATA, $iv);
         
-        list($encryptedData, $iv) = explode('::', base64_decode($data), 2);
-        $decrypted = openssl_decrypt($encryptedData, self::$cipher, self::$key, OPENSSL_RAW_DATA, $iv);
-        
-        // Armazena no cache
         self::$cache[$cacheKey] = $decrypted;
-        
         return $decrypted;
     }
-    
-    public static function decryptRecursive($table, &$input) {
+
+    public static function decryptRecursive(string $table, &$input): void {
         if (is_array($input)) {
             foreach ($input as &$item) {
                 if (is_object($item) || is_array($item)) {
@@ -122,8 +114,7 @@ abstract class Tools {
                 }
             }
         } elseif (is_object($input)) {
-            $vars = get_object_vars($input);
-            foreach ($vars as $key => $value) {
+            foreach (get_object_vars($input) as $key => $value) {
                 if (self::shouldEncrypt($table, $key)) {
                     $input->$key = self::decrypt($value);
                 } elseif (is_object($value) || is_array($value)) {
@@ -132,15 +123,13 @@ abstract class Tools {
             }
         }
     }
-    
-    // Método para limpar o cache quando necessário
-    public static function clearCache() {
-        self::$cache = [];
-    }
-    
-    // Método para criptografar em lote
-    public static function encryptBatch(array $data) {
-        $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length(self::$cipher));
+
+    public static function encryptBatch(array $data): array {
+        if (empty($data)) {
+            return [];
+        }
+
+        $iv = self::getIV();
         $results = [];
         
         foreach ($data as $key => $value) {
@@ -149,19 +138,23 @@ abstract class Tools {
                 continue;
             }
             
-            $encrypted = openssl_encrypt($value, self::$cipher, self::$key, OPENSSL_RAW_DATA, $iv);
+            $encrypted = openssl_encrypt($value, self::CIPHER, self::$key, OPENSSL_RAW_DATA, $iv);
             $results[$key] = base64_encode($encrypted . '::' . $iv);
         }
         
         return $results;
     }
 
-    public static function UUID() {
-        $uuid = Uuid::uuid4();
-        return $uuid->toString();
+    public static function clearCache(): void {
+        self::$cache = [];
     }
 
-    public static function isAjax() {
-        return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+    public static function UUID(): string {
+        return Uuid::uuid4()->toString();
+    }
+
+    public static function isAjax(): bool {
+        return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+               strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
     }
 }
