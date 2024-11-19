@@ -37,6 +37,13 @@ abstract class Router {
             'method' => ['POST']
         ];
 
+        $routes['logout'] = [
+            'router' => '/logout',
+            'controller' =>'IndexController',
+            'action' => 'Logout',
+            'method' => ['GET']
+        ];
+
         $routes['painel'] = [
             'router' => '/painel',
             'controller' =>'AdminController',

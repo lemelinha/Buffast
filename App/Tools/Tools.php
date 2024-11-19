@@ -6,11 +6,16 @@ use Ramsey\Uuid\Uuid;
 abstract class Tools {
     private static $cipher = 'aes-256-cbc';
     private static $cache = [];
+    private static $key;
+
+    public function __construct() {
+        self::$key = hash('sha256', $_ENV['CRYPT_KEY'], true);
+    }
     
     // Define quais campos que criptografa: tabela => [campos]
     private static $encryptedFields = [
         'tb_buffet' => ['nome_buffet', 'cnpj', 'email', 'senha'],
-        'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'convidados', 'nome_responsavel', 'inicio', 'fim']
+        'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'nome_responsavel',]
     ];
     
     // Verifica se um campo específico deve ser criptografado
@@ -84,7 +89,7 @@ abstract class Tools {
             $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length(self::$cipher));
         }
         
-        $encrypted = openssl_encrypt($data, self::$cipher, $_ENV['CRYPT_KEY'], 0, $iv);
+        $encrypted = openssl_encrypt($data, self::$cipher, self::$key, OPENSSL_RAW_DATA, $iv);
         return base64_encode($encrypted . '::' . $iv);
     }
     
@@ -101,7 +106,7 @@ abstract class Tools {
         }
         
         list($encryptedData, $iv) = explode('::', base64_decode($data), 2);
-        $decrypted = openssl_decrypt($encryptedData, self::$cipher, $_ENV['CRYPT_KEY'], 0, $iv);
+        $decrypted = openssl_decrypt($encryptedData, self::$cipher, self::$key, OPENSSL_RAW_DATA, $iv);
         
         // Armazena no cache
         self::$cache[$cacheKey] = $decrypted;
@@ -144,7 +149,7 @@ abstract class Tools {
                 continue;
             }
             
-            $encrypted = openssl_encrypt($value, self::$cipher, $_ENV['CRYPT_KEY'], 0, $iv);
+            $encrypted = openssl_encrypt($value, self::$cipher, self::$key, OPENSSL_RAW_DATA, $iv);
             $results[$key] = base64_encode($encrypted . '::' . $iv);
         }
         

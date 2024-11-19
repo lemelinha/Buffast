@@ -4,6 +4,13 @@ namespace App\Controllers;
 use Core\Controller\Controller;
 
 class AdminController extends Controller {
+    public function __construct() {
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
+    }
+
     public function Index() {
         $this->render('main', 'AdminLayout', 'Admin');
     }

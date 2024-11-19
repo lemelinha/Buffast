@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use Core\Controller\Controller;
+use App\Models\Login;
 
 class IndexController extends Controller { 
     public function Index() {
@@ -9,6 +10,31 @@ class IndexController extends Controller {
     }
     
     public function Login() {
+        if (isset($_SESSION['id'])) {
+            header('Location: /painel');
+            die();
+        }
         $this->renderView('login');
+    }
+    
+    public function LoginAuth() {
+        if (isset($_SESSION['id'])) {
+            header('Location: /painel');
+            die();
+        }
+        if (Login::LoginAuth($_POST['email'], $_POST['senha'])) {
+            header('Location: /painel');
+            die();
+        }
+
+        $_SESSION['msg'] = 'Email ou senha inválidos';
+        header('Location: /login');
+        die();
+    }
+    
+    public function Logout() {
+        Login::Logout();
+        header('Location: /login');
+        die();
     }
 }
