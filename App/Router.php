@@ -51,9 +51,9 @@ abstract class Router {
 
     private function AdminRoutes() {
         $routes['painel'] = [
-            'router' => '/painel',
+            'router' => '/painel/produtos',
             'controller' =>'AdminController',
-            'action' => 'Index',
+            'action' => 'Produtos',
             'method' => ['GET']
         ];
 

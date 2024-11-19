@@ -11,7 +11,7 @@ class IndexController extends Controller {
     
     public function Login() {
         if (isset($_SESSION['id'])) {
-            header('Location: /painel');
+            header('Location: /painel/produtos');
             die();
         }
         $this->renderView('login');
@@ -19,11 +19,11 @@ class IndexController extends Controller {
     
     public function LoginAuth() {
         if (isset($_SESSION['id'])) {
-            header('Location: /painel');
+            header('Location: /painel/produtos');
             die();
         }
         if (Login::LoginAuth($_POST['email'], $_POST['senha'])) {
-            header('Location: /painel');
+            header('Location: /painel/produtos');
             die();
         }
 

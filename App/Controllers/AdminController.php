@@ -11,7 +11,7 @@ class AdminController extends Controller {
         }
     }
 
-    public function Index() {
+    public function Produtos() {
         $this->render('main', 'AdminLayout', 'Admin');
     }
 

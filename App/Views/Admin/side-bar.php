@@ -12,7 +12,7 @@
 		</div>
 		<ul>
 		<li class="hover:bg-amber-300">
-				<a  href="/painel"
+				<a  href="/painel/produtos"
 					class="h-16 px-5 flex flex justify-center items-center w-full lg:px-8 
 					focus:text-orange-500">
 					<svg
