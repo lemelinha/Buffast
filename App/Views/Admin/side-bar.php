@@ -4,7 +4,7 @@
 		class="flex flex-col items-center bg-theme text-gray-700 shadow h-full gap-3">
 		<div class="h-10 flex items-center w-full mt-4">
 			<a class="h-12 w-16 mx-auto mt-5 sm:mt-4 lg:w-20 mt-2"
-			href="/painel">
+			href="/painel/produtos">
 				<img
 					src="/assets/images/Logo-Buffast2.png"
 					alt="buffast logo" />
