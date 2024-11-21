@@ -242,6 +242,14 @@ input[type="number"] {
 	height: 20rem;
 }
 
+.w-card{
+	width: 110%;
+}
+
+.h-card{
+	height: 100%;
+}
+
 .center{
 	position: absolute;
 	top: 50%;
