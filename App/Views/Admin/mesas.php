@@ -20,171 +20,156 @@
     </header>
 
     <div class="grid grid-rows-subgrid ">
-    <div class="cards scroll-container h-full grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 lg:gap-y-56 px-12 py-2">
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
-                    <header class="card-header text-base md:text-lg lg:text-4xl">
+    <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 px-12 py-2">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+                    <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">1</span></p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-20 sm:h-28"
+                       class="h-16 sm:h-16"
                         src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
-                    <label class="text-2xl">QR-Code</label>
+                    <label class="text-lg">QR-Code</label>
                         <img
-                        class="h-16 sm:h-24 mb-5 mx-auto"
+                        class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
-                        <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
-                            Alterar
-                        </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
-                    <header class="card-header text-base md:text-lg lg:text-4xl">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+                    <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">2</span></p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-20 sm:h-28"
+                       class="h-16 sm:h-16"
                         src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
-                    <label class="text-2xl">QR-Code</label>
+                    <label class="text-lg">QR-Code</label>
                         <img
-                        class="h-16 sm:h-24 mb-5 mx-auto"
+                         class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
-                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
-                            Alterar
-                        </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
+
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
-                    <header class="card-header text-base md:text-lg lg:text-4xl">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+                    <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">3</span></p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-20 sm:h-28"
+                       class="h-16 sm:h-16"
                         src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
-                    <label class="text-2xl">QR-Code</label>
+                    <label class="text-lg">QR-Code</label>
                         <img
-                        class="h-16 sm:h-24 mb-5 mx-auto"
+                         class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
-                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
-                            Alterar
-                        </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
+
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
-                    <header class="card-header text-base md:text-lg lg:text-4xl">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+                    <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">4</span></p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-20 sm:h-28"
+                       class="h-16 sm:h-16"
                         src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
-                    <label class="text-2xl">QR-Code</label>
+                    <label class="text-lg">QR-Code</label>
                         <img
-                        class="h-16 sm:h-24 mb-5 mx-auto"
+                         class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
-                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
-                            Alterar
-                        </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
+
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
-                    <header class="card-header text-base md:text-lg lg:text-4xl">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+                    <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">5</span></p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-20 sm:h-28"
+                       class="h-16 sm:h-16"
                         src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
-                    <label class="text-2xl">QR-Code</label>
+                    <label class="text-lg">QR-Code</label>
                         <img
-                        class="h-16 sm:h-24 mb-5 mx-auto"
+                         class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
-                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
-                            Alterar
-                        </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
+
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
-                    <header class="card-header text-base md:text-lg lg:text-4xl">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+                    <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">6</span></p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-20 sm:h-28"
+                       class="h-16 sm:h-16"
                         src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
-                    <label class="text-2xl">QR-Code</label>
+                    <label class="text-lg">QR-Code</label>
                         <img
-                        class="h-16 sm:h-24 mb-5 mx-auto"
+                         class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
-                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
-                            Alterar
-                        </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
+
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
-                    <header class="card-header text-base md:text-lg lg:text-4xl">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+                    <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">7</span></p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-20 sm:h-28"
+                       class="h-16 sm:h-16"
                         src="/assets/images/table.svg"/>
                     </div>
                     </header>
                     <div class="flex flex-col items-start">
-                    <label class="text-2xl">QR-Code</label>
+                    <label class="text-lg">QR-Code</label>
                         <img
-                        class="h-16 sm:h-24 mb-5 mx-auto"
+                         class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
                     <footer class="flex align-end justify-end">
-                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
-                            Alterar
-                        </button>
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-24 rounded-lg p-2  text-lg mr-2">
+
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>

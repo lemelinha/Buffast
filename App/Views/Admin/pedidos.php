@@ -1,5 +1,5 @@
 <body>
-<main class="grid grid-rows-[2fr_6fr_1fr] ml-16 w-screen">
+<main class="grid grid-rows-[2fr_6fr] ml-16 w-screen">
     <header class="text-center main-font text-white font-bold">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#803469"><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path></svg>
     <div class="grid grid-cols-1 lg:grid lg:grid-cols-[1fr_3fr_1fr]">
@@ -18,9 +18,9 @@
             </form>
         </div>
     </header>
-    <div class="grid grid-rows-subgrid row-span-2">
-    <div class="cards scroll-container h-full grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 lg:gap-y-56 px-12 py-2">
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+    <div class="grid grid-rows-subgrid">
+    <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 lg:gap-y-56 px-12 py-2">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -40,12 +40,12 @@
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
                     <div class="flex align-center justify-center">
-                        <button class="p-1 bg-amber-300 text-sm rounded-md">
+                        <button class="p-1 bg-amber-300 text-sm rounded-md font-tittle">
                             <p>Concluir</p>
                         </button>            
                     </div>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -65,12 +65,12 @@
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
                     <div class="flex align-center justify-center">
-                        <button class="p-1 bg-amber-300 text-sm rounded-md">
+                        <button class="p-1 bg-amber-300 text-sm rounded-md font-tittle">
                             <p>Concluir</p>
                         </button>            
                     </div>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -90,7 +90,7 @@
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de: </span>Lucas</p>
                     <div class="flex justify-center items-center">
@@ -110,7 +110,7 @@
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -130,12 +130,12 @@
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
                     <div class="flex align-center justify-center">
-                        <button class="p-1 bg-amber-300 text-sm rounded-md">
+                        <button class="p-1 bg-amber-300 text-sm rounded-md font-tittle">
                             <p>Concluir</p>
                         </button>            
                     </div>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -155,12 +155,12 @@
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
                     <div class="flex align-center justify-center">
-                        <button class="p-1 bg-amber-300 text-sm rounded-md">
+                        <button class="p-1 bg-amber-300 text-sm rounded-md font-tittle">
                             <p>Concluir</p>
                         </button>            
                     </div>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de:</span> Lucas</p>
                     <div class="flex justify-center items-center">
@@ -180,7 +180,7 @@
                         <p><span class="text-amber-300">Salgados:</span> Coxinha, Bolinha de Queijo e Pastel</p>
                     </section>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
                     <p class="pb-3"><span class="text-amber-300">Festa de: </span>Lucas</p>
                     <div class="flex justify-center items-center">
@@ -202,7 +202,7 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-rows-subgrid row-span-2 h-3/5">
+    <div class="grid grid-rows-subgrid h-3/5">
     </div>
 </main>
 <?php $this->renderView('footer', 'Admin') ?>

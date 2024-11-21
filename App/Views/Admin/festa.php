@@ -21,13 +21,13 @@
     </header>
 
     <div class="grid grid-rows-subgrid ">
-    <div class="cards scroll-container h-full grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 lg:gap-y-56 px-12 py-2">
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+    <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 lg:gap-y-56 px-12 py-2">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
-                    <p class="pb-3"><span class="text-amber-300">Aniversariante:</span> Lucas</p>
+                     <p class=""><span class="text-amber-300">Aniversariante:</span><br> Lucas</p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-16 sm:h-24"
+                       class="h-16 sm:h-16"
                         src="/assets/images/cake (1).svg"/>
                     </div>
                     </header>
@@ -47,12 +47,12 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
-                    <p class="pb-3"><span class="text-amber-300">Aniversariante:</span> Matheus</p>
+                     <p class=""><span class="text-amber-300">Aniversariante:</span><br> Matheus</p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-16 sm:h-24"
+                       class="h-16 sm:h-16"
                         src="/assets/images/cake (1).svg"/>
                     </div>
                     </header>
@@ -72,12 +72,12 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
-                    <p class="pb-3"><span class="text-amber-300">Aniversariante:</span> Luísa</p>
+                     <p class=""><span class="text-amber-300">Aniversariante:</span><br> Luísa</p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-16 sm:h-24"
+                       class="h-16 sm:h-16"
                         src="/assets/images/cake (1).svg"/>
                     </div>
                     </header>
@@ -97,12 +97,12 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-card">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
                     <header class="card-header text-base md:text-lg lg:text-lg">
-                    <p class="pb-3"><span class="text-amber-300">Aniversariante: </span>Maria</p>
+                     <p class=""><span class="text-amber-300">Aniversariante:</span><br>Maria</p>
                     <div class="flex justify-center items-center">
                         <img
-                       class="h-16 sm:h-24"
+                       class="h-16 sm:h-16"
                         src="/assets/images/cake (1).svg"/>
                     </div>
                     </header>
