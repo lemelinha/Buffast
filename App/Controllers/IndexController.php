@@ -22,6 +22,7 @@ class IndexController extends Controller {
             header('Location: /painel/produtos');
             die();
         }
+
         if (Login::LoginAuth($_POST['email'], $_POST['senha'])) {
             header('Location: /painel/produtos');
             die();

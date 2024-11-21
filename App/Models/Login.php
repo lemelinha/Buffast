@@ -14,8 +14,7 @@ abstract class Login extends Model {
         foreach ($results as $result) {
             $email = Tools::decrypt($result->email);
             $senha = $result->senha;
-            echo $email;
-            echo $senha;
+            
             if ($email == $userEmail && password_verify($userSenha, $senha)) {
                 $_SESSION['id'] = $result->cd_buffet;
                 $_SESSION['nome'] = Tools::decrypt($result->nome_buffet);

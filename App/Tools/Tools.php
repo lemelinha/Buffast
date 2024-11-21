@@ -4,7 +4,7 @@ namespace App\Tools;
 
 use Ramsey\Uuid\Uuid;
 
-class Tools {
+abstract class Tools {
     private const CIPHER = 'aes-256-cbc';
     private static array $cache = [];
     private static string $key;
@@ -12,12 +12,14 @@ class Tools {
 
     // Mapa de campos criptografados por tabela
     private const ENCRYPTED_FIELDS = [
-        'tb_buffet' => ['nome_buffet', 'cnpj', 'email', 'senha'],
+        'tb_buffet' => ['nome_buffet', 'cnpj', 'email'],
         'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'nome_responsavel']
     ];
 
-    public function __construct() {
-        self::$key = hash('sha256', $_ENV['CRYPT_KEY'], true);
+    private static function InitKey(): void {
+        if (empty(self::$key)) {
+            self::$key = hash('sha256', $_ENV['CRYPT_KEY'], true);
+        }
     }
 
     public static function shouldEncrypt(string $table, string $field): bool {
@@ -80,6 +82,8 @@ class Tools {
     }
 
     public static function encrypt(?string $data): ?string {
+        self::InitKey();
+
         if ($data === null || $data === '') {
             return $data;
         }
@@ -90,6 +94,8 @@ class Tools {
     }
 
     public static function decrypt(?string $data): ?string {
+        self::InitKey();
+
         if ($data === null || $data === '') {
             return $data;
         }
