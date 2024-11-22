@@ -34,6 +34,5 @@ class Register extends Model {
         } else {
             echo 'Mensagem enviada.';
         }
-        die();
     }
 }
