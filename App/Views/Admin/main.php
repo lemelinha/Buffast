@@ -19,9 +19,9 @@
             </form>
         </div>
     </header>
-    <div class="grid grid-rows-subgrid">
+    <div class="flex-1 overflow-auto">
         <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 px-12 py-2">
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                     <p class="pb-3 text-amber-300">Coxinha</p>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl w-full h-full">
@@ -29,7 +29,7 @@
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-base lg:text-lg">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold">  5</span></p>
                     </section>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Alterar
                         </button>
@@ -38,7 +38,7 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                     <p class="pb-3 text-amber-300">Bolinha</p>
                     <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl w-full h-full">
@@ -46,7 +46,7 @@
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold"> 5</span></p>
                     </section>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Alterar
                         </button>
@@ -55,7 +55,7 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                     <p class="pb-3 text-amber-300">Pastel de Queijo</p>
                     <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl w-full h-full">
@@ -63,7 +63,7 @@
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold">  3</p>
                     </section>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Alterar
                         </button>
@@ -72,7 +72,7 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                     <p class="pb-3 text-amber-300">Pastel de Carne</p>
                     <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl w-full h-full">
@@ -80,7 +80,7 @@
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold"> 3</span></p>
                     </section>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Alterar
                         </button>
@@ -89,7 +89,7 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                     <p class="pb-3 text-amber-300">Coxinha</p>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl w-full h-full">
@@ -97,7 +97,7 @@
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold">  5</span></p>
                     </section>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Alterar
                         </button>
@@ -106,7 +106,7 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                     <p class="pb-3 text-amber-300">Bolinha</p>
                     <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl w-full h-full">
@@ -114,7 +114,7 @@
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold"> 5</span></p>
                     </section>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Alterar
                         </button>
@@ -123,7 +123,7 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                     <p class="pb-3 text-amber-300">Coxinha</p>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl w-full h-full">
@@ -131,7 +131,7 @@
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold">  5</span></p>
                     </section>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Alterar
                         </button>
@@ -140,7 +140,7 @@
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                     <p class="pb-3 text-amber-300">Bolinha</p>
                     <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl w-full h-full">
@@ -148,7 +148,7 @@
                     <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                         <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold"> 5</span></p>
                     </section>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Alterar
                         </button>

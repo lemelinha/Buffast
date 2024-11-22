@@ -19,9 +19,9 @@
         </div>
     </header>
 
-    <div class="grid grid-rows-subgrid ">
+    <div class="flex-1 overflow-auto">
     <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 px-12 py-2">
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">1</span></p>
                     <div class="flex justify-center items-center">
@@ -36,13 +36,13 @@
                         class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">2</span></p>
                     <div class="flex justify-center items-center">
@@ -57,14 +57,14 @@
                          class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
 
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">3</span></p>
                     <div class="flex justify-center items-center">
@@ -79,14 +79,14 @@
                          class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
 
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">4</span></p>
                     <div class="flex justify-center items-center">
@@ -101,14 +101,14 @@
                          class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
 
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">5</span></p>
                     <div class="flex justify-center items-center">
@@ -123,14 +123,14 @@
                          class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
 
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">6</span></p>
                     <div class="flex justify-center items-center">
@@ -145,14 +145,14 @@
                          class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
 
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
                         </button>
                     </footer>
             </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font w-card h-auto">
+            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                     <header class="card-header text-base md:text-lg lg:text-2xl">
                     <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">7</span></p>
                     <div class="flex justify-center items-center">
@@ -167,7 +167,7 @@
                          class="h-16 sm:h-20 mb-5 mx-auto"
                         src="/assets/images/qr_code.png"/>
                     </div>
-                    <footer class="flex align-end justify-end">
+                    <footer class="flex justify-end mt-auto">
 
                         <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
                             Deletar
