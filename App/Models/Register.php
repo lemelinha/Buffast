@@ -2,7 +2,7 @@
 
 namespace App\Models;
 use Core\Model\Model;
-use PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Register extends Model {
     public function enviar() {
