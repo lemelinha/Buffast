@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use Core\Controller\Controller;
 use App\Models\Login;
+use App\Models\Register;
 
 class IndexController extends Controller { 
     public function Index() {
@@ -33,6 +34,11 @@ class IndexController extends Controller {
         die();
     }
     
+    public function Registro() {
+        $Register = new Register();
+        $Register->enviar();
+    }
+
     public function Logout() {
         Login::Logout();
         header('Location: /login');

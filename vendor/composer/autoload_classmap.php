@@ -10,6 +10,8 @@ return array(
     'App\\Connection' => $baseDir . '/App/Connection.php',
     'App\\Controllers\\AdminController' => $baseDir . '/App/Controllers/AdminController.php',
     'App\\Controllers\\IndexController' => $baseDir . '/App/Controllers/IndexController.php',
+    'App\\Models\\Login' => $baseDir . '/App/Models/Login.php',
+    'App\\Models\\Register' => $baseDir . '/App/Models/Register.php',
     'App\\Router' => $baseDir . '/App/Router.php',
     'App\\Tools\\Tools' => $baseDir . '/App/Tools/Tools.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

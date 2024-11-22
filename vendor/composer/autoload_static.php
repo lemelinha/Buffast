@@ -29,6 +29,7 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
         array (
             'PhpOption\\' => 10,
             'PHPMailer\\PHPMailer\\' => 20,
+            'PHPMailer\\' => 10,
         ),
         'G' => 
         array (
@@ -81,6 +82,10 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
+        'PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'GrahamCampbell\\ResultType\\' => 
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
@@ -109,6 +114,8 @@ class ComposerStaticInit04daedb24fefe0e5168241ff00d79c6b
         'App\\Connection' => __DIR__ . '/../..' . '/App/Connection.php',
         'App\\Controllers\\AdminController' => __DIR__ . '/../..' . '/App/Controllers/AdminController.php',
         'App\\Controllers\\IndexController' => __DIR__ . '/../..' . '/App/Controllers/IndexController.php',
+        'App\\Models\\Login' => __DIR__ . '/../..' . '/App/Models/Login.php',
+        'App\\Models\\Register' => __DIR__ . '/../..' . '/App/Models/Register.php',
         'App\\Router' => __DIR__ . '/../..' . '/App/Router.php',
         'App\\Tools\\Tools' => __DIR__ . '/../..' . '/App/Tools/Tools.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

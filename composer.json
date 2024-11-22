@@ -6,7 +6,8 @@
         "psr-4": {
             "App\\": "App/",
             "Core\\": "App/Core/",
-            "Dotenv\\": "vendor/vlucas/phpdotenv/src"
+            "Dotenv\\": "vendor/vlucas/phpdotenv/src",
+            "PHPMailer\\": "vendor/phpmailer/phpmailer/src"
         }
     },
     "authors": [
