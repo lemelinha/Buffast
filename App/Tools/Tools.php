@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Tools;
-
+use App\Connection;
 use Ramsey\Uuid\Uuid;
 
 abstract class Tools {
@@ -12,7 +12,7 @@ abstract class Tools {
 
     // Mapa de campos criptografados por tabela
     private const ENCRYPTED_FIELDS = [
-        'tb_buffet' => ['nome_buffet', 'cnpj', 'email'],
+        'tb_buffet' => ['nome_buffet', 'cnpj', 'email', 'url_pfp'],
         'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'nome_responsavel']
     ];
 
@@ -144,8 +144,7 @@ abstract class Tools {
                 continue;
             }
             
-            $encrypted = openssl_encrypt($value, self::CIPHER, self::$key, OPENSSL_RAW_DATA, $iv);
-            $results[$key] = base64_encode($encrypted . '::' . $iv);
+            $results[$key] = self::encrypt($value);
         }
         
         return $results;
@@ -162,5 +161,77 @@ abstract class Tools {
     public static function isAjax(): bool {
         return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+    }
+
+    public static function CNPJExists(string $cnpj): bool {
+        $sql = "SELECT
+                    cnpj
+                FROM
+                    tb_buffet";
+        $conn = Connection::connect();
+        $results = $conn->query($sql)->fetchAll();
+        foreach($results as $result) {
+            if (self::decrypt($result->cnpj) == $cnpj) return true;
+        }
+        return false;
+    }
+
+    public static function UploadImage(string $id, array $image, bool $isPFP, ?string $imageToRemove=''): array {
+        switch($image['error']) {
+            case UPLOAD_ERR_INI_SIZE:
+                return ['ok' => false, 'msg' => 'Arquivo muito pesado'];
+            case UPLOAD_ERR_FORM_SIZE:
+                return ['ok' => false, 'msg' => 'Arquivo muito pesado'];
+            case UPLOAD_ERR_PARTIAL:
+                return ['ok' => false, 'msg' => 'Falha no upload'];
+            case UPLOAD_ERR_NO_FILE:
+                return ['ok' => false, 'msg' => 'Arquivo vazio'];
+            case UPLOAD_ERR_NO_TMP_DIR:
+                return ['ok' => false, 'msg' => 'Pasta temporária ausente'];
+            case UPLOAD_ERR_CANT_WRITE:
+                return ['ok' => false, 'msg' => 'Falha em salvar arquivo'];
+        }
+
+        $allowedTypes = ['image/jpeg', 'image/png'];
+        
+        // Verifica o tipo do arquivo
+        if (!in_array($image['type'], $allowedTypes)) {
+            return ['ok' => false, 'msg' => 'Tipo de arquivo não permitido. (JPG, PNG)'];
+        }
+
+        $uploadDir = ABSOLUTE_PATH . '/public/assets/images/' . $id . '/';
+        $ref = '/assets/images/' . $id . '/';
+
+        if (!file_exists($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+
+        $fileExtension = pathinfo($image['name'], PATHINFO_EXTENSION);
+        if ($isPFP) {
+            $fileName = 'pfp';
+        } else {
+            $fileName = hash('sha256', time() . $id);
+        }
+
+        if (!empty($imageToRemove)) {
+            self::RemoveFile($imageToRemove);
+        }
+
+        $fileName = $fileName . '.' . $fileExtension;
+        $filePath = $uploadDir . $fileName;
+
+        $ref = $ref . $fileName;
+
+        if (move_uploaded_file($image['tmp_name'], $filePath)) {
+            return ['ok' => true, 'path' => $ref];
+        } else {
+            return ['ok' => false, 'msg' => 'Erro ao salvar o arquivo'];
+        }
+    }
+
+    public static function RemoveFile($path) {
+        if (file_exists(ABSOLUTE_PATH . '/public' . $path) && !is_dir(ABSOLUTE_PATH . '/public' . $path)) {
+            unlink(ABSOLUTE_PATH . '/public' . $path);
+        }
     }
 }

@@ -9,6 +9,10 @@ class AdminController extends Controller {
             header('Location: /login');
             die();
         }
+        if ($_SESSION['status'] != 'V') {
+            $this->renderView('valideEmail');
+            die();
+        }
     }
 
     public function Produtos() {

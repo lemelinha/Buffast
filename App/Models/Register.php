@@ -3,30 +3,50 @@
 namespace App\Models;
 use Core\Model\Model;
 use PHPMailer\PHPMailer\PHPMailer;
+use App\Tools\Tools;
 
-class Register extends Model {
-    public function enviar() {
+abstract class Register extends Model {
+    public static function Register($id, $nome, $cnpj, $email, $pfp, $senha) {
+        $sql = "INSERT INTO
+                    tb_buffet
+                VALUES
+                    (:cd_buffet, :nome_buffet, :cnpj, :url_pfp, :senha, :email, default)";
+        $params = Tools::encryptRecord('tb_buffet', [
+            'cd_buffet' => $id,
+            'nome_buffet' => $nome,
+            'cnpj' => $cnpj,
+            'url_pfp' => $pfp,
+            'senha' => password_hash($senha, PASSWORD_BCRYPT),
+            'email' => $email
+        ]);
+        parent::executeStatement($sql, $params);
+        self::SendValidation($email);
+
+        $_SESSION['id'] = $id;
+        $_SESSION['nome'] = $nome;
+        $_SESSION['cnpj'] = $cnpj;
+        $_SESSION['email'] = $email;
+        $_SESSION['url_pfp'] = $pfp;
+        $_SESSION['status'] = 'P';
+    }
+
+    private static function SendValidation($email) {
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
-        $mail->Username = 'support@buffast.com.br';
-        $mail->Password = 'Beta5000@';
+        $mail->Username = $_ENV['MAIL_USERNAME'];
+        $mail->Password = $_ENV['MAIL_PASSWORD'];
         $mail->Port = 465;
         
-        $mail->setFrom('support@buffast.com.br');
+        $mail->setFrom($_ENV['MAIL_USERNAME']);
         $mail->addReplyTo('globglogabgalabcapeta666@gmail.com', 'asd');
-        $mail->addAddress('l.leme3008@gmail.com', 'Lucas Leme');
-        $mail->addAddress('kauzago9@gmail.com', 'Kauan Zago');
-        $mail->addCC('globglogabgalabcapeta666@gmail.com', 'Cópia');
-        $mail->addBCC('globglogabgalabcapeta666@gmail.com', 'Cópia Oculta');
+        $mail->addAddress($email);
         
         $mail->isHTML(true);
         $mail->Subject = 'Autentificar Registro';
         $mail->Body    = 'Autentifique seu registro no Buffast! (aguarde)';
-        $mail->AltBody = 'cuzinho';
-        //$mail->addAttachment('/tmp/image.jpg', 'nome.jpg');
 
         if(!$mail->send()) {
             echo 'Não foi possível enviar a mensagem.<br>';

@@ -37,19 +37,19 @@ abstract class Router {
             'method' => ['POST']
         ];
 
-        $routes['send email'] = [
-            'router' => '/email',
-            'controller' =>'IndexController',
+        $routes['registro'] = [
+            'router' => '/registro',
+            'controller' => 'IndexController',
             'action' => 'Registro',
-            'method' => ['GET']
+            'method' => ['GET', 'POST']
         ];
 
-        $routes['loginAuth'] = [
-            'router' => '/login/auth',
-            'controller' =>'IndexController',
-            'action' => 'LoginAuth',
-            'method' => ['POST']
-        ];
+        // $routes['send email'] = [
+        //     'router' => '/email',
+        //     'controller' =>'IndexController',
+        //     'action' => 'Registro',
+        //     'method' => ['GET']
+        // ];
 
         $routes['logout'] = [
             'router' => '/logout',
