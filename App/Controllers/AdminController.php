@@ -5,10 +5,14 @@ use Core\Controller\Controller;
 
 class AdminController extends Controller {
     public function __construct() {
-         if (!isset($_SESSION['id'])) {
-             header('Location: /login');
-             die();
-         }
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['status'] != 'V') {
+            $this->renderView('valideEmail');
+            die();
+        }
     }
 
     public function Produtos() {

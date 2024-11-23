@@ -1,4 +1,4 @@
-<form action="/registro" method="POST">
+<form action="/registro" method="POST" enctype="multipart/form-data">
     <input type="text" name="nome">
     <input type="text" name="cnpj">
     <input type="file" name="pfp">

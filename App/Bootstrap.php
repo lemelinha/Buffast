@@ -11,6 +11,7 @@ class Bootstrap extends Router{
         $this->declareRoutes();
         define('ERRO404', dirname(__FILE__, 1).'/Erro404.php');
         define('ERRO405', dirname(__FILE__, 1).'/Erro405.php');
+        define('ABSOLUTE_PATH', dirname(__FILE__, 2));
 
         $uri = $this->getUri();
         $this->run($uri);

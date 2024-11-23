@@ -6,12 +6,11 @@ use PHPMailer\PHPMailer\PHPMailer;
 use App\Tools\Tools;
 
 abstract class Register extends Model {
-    public static function Register($nome, $cnpj, $email, $pfp, $senha) {
+    public static function Register($id, $nome, $cnpj, $email, $pfp, $senha) {
         $sql = "INSERT INTO
                     tb_buffet
                 VALUES
                     (:cd_buffet, :nome_buffet, :cnpj, :url_pfp, :senha, :email, default)";
-        $id = Tools::UUID();
         $params = Tools::encryptRecord('tb_buffet', [
             'cd_buffet' => $id,
             'nome_buffet' => $nome,
@@ -48,8 +47,6 @@ abstract class Register extends Model {
         $mail->isHTML(true);
         $mail->Subject = 'Autentificar Registro';
         $mail->Body    = 'Autentifique seu registro no Buffast! (aguarde)';
-        $mail->AltBody = 'cuzinho';
-        //$mail->addAttachment('/tmp/image.jpg', 'nome.jpg');
 
         if(!$mail->send()) {
             echo 'Não foi possível enviar a mensagem.<br>';
