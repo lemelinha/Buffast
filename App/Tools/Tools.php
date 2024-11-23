@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Tools;
-
+use App\Connection;
 use Ramsey\Uuid\Uuid;
 
 abstract class Tools {
@@ -12,7 +12,7 @@ abstract class Tools {
 
     // Mapa de campos criptografados por tabela
     private const ENCRYPTED_FIELDS = [
-        'tb_buffet' => ['nome_buffet', 'cnpj', 'email'],
+        'tb_buffet' => ['nome_buffet', 'cnpj', 'email', 'url_pfp'],
         'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'nome_responsavel']
     ];
 
@@ -144,8 +144,7 @@ abstract class Tools {
                 continue;
             }
             
-            $encrypted = openssl_encrypt($value, self::CIPHER, self::$key, OPENSSL_RAW_DATA, $iv);
-            $results[$key] = base64_encode($encrypted . '::' . $iv);
+            $results[$key] = self::encrypt($value);
         }
         
         return $results;
@@ -162,5 +161,18 @@ abstract class Tools {
     public static function isAjax(): bool {
         return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+    }
+
+    public static function CNPJExists($cnpj) {
+        $sql = "SELECT
+                    cnpj
+                FROM
+                    tb_buffet";
+        $conn = Connection::connect();
+        $results = $conn->query($sql)->fetchAll();
+        foreach($results as $result) {
+            if (self::decrypt($result->cnpj) == $cnpj) return true;
+        }
+        return false;
     }
 }

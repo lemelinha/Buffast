@@ -52,7 +52,7 @@
         
       </form>
 
-      <p class="mt-8 text-white">Sem cadastro? <a href="/cadastro" class="text-amber-300 hover:text-amber-400 font-semibold">Crie uma conta aqui!</a></p>
+      <p class="mt-8 text-white">Sem cadastro? <a href="/registro" class="text-amber-300 hover:text-amber-400 font-semibold">Crie uma conta aqui!</a></p>
 
 
     </div>

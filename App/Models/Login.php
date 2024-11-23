@@ -21,6 +21,7 @@ abstract class Login extends Model {
                 $_SESSION['cnpj'] = Tools::decrypt($result->cnpj);
                 $_SESSION['email'] = $email;
                 $_SESSION['url_pfp'] = Tools::decrypt($result->url_pfp);
+                $_SESSION['status'] = $result->status_buffet;
                 return True;
             }
         }

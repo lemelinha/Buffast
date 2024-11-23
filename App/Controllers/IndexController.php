@@ -4,6 +4,7 @@ namespace App\Controllers;
 use Core\Controller\Controller;
 use App\Models\Login;
 use App\Models\Register;
+use App\Tools\Tools;
 
 class IndexController extends Controller { 
     public function Index() {
@@ -35,8 +36,22 @@ class IndexController extends Controller {
     }
     
     public function Registro() {
-        $Register = new Register();
-        $Register->enviar();
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $this->renderView('registro');
+            die();
+        }
+
+        if (Tools::CNPJExists($_POST['cnpj'])) {
+            $_SESSION['msg'] = "CNPJ já cadastrado";
+            header('Location: /registro');
+            die();
+        }
+
+        $pfp = '/imagem/buffet1'; // TODO
+
+        Register::Register($_POST['nome'], $_POST['cnpj'], $_POST['email'], $pfp, $_POST['senha']);
+        header('Location: /painel/produtos');
+        die();
     }
 
     public function Logout() {
