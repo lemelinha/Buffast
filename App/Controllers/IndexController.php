@@ -46,6 +46,12 @@ class IndexController extends Controller {
             header('Location: /registro');
             die();
         }
+
+        if (Tools::EmailExists($_POST['email'])) {
+            $_SESSION['msg'] = "Email já cadastrado";
+            header('Location: /registro');
+            die();
+        }
         
         $id = Tools::UUID();
         

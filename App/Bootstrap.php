@@ -14,6 +14,7 @@ class Bootstrap extends Router{
         define('ABSOLUTE_PATH', dirname(__FILE__, 2));
 
         $uri = $this->getUri();
+        Tools::DeletePendentAccounts();
         $this->run($uri);
     }
     

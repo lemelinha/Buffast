@@ -167,11 +167,30 @@ abstract class Tools {
         $sql = "SELECT
                     cnpj
                 FROM
-                    tb_buffet";
+                    tb_buffet
+                WHERE
+                    status_buffet = 'V' OR
+                    DATEDIFF(NOW(), data_registro) < 2";
         $conn = Connection::connect();
         $results = $conn->query($sql)->fetchAll();
         foreach($results as $result) {
             if (self::decrypt($result->cnpj) == $cnpj) return true;
+        }
+        return false;
+    }
+
+    public static function EmailExists(string $email): bool {
+        $sql = "SELECT
+                    email
+                FROM
+                    tb_buffet
+                WHERE
+                    status_buffet = 'V' OR
+                    DATEDIFF(NOW(), data_registro) < 2";
+        $conn = Connection::connect();
+        $results = $conn->query($sql)->fetchAll();
+        foreach($results as $result) {
+            if (self::decrypt($result->email) == $email) return true;
         }
         return false;
     }
@@ -233,5 +252,14 @@ abstract class Tools {
         if (file_exists(ABSOLUTE_PATH . '/public' . $path) && !is_dir(ABSOLUTE_PATH . '/public' . $path)) {
             unlink(ABSOLUTE_PATH . '/public' . $path);
         }
+    }
+
+    public static function DeletePendentAccounts() {
+        $sql = "DELETE FROM
+                    tb_buffet
+                WHERE
+                    status_buffet = 'P' AND
+                    DATEDIFF(NOW(), data_registro) > 2";
+        Connection::connect()->query($sql);
     }
 }

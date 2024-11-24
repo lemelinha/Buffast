@@ -41,7 +41,6 @@ abstract class Register extends Model {
         $mail->Port = 465;
         
         $mail->setFrom($_ENV['MAIL_USERNAME']);
-        $mail->addReplyTo('globglogabgalabcapeta666@gmail.com');
         $mail->addAddress($email);
         
         $mail->isHTML(true);
@@ -54,8 +53,6 @@ abstract class Register extends Model {
     public static function Validate($id) {
         $smt = self::RegisterInfo($id);
         if ($smt->rowCount() != 1) {
-            echo 'a';
-            die();
             return False;
         }
         $buffet = $smt->fetch();
