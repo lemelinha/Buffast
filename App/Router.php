@@ -44,12 +44,13 @@ abstract class Router {
             'method' => ['GET', 'POST']
         ];
 
-        // $routes['send email'] = [
-        //     'router' => '/email',
-        //     'controller' =>'IndexController',
-        //     'action' => 'Registro',
-        //     'method' => ['GET']
-        // ];
+        $routes['validar registro'] = [
+            'router' => '/validate/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}',
+            'controller' =>'AdminController',
+            'action' => 'Validate',
+            'method' => ['GET'],
+            'params' => ['id']
+        ];
 
         $routes['logout'] = [
             'router' => '/logout',

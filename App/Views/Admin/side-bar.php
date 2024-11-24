@@ -97,7 +97,7 @@
 		</ul>
 
 		<div class="mt-auto h-16 flex items-center justify-center w-full">
-			<div class="session bg-white border-2 border-amber-300 rounded-full h-14 w-14" id="login-img"></div>
+			<img class="session bg-white border-2 border-amber-300 rounded-full h-14 w-14" src="<?= $_SESSION['url_pfp'] ?>">
 		</div>
 			<button
 				class="h-16 w-10 mb-2 mx-auto flex flex justify-center items-center
