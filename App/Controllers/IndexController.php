@@ -13,7 +13,7 @@ class IndexController extends Controller {
     }
     
     public function Login() {
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['cd_buffet'])) {
             header('Location: /painel/produtos');
             die();
         }
@@ -21,7 +21,7 @@ class IndexController extends Controller {
     }
     
     public function LoginAuth() {
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['cd_buffet'])) {
             header('Location: /painel/produtos');
             die();
         }

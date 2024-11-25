@@ -3,6 +3,7 @@
 namespace App\Models;
 use Core\Model\Model;
 use App\Tools\Tools;
+use App\Models\Buffet\Buffet;
 
 abstract class Login extends Model {
     public static function LoginAuth($userEmail, $userSenha) {
@@ -16,12 +17,7 @@ abstract class Login extends Model {
             $senha = $result->senha;
             
             if ($email == $userEmail && password_verify($userSenha, $senha)) {
-                $_SESSION['id'] = $result->cd_buffet;
-                $_SESSION['nome'] = Tools::decrypt($result->nome_buffet);
-                $_SESSION['cnpj'] = Tools::decrypt($result->cnpj);
-                $_SESSION['email'] = $email;
-                $_SESSION['url_pfp'] = Tools::decrypt($result->url_pfp);
-                $_SESSION['status'] = $result->status_buffet;
+                new Buffet($result->cd_buffet);
                 return True;
             }
         }

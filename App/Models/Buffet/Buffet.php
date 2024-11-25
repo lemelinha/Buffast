@@ -42,13 +42,7 @@ class Buffet extends Model {
         parent::executeStatement($sql, $params);
         Register::SendValidation($this->cd_buffet, $this->email);
 
-        $_SESSION['cd_buffet'] = $this->cd_buffet;
-        $_SESSION['nome_buffet'] = $this->nome_buffet;
-        $_SESSION['cnpj'] = $this->cnpj;
-        $_SESSION['email'] = $this->email;
-        $_SESSION['url_pfp'] = $this->url_pfp;
-        $_SESSION['status_buffet'] = 'P';
-        $this->status_buffet = 'P';
+        $this->Data();
 
         return true;
     }
@@ -66,9 +60,9 @@ class Buffet extends Model {
                     cd_buffet = :id";
         $smt = parent::executeStatement($sql, ['id' => $this->cd_buffet])->fetch();
         if (!$smt) return;
-        foreach ($smt as $key => $value) {
+        $buffet = Tools::decryptRecord('tb_buffet', $smt);
+        foreach ($buffet as $key => $value) {
             if (property_exists($this, $key)) {
-                $value = Tools::decryptRecord('tb_buffet', $value);
                 $this->$key = $value;
                 $_SESSION[$key] = $value;
             }
