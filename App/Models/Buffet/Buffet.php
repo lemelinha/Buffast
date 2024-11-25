@@ -65,6 +65,7 @@ class Buffet extends Model {
                 WHERE
                     cd_buffet = :id";
         $smt = parent::executeStatement($sql, ['id' => $this->cd_buffet])->fetch();
+        if (!$smt) return;
         foreach ($smt as $key => $value) {
             if (property_exists($this, $key)) {
                 $this->$key = $value;
