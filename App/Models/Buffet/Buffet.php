@@ -12,7 +12,7 @@ class Buffet extends Model {
     public $url_pfp;
     private $senha;
     private $email;
-    public $status;
+    public $status_buffet;
     private $data_registro;
 
     public function __construct(string|null $cd_buffet) {
