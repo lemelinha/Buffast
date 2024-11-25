@@ -13,9 +13,14 @@
   <nav class="grid grid-cols-2 p-3 bg-amber-300">
       <h6 class="mt-2 main-font font-tittle text-3xl">Buffast</h6>
     <aside class="main-font justify-self-end">
-      <button class="p-2 text-base lg:text-xl text-amber-300 border border-gray-300 rounded-2xl bg-card-modal focus:ring-blue-500 focus:border-blue-500"><a
-      href="/login">Login</button>
-      <button class="p-2 text-base lg:text-xl text-amber-300 border border-gray-300 rounded-2xl bg-card-modal focus:ring-blue-500 focus:border-blue-500">Cadastrar</button>
+    <a
+    href="/login">
+      <button class="p-2 text-base lg:text-xl text-amber-300 border border-gray-300 rounded-2xl bg-card-modal focus:ring-blue-500 focus:border-blue-500">Login</button>
+    </a>
+    <a
+    href="/registro">
+      <button class="p-2 text-base lg:text-xl text-amber-300 border border-gray-300 rounded-2xl bg-card-modal focus:ring-blue-500 focus:border-blue-500"s>Cadastrar</button>
+    </a>
     </aside>
   </nav>
   <main>
@@ -24,7 +29,7 @@
         <img src="/assets/images/balloons-2.svg" class="h-44 lg:h-56 justify-self-center">
       </aside>
       <section>
-        <article class=" text-center main-font ">
+        <article class=" text-center main-font">
           <p class="text-2xl lg:text-6xl text-amber-300">Mais Agilidade e Flexibilidade para Seus Eventos!</p>
           <p class="p-4 text-xs lg:text-xl text-amber-400">Gestao de Pedidos Mais Precisas, Clientes Mais Felizes: Transforme Seu Buffet com Facilidade e Rapidez!</p>
           <button class="p-2 text-base lg:text-5xl font-tittle border border-gray-300 rounded-3xl btn-landing focus:ring-blue-500 focus:border-blue-500"><a
