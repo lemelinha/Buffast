@@ -52,4 +52,18 @@ class Produto extends Model {
             }
         }
     }
+
+    public static function AllProdutos($cd_buffet) {
+        $sql = "SELECT
+                    *
+                FROM
+                    tb_produto
+                WHERE
+                    id_buffet = :id";
+        $params = [
+            'id' => $cd_buffet
+        ];
+
+        return parent::executeStatement($sql, $params);
+    }
 }

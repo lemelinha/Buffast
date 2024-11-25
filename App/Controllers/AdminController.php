@@ -36,7 +36,10 @@ class AdminController extends Controller {
 
     public function Produtos() {
         $this->ValidateAccount();
-        $this->render('main', 'AdminLayout', 'Admin');
+
+        $produtos = Produto::AllProdutos($this->buffet->cd_buffet);
+
+        $this->render('main', 'AdminLayout', 'Admin', '', ['produtos' => $produtos]);
     }
 
     public function CadastrarProduto() {
@@ -46,7 +49,7 @@ class AdminController extends Controller {
         $produto = new Produto($this->buffet->cd_buffet, $id);
 
         $imagem = '/assets/images/' . $this->buffet->cd_buffet . '/Logo-Buffast2.png';
-        if (empty($_FILES['imagem'])) {
+        if (!empty($_FILES['imagem'])) {
             $imagem = Tools::UploadImage($id, $_FILES['imagem'], false, '', $this->buffet->cd_buffet);
             if (!$imagem['ok']) {
                 Modal::Error('Erro ao cadastrar o produto', $imagem['msg'], '/painel/produtos');
@@ -54,9 +57,9 @@ class AdminController extends Controller {
             }
         }
 
+        $produto->Insert($_POST['nome'], $_POST['quantidade'], $imagem['path']??$imagem);
         Modal::Success('Produto Cadastrado', '', '/painel/produtos');
         die();
-        $produto->Insert($_POST['nome'], $_POST['quantidade'], $imagem['path']??$imagem);
     }
 
     public function AlterarProduto() {
