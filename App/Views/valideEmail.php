@@ -11,7 +11,8 @@
 </head>
 <body>
   <div class="center bg-landing h-screen w-screen text-center place-content-center main-font">
-    <p class="text-amber-300 text-5xl ">Foi enviado um email para verificacao da sua conta</p>
+    <p class="text-amber-300 text-5xl">Foi enviado um email para verificacao da sua conta</p>
+    <p class="text-amber-300 text-5xl">Não recebeu? <a href="/reenviar-email">Reenviar</a></p>
     <a href="/" class="text-white border-b-2 border-white text-3xl">Sair</a>
   </div>
 </body>

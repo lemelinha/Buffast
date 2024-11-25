@@ -6,9 +6,24 @@ use App\Models\Buffet\Buffet;
 use App\Models\Buffet\Produto;
 use App\Tools\Tools;
 use App\Models\Modal;
+use App\Models\Register;
 
 class AdminController extends Controller {
     private $buffet;
+
+    public function ReenviarEmail() {
+        if (!isset($_SESSION['cd_buffet'])) {
+            header('Location: /login');
+            die();
+        }
+        $this->buffet = new Buffet($_SESSION['cd_buffet']);
+        if (Register::SendValidation($this->buffet->cd_buffet, $this->buffet->email)) {
+            Modal::Success('Email Enviado!', '', '/painel/produtos');
+            die();
+        };
+        Modal::Error('Erro ao enviar o email!', 'Tente novamente mais tarde', '/painel/produtos');
+        die();
+    }
 
     public function Validate($id) {
         if (Buffet::Validate($id)) {

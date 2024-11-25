@@ -5,7 +5,7 @@ use Core\Model\Model;
 use PHPMailer\PHPMailer\PHPMailer;
 
 abstract class Register extends Model {
-    public static function SendValidation($id, $email) {
+    public static function SendValidation(string $id, string $email): bool {
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com';
@@ -22,6 +22,10 @@ abstract class Register extends Model {
         $mail->Subject = 'Autentificar Registro';
         $mail->Body    = "Autentifique seu registro no Buffast clicando no link abaixo: <br> https://buffast.com.br/validate/$id <br> Esse link tem validade de 2 dias <br>Caso não tenha sido você, apenas ignore";
 
-        $mail->send();
+        if ($mail->send()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -6,6 +6,8 @@ use App\Models\Buffet\Buffet;
 use Core\Controller\Controller;
 use App\Models\Login;
 use App\Tools\Tools;
+use App\Models\Register;
+use App\Models\Modal;
 
 class IndexController extends Controller { 
     public function Index() {
@@ -68,7 +70,12 @@ class IndexController extends Controller {
 
         $buffet = new Buffet($id);
         $buffet->Insert($_POST['nome'], $_POST['cnpj'], $pfp['path']??$pfp, $_POST['senha'], $_POST['email']);
-        header('Location: /painel/produtos');
+
+        if (Register::SendValidation($buffet->cd_buffet, $buffet->email)) {
+            Modal::Success('Email Enviado!', '', '/painel/produtos');
+            die();
+        };
+        Modal::Error('Erro ao enviar o email!', 'Tente novamente mais tarde', '/painel/produtos');
         die();
     }
 
