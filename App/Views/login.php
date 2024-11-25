@@ -23,7 +23,7 @@
   <div class="hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen" id="login-img">
   </div>
 
-  <div class="bg-theme w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+  <div class="bg-landing w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
         flex items-center justify-center">
 
     <div class="w-full h-100">
@@ -53,7 +53,7 @@
       </form>
 
       <p class="mt-8 text-white">Sem cadastro? <a href="/registro" class="text-amber-300 hover:text-amber-400 font-semibold">Crie uma conta aqui!</a></p>
-
+      <a href="/"><p class="justify-self-end text-slate-200 mt-5 border-b-2 border-slate-200 hover:text-white hover:border-white">Voltar</p></a>
 
     </div>
   </div>
