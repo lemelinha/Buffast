@@ -9,8 +9,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
 </head>
-<div class="flex items-center justify-center p-6 bg-landing h-screen">
-    <div class="mx-auto w-full max-w-[450px] sm:border-amber-300 sm:border-2 sm:p-5 sm:rounded-2xl">
+<section class="flex flex-col md:flex-row h-screen items-center">
+
+  <div class="hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen" id="login-img">
+  </div>
+
+  <div class="bg-landing w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+        flex items-center justify-center">
+
+    <div class="w-full h-100">
+
 
     <h1 class="text-xl text-white md:text-2xl font-bold leading-tight mb-5">Crie sua conta</h1>
         
@@ -29,8 +37,6 @@
                 </label>
                 <input type="text" name="cnpj"  autofocus autocomplete required
                     class="w-full py-2 px-6 rounded-lg bg-amber-300 border placeholder-black focus:border-blue-500 focus:bg-amber-200 focus:outline-none" />
-            </div>
-            <div class="mb-3">
                 <label for="pfp" class="mb-3 block text-base text-white">
                     Foto
                 </label>
@@ -65,4 +71,6 @@
             <a href="/"><p class="justify-self-end text-slate-200 mt-5 border-b-2 border-slate-200 hover:text-white hover:border-white">Voltar</p></a>
         </form>
     </div>
-</div>
+  </div>
+
+</section>
