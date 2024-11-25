@@ -19,5 +19,10 @@ $this->renderView($this->page->view, $this->page->viewDirectory);
 
 $this->renderView('footer', 'Admin');
 
+if (isset($_SESSION['alert'])) {
+    echo '<script>alert("' . $_SESSION['alert'] . '")</script>';
+    unset($_SESSION['alert']);
+}
+
 ?>
 </body>

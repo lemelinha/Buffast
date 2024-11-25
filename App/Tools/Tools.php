@@ -195,7 +195,7 @@ abstract class Tools {
         return false;
     }
 
-    public static function UploadImage(string $id, array $image, bool $isPFP, ?string $imageToRemove=''): array {
+    public static function UploadImage(string $id, array $image, bool $isPFP, ?string $imageToRemove='', ?string $cd_buffet=''): array {
         switch($image['error']) {
             case UPLOAD_ERR_INI_SIZE:
                 return ['ok' => false, 'msg' => 'Arquivo muito pesado'];
@@ -218,8 +218,13 @@ abstract class Tools {
             return ['ok' => false, 'msg' => 'Tipo de arquivo não permitido. (JPG, PNG)'];
         }
 
-        $uploadDir = ABSOLUTE_PATH . '/public/assets/images/' . $id . '/';
-        $ref = '/assets/images/' . $id . '/';
+        if ($isPFP) {
+            $uploadDir = ABSOLUTE_PATH . '/public/assets/images/' . $id . '/';
+            $ref = '/assets/images/' . $id . '/';
+        } else {
+            $uploadDir = ABSOLUTE_PATH . '/public/assets/images/' . $cd_buffet . '/';
+            $ref = '/assets/images/' . $cd_buffet . '/';
+        }
 
         if (!file_exists($uploadDir)) {
             mkdir($uploadDir, 0755, true);

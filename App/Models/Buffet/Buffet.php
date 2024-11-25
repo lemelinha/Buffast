@@ -21,23 +21,17 @@ class Buffet extends Model {
     }
 
     public function Insert(string $nome_buffet, string $cnpj, string $url_pfp, string $senha, string $email) {
-        $this->nome_buffet = $nome_buffet;
-        $this->cnpj = $cnpj;
-        $this->url_pfp = $url_pfp;
-        $this->senha = $senha;
-        $this->email = $email;
-
         $sql = "INSERT INTO
                     tb_buffet
                 VALUES
                     (:cd_buffet, :nome_buffet, :cnpj, :url_pfp, :senha, :email, default, default)";
         $params = Tools::encryptRecord('tb_buffet', [
             'cd_buffet' => $this->cd_buffet,
-            'nome_buffet' => $this->nome_buffet,
-            'cnpj' => $this->cnpj,
-            'url_pfp' => $this->url_pfp,
-            'senha' => password_hash($this->senha, PASSWORD_BCRYPT),
-            'email' => $this->email
+            'nome_buffet' => $nome_buffet,
+            'cnpj' => $cnpj,
+            'url_pfp' => $url_pfp,
+            'senha' => password_hash($senha, PASSWORD_BCRYPT),
+            'email' => $email
         ]);
         parent::executeStatement($sql, $params);
         Register::SendValidation($this->cd_buffet, $this->email);

@@ -65,11 +65,25 @@ abstract class Router {
     }
 
     private function AdminRoutes() {
-        $routes['painel'] = [
+        $routes['produtos'] = [
             'router' => '/painel/produtos',
             'controller' =>'AdminController',
             'action' => 'Produtos',
             'method' => ['GET']
+        ];
+
+        $routes['produtos cadastrar'] = [
+            'router' => '/painel/produtos/cadastrar',
+            'controller' =>'AdminController',
+            'action' => 'CadastrarProduto',
+            'method' => ['POST']
+        ];
+
+        $routes['produtos alterar'] = [
+            'router' => '/painel/produtos/alterar',
+            'controller' =>'AdminController',
+            'action' => 'AlterarProduto',
+            'method' => ['POST']
         ];
 
         $routes['painel festas'] = [
