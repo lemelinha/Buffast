@@ -11,7 +11,7 @@ class Buffet extends Model {
     private $cnpj;
     public $url_pfp;
     private $senha;
-    private $email;
+    public $email;
     public $status_buffet;
     private $data_registro;
 
@@ -34,7 +34,6 @@ class Buffet extends Model {
             'email' => $email
         ]);
         parent::executeStatement($sql, $params);
-        Register::SendValidation($this->cd_buffet, $this->email);
 
         $this->Data();
 
