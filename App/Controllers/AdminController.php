@@ -3,17 +3,14 @@
 namespace App\Controllers;
 use Core\Controller\Controller;
 use App\Models\Register;
+use App\Models\Buffet\Buffet;
+use App\Tools\Tools;
 
 class AdminController extends Controller {
-    public function __construct() {
-        if (!isset($_SESSION['id'])) {
-            header('Location: /login');
-            die();
-        }
-    }
+    private $buffet;
 
     public function Validate($id) {
-        if (Register::Validate($id)) {
+        if (Buffet::Validate($id)) {
             $this->renderView('emailValidado');
             die();
         }
@@ -47,7 +44,12 @@ class AdminController extends Controller {
     }
 
     private function ValidateAccount() {
-        if ($_SESSION['status'] != 'V') {
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
+        $this->buffet = new Buffet($_SESSION['id']);
+        if ($this->status_buffet != 'V') {
             $this->renderView('valideEmail');
             die();
         }

@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Controllers;
+
+use App\Models\Buffet\Buffet;
 use Core\Controller\Controller;
 use App\Models\Login;
-use App\Models\Register;
 use App\Tools\Tools;
 
 class IndexController extends Controller { 
@@ -34,7 +35,7 @@ class IndexController extends Controller {
         header('Location: /login');
         die();
     }
-    
+
     public function Registro() {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $this->renderView('registro');
@@ -65,7 +66,8 @@ class IndexController extends Controller {
             }
         }
 
-        Register::Register($id, $_POST['nome'], $_POST['cnpj'], $_POST['email'], $pfp['path'], $_POST['senha']);
+        $buffet = new Buffet($id);
+        $buffet->Insert($_POST['nome'], $_POST['cnpj'], $pfp, $_POST['senha'], $_POST['email']);
         header('Location: /painel/produtos');
         die();
     }
