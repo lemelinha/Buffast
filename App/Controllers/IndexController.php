@@ -67,7 +67,7 @@ class IndexController extends Controller {
         }
 
         $buffet = new Buffet($id);
-        $buffet->Insert($_POST['nome'], $_POST['cnpj'], $pfp, $_POST['senha'], $_POST['email']);
+        $buffet->Insert($_POST['nome'], $_POST['cnpj'], $pfp['path'], $_POST['senha'], $_POST['email']);
         header('Location: /painel/produtos');
         die();
     }
