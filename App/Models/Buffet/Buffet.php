@@ -42,13 +42,13 @@ class Buffet extends Model {
         parent::executeStatement($sql, $params);
         Register::SendValidation($this->cd_buffet, $this->email);
 
-        $_SESSION['id'] = $this->cd_buffet;
-        $_SESSION['nome'] = $this->nome_buffet;
+        $_SESSION['cd_buffet'] = $this->cd_buffet;
+        $_SESSION['nome_buffet'] = $this->nome_buffet;
         $_SESSION['cnpj'] = $this->cnpj;
         $_SESSION['email'] = $this->email;
         $_SESSION['url_pfp'] = $this->url_pfp;
-        $_SESSION['status'] = 'P';
-        $this->status = 'P';
+        $_SESSION['status_buffet'] = 'P';
+        $this->status_buffet = 'P';
 
         return true;
     }
@@ -68,7 +68,9 @@ class Buffet extends Model {
         if (!$smt) return;
         foreach ($smt as $key => $value) {
             if (property_exists($this, $key)) {
+                $value = Tools::decrypt($value);
                 $this->$key = $value;
+                $_SESSION[$key] = $value;
             }
         }
     }
@@ -77,7 +79,7 @@ class Buffet extends Model {
         $smt = parent::executeStatement("SELECT * FROM tb_buffet WHERE cd_buffet = :id", ['id' => $id]);
 
         if ($smt->rowCount() != 1) {
-            return False;
+            return false;
         }
 
         $buffet = $smt->fetch();
@@ -87,7 +89,7 @@ class Buffet extends Model {
 
         $date_diff = abs(time() - strtotime($buffet->data_registro)) / (60 * 60 * 24);
         if ($date_diff > 2) {
-            return False;
+            return false;
         }        
 
         $sql = "UPDATE

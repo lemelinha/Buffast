@@ -42,11 +42,11 @@ class AdminController extends Controller {
     }
 
     private function ValidateAccount() {
-        if (!isset($_SESSION['id'])) {
+        if (!isset($_SESSION['cd_buffet'])) {
             header('Location: /login');
             die();
         }
-        $this->buffet = new Buffet($_SESSION['id']);
+        $this->buffet = new Buffet($_SESSION['cd_buffet']);
         if ($this->buffet->status_buffet != 'V') {
             $this->renderView('valideEmail');
             die();
