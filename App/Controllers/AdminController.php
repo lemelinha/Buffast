@@ -2,9 +2,7 @@
 
 namespace App\Controllers;
 use Core\Controller\Controller;
-use App\Models\Register;
 use App\Models\Buffet\Buffet;
-use App\Tools\Tools;
 
 class AdminController extends Controller {
     private $buffet;
@@ -49,7 +47,7 @@ class AdminController extends Controller {
             die();
         }
         $this->buffet = new Buffet($_SESSION['id']);
-        if ($this->status_buffet != 'V') {
+        if ($this->buffet->status_buffet != 'V') {
             $this->renderView('valideEmail');
             die();
         }
