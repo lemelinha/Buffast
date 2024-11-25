@@ -246,6 +246,10 @@ input[type="number"] {
 	width: 110%;
 }
 
+.border-card{
+	border-color: #803469;
+}
+
 .center {
 	position: absolute;
 	top: 50%;

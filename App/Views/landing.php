@@ -58,6 +58,68 @@
       </section>
     </div>
     <div class="font-tittle main-font my-10 lg:p-4 btn-landing ">
+      <div>
+        <header class="grid grid-cols-1 items-center justify-center p-6">
+          <div>
+            <p class="text-center text-xl lg:text-5xl font-tittle">Buffast: Transforme Suas Festas em 
+              <br>Experiencias Inesqueciveis </p>
+          </div>
+          <div>
+            <p class="text-center text-base lg:text-xl font-tittle p-5">
+              Gerencie, personalize e conquiste clientes com nossa plataforma completa de buffet. Desde o primeiro contato ate a execucao perfeita da festa, tenha total controle e simplicidade!</p>
+          </div>
+        </header>
+        <div class="grid grid-cols-3 gap-4 p-10">
+          <div class="border-card rounded-2xl border-4">
+            <header class="bg-amber-300 rounded-2xl p-2">
+              <p class="text-xl">Produtos</p>
+            </header>
+            <div class="card-body bg-theme rounded-b-lg">
+              <img src="/assets/images/produtos.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
+            </div>
+          </div>
+          <div class="border-card rounded-2xl border-4">
+            <header class="bg-amber-300 rounded-2xl p-2">
+              <p class="text-xl">Festas</p>
+            </header>
+            <div class="card-body bg-theme rounded-b-lg">
+              <img src="/assets/images/festas.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
+            </div>
+          </div>
+          <div class="border-card rounded-2xl border-4">
+            <header class="bg-amber-300 rounded-2xl p-2">
+              <p class="text-xl">Mesas</p>
+            </header>
+            <div class="card-body bg-theme rounded-b-lg">
+              <img src="/assets/images/mesas.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
+            </div>
+          </div>
+          <div class="border-card rounded-2xl border-4">
+            <header class="bg-amber-300 rounded-2xl p-2">
+              <p class="text-xl">Estoque</p>
+            </header>
+            <div class="card-body bg-theme rounded-b-lg">
+              <img src="/assets/images/estoque.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
+            </div>
+          </div>
+          <div class="border-card rounded-2xl border-4">
+            <header class="bg-amber-300 rounded-2xl p-2">
+              <p class="text-xl">Pedidos</p>
+            </header>
+            <div class="card-body bg-theme rounded-b-lg">
+              <img src="/assets/images/pedidos.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
+            </div>
+          </div>
+          <div class="border-card rounded-2xl border-4">
+            <header class="bg-amber-300 rounded-2xl p-2">
+              <p class="text-xl">Perfil</p>
+            </header>
+            <div class="card-body bg-theme rounded-b-lg">
+              <img src="/assets/images/balloons-2.svg" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
+            </div>
+          </div>
+        </div>
+      </div>
       <header class="flex items-center justify-center p-6">
         <p class="text-center text-xl lg:text-5xl font-tittle">Menos Desperdicio, Mais Lucro: 
           <br>
