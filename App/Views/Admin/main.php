@@ -27,7 +27,7 @@
                         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                             <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                             <p class="pb-3 text-amber-300"><?= $produto->nome_produto ?></p>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl w-full h-full">
+                            <img src="<?= $produto->url_imagem ?>" class="rounded-lg shadow-2xl w-full h-full">
                             </header>
                             <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-base lg:text-lg">
                                 <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold"><?= $produto->quantidade_pote ?></span></p>
