@@ -68,7 +68,7 @@ class Buffet extends Model {
         if (!$smt) return;
         foreach ($smt as $key => $value) {
             if (property_exists($this, $key)) {
-                $value = Tools::decrypt($value);
+                $value = Tools::decryptRecord('tb_buffet', $value);
                 $this->$key = $value;
                 $_SESSION[$key] = $value;
             }
