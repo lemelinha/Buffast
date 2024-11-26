@@ -100,6 +100,11 @@ class AdminController extends Controller {
         $this->render('pedidos', 'AdminLayout', 'Admin');
     }
 
+    public function Perfil() {
+        $this->ValidateAccount();
+        $this->render('perfil', 'AdminLayout', 'Admin');
+    }
+
     private function ValidateAccount() {
         if (!isset($_SESSION['cd_buffet'])) {
             header('Location: /login');

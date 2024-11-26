@@ -70,7 +70,7 @@
           </div>
         </header>
         <div class="grid grid-cols-3 gap-4 p-10">
-          <div class="border-card rounded-2xl border-4">
+          <div class="border-card rounded-2xl border-4 zoom">
             <header class="bg-amber-300 rounded-2xl p-2">
               <p class="text-xl">Produtos</p>
             </header>
@@ -78,7 +78,7 @@
               <img src="/assets/images/produtos.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
             </div>
           </div>
-          <div class="border-card rounded-2xl border-4">
+          <div class="border-card rounded-2xl border-4 zoom">
             <header class="bg-amber-300 rounded-2xl p-2">
               <p class="text-xl">Festas</p>
             </header>
@@ -86,7 +86,7 @@
               <img src="/assets/images/festas.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
             </div>
           </div>
-          <div class="border-card rounded-2xl border-4">
+          <div class="border-card rounded-2xl border-4 zoom">
             <header class="bg-amber-300 rounded-2xl p-2">
               <p class="text-xl">Mesas</p>
             </header>
@@ -94,7 +94,7 @@
               <img src="/assets/images/mesas.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
             </div>
           </div>
-          <div class="border-card rounded-2xl border-4">
+          <div class="border-card rounded-2xl border-4 zoom">
             <header class="bg-amber-300 rounded-2xl p-2">
               <p class="text-xl">Estoque</p>
             </header>
@@ -102,7 +102,7 @@
               <img src="/assets/images/estoque.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
             </div>
           </div>
-          <div class="border-card rounded-2xl border-4">
+          <div class="border-card rounded-2xl border-4 zoom">
             <header class="bg-amber-300 rounded-2xl p-2">
               <p class="text-xl">Pedidos</p>
             </header>
@@ -110,7 +110,7 @@
               <img src="/assets/images/pedidos.png" class="h-44 lg:h-56 rounded-b-xl justify-self-center">
             </div>
           </div>
-          <div class="border-card rounded-2xl border-4">
+          <div class="border-card rounded-2xl border-4 zoom">
             <header class="bg-amber-300 rounded-2xl p-2">
               <p class="text-xl">Perfil</p>
             </header>

@@ -97,7 +97,7 @@
 		</ul>
 
 		<div class="mt-auto h-16 flex items-center justify-center w-full">
-			<img class="session bg-white border-2 border-amber-300 rounded-full h-14 w-14" src="<?= $_SESSION['url_pfp'] ?>">
+			<a href="/painel/perfil"><img class="session bg-white border-2 border-amber-300 rounded-full h-14 w-14" src="<?= $_SESSION['url_pfp'] ?>"></a>
 		</div>
 			<button
 				class="h-16 w-10 mb-2 mx-auto flex flex justify-center items-center

@@ -47,14 +47,14 @@
                 <label for="email" class="mb-3 block text-base text-white">
                     Email
                 </label>
-                <input type="text" name="email"  autofocus autocomplete required
+                <input type="email" name="email"  autofocus autocomplete required
                     class="w-full py-2 px-6 rounded-lg bg-amber-300 border placeholder-black focus:border-blue-500 focus:bg-amber-200 focus:outline-none" />
             </div>
             <div class="mb-3">
                 <label for="senha" class="mb-3 block text-base text-white">
                     Senha
                 </label>
-                <input type="text" name="senha"  autofocus autocomplete required
+                <input type="password" name="senha"  autofocus autocomplete required
                     class="w-full py-2 px-6 rounded-lg bg-amber-300 border placeholder-black focus:border-blue-500 focus:bg-amber-200 focus:outline-none" />
             </div>
             <?php

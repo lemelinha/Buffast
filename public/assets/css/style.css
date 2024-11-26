@@ -248,6 +248,7 @@ input[type="number"] {
 
 .border-card{
 	border-color: #803469;
+	border-width: 4px;
 }
 
 .center {
@@ -363,3 +364,11 @@ input[type="number"] {
 		),
 		linear-gradient(92deg, rgb(252, 211, 77), rgb(252, 211, 77));
 }
+
+.zoom{
+	transition: transform 0.5s ease;
+}
+.zoom:hover {
+	transform: scale(1.06);
+}
+

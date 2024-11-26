@@ -121,6 +121,13 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $routes['painel perfil'] = [
+            'router' => '/painel/perfil',
+            'controller' =>'AdminController',
+            'action' => 'Perfil',
+            'method' => ['GET']
+        ];
+
         $this->routes = array_merge($this->routes, $routes);
     }
 }
