@@ -53,7 +53,7 @@
       </form>
 
       <p class="mt-8 text-white">Sem cadastro? <a href="/registro" class="text-amber-300 hover:text-amber-400 font-semibold">Crie uma conta aqui!</a></p>
-      <a href="/"><p class="justify-self-end text-slate-200 mt-5 border-b-2 border-slate-200 hover:text-white hover:border-white">Voltar</p></a>
+      <a href="/"><p class="flex w-10 justify-self-end text-slate-200 mt-5 border-b-2 border-slate-200 hover:text-white hover:border-white">Voltar</p></a>
 
     </div>
   </div>

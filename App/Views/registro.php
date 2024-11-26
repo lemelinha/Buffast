@@ -70,7 +70,7 @@
                 class="w-full block bg-amber-300 hover:bg-amber-400 focus:bg-amber-400 font-semibold rounded-lg
                 px-4 py-3 mt-6">
             </div>
-            <a href="/"><p class="justify-self-end text-slate-200 mt-5 border-b-2 border-slate-200 hover:text-white hover:border-white">Voltar</p></a>
+            <a href="/"><p class="justify-self-end w-10 text-slate-200 mt-5 border-b-2 border-slate-200 hover:text-white hover:border-white">Voltar</p></a>
         </form>
     </div>
   </div>
