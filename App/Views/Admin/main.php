@@ -1,4 +1,3 @@
-<?php $this->renderView('modal', 'Admin/produtos') ?>
 <body>
 <main class="grid grid-rows-[2fr_6fr_1fr] ml-16 w-screen">
     <header class="text-center main-font text-white font-bold">
@@ -33,14 +32,14 @@
                                 <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold"><?= $produto->quantidade_pote ?></span></p>
                             </section>
                             <footer class="flex justify-end mt-auto">
-                                <button data-modal-target="editar" data-modal-toggle="editar" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
+                                <button data-modal-target="editar" data-modal-toggle="editar" class="editar-produto bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2" cd_produto="<?= $produto->cd_produto ?>" url_imagem="<?= $produto->url_imagem ?>" nome_produto="<?= $produto->nome_produto ?>" quantidade_pote="<?= $produto->quantidade_pote ?>" id_buffet="<?= $produto->id_buffet ?>">
                                     Alterar
                                 </button>
-                                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm">
+                                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="excluir-produto bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm" cd_produto="<?= $produto->cd_produto ?>">
                                     Deletar
                                 </button>
                             </footer>
-                    </div>
+                        </div>
                     <?php
                 }
             ?>
@@ -50,6 +49,8 @@
         <button data-modal-target="upload" data-modal-toggle="upload" class="row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Cadastrar</button>
     </div>
 </main>
+<?php $this->renderView('modal', 'Admin/produtos') ?>
+
 <?php $this->renderView('footer', 'Admin') ?>
 </body>
 

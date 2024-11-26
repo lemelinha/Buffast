@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>
-                        <input type="text" name="nome" id="produto" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5"  required="">
+                        <input type="text" name="nome" id="nome" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
                         <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade por Pote</label>
@@ -58,15 +58,15 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5" action="/painel/produtos/edit" method="POST" enctype="multipart/form-data">
+            <form class="p-4 md:p-5" id="editar" action="/painel/produtos/alterar" method="POST" enctype="multipart/form-data">
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
-                        <label for="imagem" class="block mb-2 text-sm font-medium text-white ">Imagem</label>
-                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="">
+                        <label for="imagem" class="block mb-2 text-sm font-medium text-white ">Imagem (vazio para manter)</label>
+                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600">
                     </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>
-                        <input type="text" name="produto" id="produto" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
+                        <input type="text" name="nome" id="nome" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
                         <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade por Pote</label>
@@ -104,3 +104,35 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('button.editar-produto').click(function () {
+        $('form#editar input#nome').val($(this).attr('nome_produto'))
+        $('form#editar input#quantidade').val($(this).attr('quantidade_pote'))
+
+        let id_buffet = $(this).attr('id_buffet')
+        let url_imagem = $(this).attr('url_imagem')
+        let cd_produto = $(this).attr('cd_produto')
+
+        $('form#editar').submit(function (e) {
+            $("<input>").attr({
+                type: "hidden",
+                name: "cd_produto",
+                value: cd_produto
+            }).appendTo(this);
+
+            $("<input>").attr({
+                type: "hidden",
+                name: "id_buffet",
+                value: id_buffet
+            }).appendTo(this);
+
+            $("<input>").attr({
+                type: "hidden",
+                name: "remover_imagem",
+                value: url_imagem
+            }).appendTo(this);
+            return True
+        })
+    })
+</script>

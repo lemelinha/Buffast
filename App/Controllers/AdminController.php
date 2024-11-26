@@ -49,7 +49,7 @@ class AdminController extends Controller {
         $produto = new Produto($this->buffet->cd_buffet, $id);
 
         $imagem = '/assets/images/' . $this->buffet->cd_buffet . '/Logo-Buffast2.png';
-        if (!empty($_FILES['imagem'])) {
+        if ($_FILES['imagem']['error'] != 4) {
             $imagem = Tools::UploadImage($id, $_FILES['imagem'], false, '', $this->buffet->cd_buffet);
             if (!$imagem['ok']) {
                 Modal::Error('Erro ao cadastrar o produto', $imagem['msg'], '/painel/produtos');
@@ -64,6 +64,20 @@ class AdminController extends Controller {
 
     public function AlterarProduto() {
         $this->ValidateAccount();
+
+        $produto = new Produto($this->buffet->cd_buffet, $_POST['cd_produto']);
+
+        if ($_FILES['imagem']['error'] != 4) {
+            $imagem = Tools::UploadImage($produto->cd_produto, $_FILES['imagem'], false, $_POST['remover_imagem'], $this->buffet->cd_buffet);
+            if (!$imagem['ok']) {
+                Modal::Error('Erro ao alterar o produto', $imagem['msg'], '/painel/produtos');
+                die();
+            }
+        }
+
+        $produto->Update($_POST['nome'], $_POST['quantidade'], $imagem['path']??$_POST['remover_imagem']);
+        Modal::Success('Produto Alterado', '', '/painel/produtos');
+        die();
     }
 
     public function Festas() {

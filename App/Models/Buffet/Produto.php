@@ -37,6 +37,27 @@ class Produto extends Model {
         return true;
     }
 
+    public function Update(string $nome_produto, int $quantidade_pote, string $url_imagem) {
+        $sql = "UPDATE
+                    tb_produto
+                SET
+                    nome_produto = :nome_produto,
+                    quantidade_pote = :quantidade_pote,
+                    url_imagem = :url_imagem
+                WHERE
+                    id_buffet = :id_buffet";
+        $params = [
+            'nome_produto' => $nome_produto,
+            'quantidade_pote' => $quantidade_pote,
+            'url_imagem' => $url_imagem,
+            'id_buffet' => $this->id_buffet
+        ];
+        parent::executeStatement($sql, $params);
+        $this->Data();
+
+        return true;
+    }
+
     public function Data() {
         $sql = "SELECT
                     *

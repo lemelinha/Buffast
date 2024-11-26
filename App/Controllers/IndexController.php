@@ -59,7 +59,7 @@ class IndexController extends Controller {
         $id = Tools::UUID();
         
         $pfp = '/assets/images/test2.jpg';
-        if (!empty($_FILES['pfp'])) {
+        if ($_FILES['imagem']['error'] != 4) {
             $pfp = Tools::UploadImage($id, $_FILES['pfp'], true);
             if (!$pfp['ok']) {
                 $_SESSION['msg'] = $pfp['msg'];
