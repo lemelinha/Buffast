@@ -58,6 +58,22 @@ class Produto extends Model {
         return true;
     }
 
+    public function Delete() {
+        $sql = "UPDATE
+                    tb_produto
+                SET
+                    status_produto = 'D'
+                WHERE
+                    cd_produto = :cd_produto";
+        $params = [
+            'cd_produto' => $this->cd_produto
+        ];
+        $this->executeStatement($sql, $params);
+        $this->Data();
+
+        return true;
+    }
+
     public function Data() {
         $sql = "SELECT
                     *
@@ -80,6 +96,7 @@ class Produto extends Model {
                 FROM
                     tb_produto
                 WHERE
+                    status_produto = 'A' AND
                     id_buffet = :id";
         $params = [
             'id' => $cd_buffet
