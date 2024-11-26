@@ -108,6 +108,28 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $routes['festa cadastrar'] = [
+            'router' => '/painel/festas/cadastrar',
+            'controller' =>'AdminController',
+            'action' => 'CadastrarFesta',
+            'method' => ['POST']
+        ];
+
+        $routes['festa alterar'] = [
+            'router' => '/painel/festas/alterar',
+            'controller' =>'AdminController',
+            'action' => 'AlterarFesta',
+            'method' => ['POST']
+        ];
+
+        $routes['festa deletar'] = [
+            'router' => '/painel/festas/deletar/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}',
+            'controller' =>'AdminController',
+            'action' => 'DeletarFesta',
+            'method' => ['POST'],
+            'params' => ['cd_festa']
+        ];
+
         $routes['painel estoque'] = [
             'router' => '/painel/estoque',
             'controller' =>'AdminController',

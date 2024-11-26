@@ -22,9 +22,14 @@ class Produto extends Model {
         $sql = "INSERT INTO
                     tb_produto
                 VALUES
-                    (:cd_produto, :nome_produto, :quantidade_pote, :url_imagem, :id_buffet, default)";
+                    (:cd_produto, 
+                    :nome_produto, 
+                    :quantidade_pote, 
+                    :url_imagem, 
+                    :id_buffet, 
+                    default)";
 
-        $params = Tools::encryptRecord('tb_buffet', [
+        $params = Tools::encryptRecord('tb_produto', [
             'cd_produto' => $this->cd_produto,
             'nome_produto' => $nome_produto,
             'quantidade_pote' => $quantidade_pote,
@@ -45,13 +50,13 @@ class Produto extends Model {
                     quantidade_pote = :quantidade_pote,
                     url_imagem = :url_imagem
                 WHERE
-                    id_buffet = :id_buffet";
-        $params = [
+                    cd_produto = :cd_produto";
+        $params = Tools::encryptRecord('tb_produto', [
             'nome_produto' => $nome_produto,
             'quantidade_pote' => $quantidade_pote,
             'url_imagem' => $url_imagem,
-            'id_buffet' => $this->id_buffet
-        ];
+            'cd_produto' => $this->cd_produto
+        ]);
         parent::executeStatement($sql, $params);
         $this->Data();
 
@@ -81,7 +86,7 @@ class Produto extends Model {
                     tb_produto
                 WHERE
                     cd_produto = :id";
-        $smt = parent::executeStatement($sql, ['id' => $this->cd_produto])->fetch();
+        $smt = Tools::decryptRecord('tb_produto', parent::executeStatement($sql, ['id' => $this->cd_produto])->fetch());
         if (!$smt) return;
         foreach ($smt as $key => $value) {
             if (property_exists($this, $key)) {
@@ -102,6 +107,6 @@ class Produto extends Model {
             'id' => $cd_buffet
         ];
 
-        return parent::executeStatement($sql, $params);
+        return Tools::decryptRecord('tb_produto', parent::executeStatement($sql, $params)->fetchAll());
     }
 }

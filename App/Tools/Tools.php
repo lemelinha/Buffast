@@ -13,7 +13,7 @@ abstract class Tools {
     // Mapa de campos criptografados por tabela
     private const ENCRYPTED_FIELDS = [
         'tb_buffet' => ['nome_buffet', 'cnpj', 'email', 'url_pfp'],
-        'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'nome_responsavel']
+        'tb_festa' => ['nome_aniversariante', 'data_aniversario', 'nome_responsavel', 'cpf_responsavel']
     ];
 
     private static function InitKey(): void {
@@ -56,9 +56,19 @@ abstract class Tools {
                 $array = array_merge($array, $processed);
             }
         } else {
-            foreach ($array as $field => $value) {
-                if (self::shouldEncrypt($table, $field)) {
-                    $array[$field] = self::decrypt($value);
+            if ($isObject) {
+                foreach ($array as $field => $value) {
+                    if (self::shouldEncrypt($table, $field)) {
+                        $array[$field] = self::decrypt($value);
+                    }
+                }
+            } else {
+                foreach ($array as $obj) {
+                    foreach ($obj as $field => $value) {
+                        if (self::shouldEncrypt($table, $field)) {
+                            $obj->$field = self::decrypt($value);
+                        }
+                    }
                 }
             }
         }

@@ -4,9 +4,11 @@ namespace App\Controllers;
 use Core\Controller\Controller;
 use App\Models\Buffet\Buffet;
 use App\Models\Buffet\Produto;
+use App\Models\Buffet\Festa;
 use App\Tools\Tools;
 use App\Models\Modal;
 use App\Models\Register;
+use DateTime;
 
 class AdminController extends Controller {
     private $buffet;
@@ -92,7 +94,50 @@ class AdminController extends Controller {
 
     public function Festas() {
         $this->ValidateAccount();
-        $this->render('festa', 'AdminLayout', 'Admin');
+
+        $festas = Festa::AllFestas($this->buffet->cd_buffet);
+
+        $this->render('festa', 'AdminLayout', 'Admin', '', ['festas' => $festas]);
+    }
+
+
+    public function CadastrarFesta() {
+        $this->ValidateAccount();
+
+        $id = Tools::UUID();
+        $festa = new Festa($this->buffet->cd_buffet, $id);
+
+        $inicio = new DateTime($_POST['datetime-start']);
+        $fim = new DateTime($_POST['datetime-end']);
+        
+        $festa->Insert($_POST['aniversariante'], $_POST['aniversario'], $_POST['convidados'], $_POST['responsavel'], $_POST['cpf-responsavel'], $inicio->format('Y-m-d H:i:s'), $fim->format('Y-m-d H:i:s'));
+
+        Modal::Success('Festa Cadastrada', '', '/painel/festas');
+        die();
+    }
+
+    public function AlterarFesta() {
+        $this->ValidateAccount();
+
+        $produto = new Festa($this->buffet->cd_buffet, $_POST['cd_festa']);
+
+        $inicio = new DateTime($_POST['datetime-start']);
+        $fim = new DateTime($_POST['datetime-end']);
+
+        $produto->Update($_POST['aniversariante'], $_POST['aniversario'], $_POST['convidados'], $_POST['responsavel'], $_POST['cpf-responsavel'], $inicio->format('Y-m-d H:i:s'), $fim->format('Y-m-d H:i:s'));
+        
+        Modal::Success('Festa Alterada', '', '/painel/festas');
+        die();
+    }
+
+    public function DeletarFesta($cd_festa) {
+        $this->ValidateAccount();
+
+        $festa = new Festa($this->buffet->cd_buffet, $cd_festa);
+
+        $festa->Delete();
+        Modal::Success('Festa Deletado', '', '/painel/festas');
+        die();
     }
 
     public function Estoque() {

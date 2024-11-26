@@ -24,7 +24,14 @@ class Buffet extends Model {
         $sql = "INSERT INTO
                     tb_buffet
                 VALUES
-                    (:cd_buffet, :nome_buffet, :cnpj, :url_pfp, :senha, :email, default, default)";
+                    (:cd_buffet, 
+                    :nome_buffet, 
+                    :cnpj, 
+                    :url_pfp, 
+                    :senha, 
+                    :email, 
+                    default, 
+                    default)";
         $params = Tools::encryptRecord('tb_buffet', [
             'cd_buffet' => $this->cd_buffet,
             'nome_buffet' => $nome_buffet,
