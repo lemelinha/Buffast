@@ -80,6 +80,16 @@ class AdminController extends Controller {
         die();
     }
 
+    public function DeletarProduto($cd_produto) {
+        $this->ValidateAccount();
+
+        $produto = new Produto($this->buffet->cd_buffet, $cd_produto);
+
+        $produto->Delete();
+        Modal::Success('Produto Deletado', '', '/painel/produtos');
+        die();
+    }
+
     public function Festas() {
         $this->ValidateAccount();
         $this->render('festa', 'AdminLayout', 'Admin');

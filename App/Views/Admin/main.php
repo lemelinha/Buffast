@@ -35,7 +35,7 @@
                                 <button data-modal-target="editar" data-modal-toggle="editar" class="editar-produto bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2" cd_produto="<?= $produto->cd_produto ?>" url_imagem="<?= $produto->url_imagem ?>" nome_produto="<?= $produto->nome_produto ?>" quantidade_pote="<?= $produto->quantidade_pote ?>" id_buffet="<?= $produto->id_buffet ?>">
                                     Alterar
                                 </button>
-                                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="excluir-produto bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm" cd_produto="<?= $produto->cd_produto ?>">
+                                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="deletar-produto bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm" cd_produto="<?= $produto->cd_produto ?>">
                                     Deletar
                                 </button>
                             </footer>
