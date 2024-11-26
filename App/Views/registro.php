@@ -37,6 +37,8 @@
                 </label>
                 <input type="text" name="cnpj"  autofocus autocomplete required
                     class="w-full py-2 px-6 rounded-lg bg-amber-300 border placeholder-black focus:border-blue-500 focus:bg-amber-200 focus:outline-none" />
+                </div>
+                <div class="mb-3">
                 <label for="pfp" class="mb-3 block text-base text-white">
                     Foto
                 </label>
