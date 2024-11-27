@@ -99,7 +99,7 @@
               <p class="text-xl">Estoque</p>
             </header>
             <div class="card-body bg-theme rounded-b-lg">
-              <img src="/assets/images/estoq.png" class="h-32 lg:h-56 rounded-b-xl justify-self-center">
+              <img src="/assets/images/estoque.png" class="h-32 lg:h-56 rounded-b-xl justify-self-center">
             </div>
           </div>
           <div class="border-card rounded-2xl zoom">
@@ -107,7 +107,7 @@
               <p class="text-xl">Pedidos</p>
             </header>
             <div class="card-body bg-theme rounded-b-lg">
-              <img src="/assets/images/pedidos.png" class="h-32 lg:h-56 rounded-b-xl justify-self-center">
+              <img src="/assets/images/pedido.png" class="h-32 lg:h-56 rounded-b-xl justify-self-center">
             </div>
           </div>
           <div class="border-card rounded-2xl zoom">
