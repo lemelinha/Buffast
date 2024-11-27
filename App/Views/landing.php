@@ -115,7 +115,7 @@
               <p class="text-xl">Perfil</p>
             </header>
             <div class="card-body bg-theme rounded-b-lg">
-              <img src="/assets/images/perfil.png" class="h-32 lg:h-56 rounded-b-xl justify-self-center">
+              <img src="/assets/images/perfils.png" class="h-32 lg:h-56 rounded-b-xl justify-self-center">
             </div>
           </div>
         </div>
