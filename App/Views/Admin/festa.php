@@ -60,7 +60,7 @@
     </div>
 
     <div class="ml-4 grid grid-rows-subgrid  justify-center justify-items-center h-1/5 p-8 font-bold md: md:p-8 lg: lg:p-4">
-        <button data-modal-target="upload" data-modal-toggle="upload"class="row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Cadastrar</button>
+        <button data-modal-target="upload" data-modal-toggle="upload" class="cadastrar-festa row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Cadastrar</button>
     </div>
     
 </main>
