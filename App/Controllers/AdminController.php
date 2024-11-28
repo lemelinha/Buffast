@@ -111,10 +111,14 @@ class AdminController extends Controller {
         $id = Tools::UUID();
         $festa = new Festa($this->buffet->cd_buffet, $id);
 
-        $inicio = new DateTime($_POST['datetime-start']);
-        $fim = new DateTime($_POST['datetime-end']);
-        
-        $festa->Insert($_POST['aniversariante'], $_POST['aniversario'], $_POST['convidados'], $_POST['responsavel'], $_POST['cpf-responsavel'], $inicio->format('Y-m-d H:i:s'), $fim->format('Y-m-d H:i:s'));
+        $data = $_POST['date-start'];
+        $hora_inicio = $_POST['time-start'];
+        $hora_fim = $_POST['time-end'];
+
+        $inicio = $data . ' ' . $hora_inicio;
+        $fim = $data . ' ' . $hora_fim;
+
+        $festa->Insert($_POST['aniversariante'], $_POST['aniversario'], $_POST['convidados'], $_POST['responsavel'], $_POST['cpf-responsavel'], $inicio, $fim);
 
         Modal::Success('Festa Cadastrada', '', '/painel/festas');
         die();
@@ -125,16 +129,20 @@ class AdminController extends Controller {
 
         $festa = new Festa($this->buffet->cd_buffet, $_POST['cd_festa']);
 
-        $inicio = new DateTime($_POST['datetime-start']);
-        $fim = new DateTime($_POST['datetime-end']);
+        $data = $_POST['date-start'];
+        $hora_inicio = $_POST['time-start'];
+        $hora_fim = $_POST['time-end'];
+
+        $inicio = $data . ' ' . $hora_inicio;
+        $fim = $data . ' ' . $hora_fim;
 
         $festa->nome_aniversariante = $_POST['aniversariante'];
         $festa->data_aniversario = $_POST['aniversario'];
         $festa->convidados = $_POST['convidados'];
         $festa->nome_responsavel = $_POST['responsavel'];
         $festa->cpf_responsavel = $_POST['cpf-responsavel'];
-        $festa->inicio = $inicio->format('Y-m-d H:i:s');
-        $festa->fim = $fim->format('Y-m-d H:i:s');
+        $festa->inicio = $inicio;
+        $festa->fim = $fim;
 
         $festa->Update();
         

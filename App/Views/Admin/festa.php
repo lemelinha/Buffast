@@ -24,6 +24,9 @@
             <!-- Card component -->
             <?php
                 foreach ($festas as $festa) {
+                    $data = (new DateTime($festa->inicio))->format('Y-m-d');
+                    $hora_inicio = (new DateTime($festa->inicio))->format('H:i');
+                    $hora_fim = (new DateTime($festa->inicio))->format('H:i');
                     ?>
                         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                             <header class="card-header text-base md:text-lg lg:text-lg">
@@ -42,7 +45,7 @@
                                 <p><span class="text-amber-300">Quantidade de Convidados:</span> <span class="font-bold"> <?= $festa->convidados ?></span></p>
                             </section>
                             <footer class="flex justify-end mt-auto">
-                                <button data-modal-target="editar" data-modal-toggle="editar" class="editar-festa bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2" cd_festa="<?= $festa->cd_festa ?>" id_buffet="<?= $festa->id_buffet ?>" nome_aniversariante="<?= $festa->nome_aniversariante ?>" data_aniversario="<?= $festa->data_aniversario ?>" convidados="<?= $festa->convidados ?>" nome_responsavel="<?= $festa->nome_responsavel ?>" cpf_responsavel="<?= $festa->cpf_responsavel ?>" inicio="<?= $festa->inicio ?>" fim="<?= $festa->fim ?>">
+                                <button data-modal-target="editar" data-modal-toggle="editar" class="editar-festa bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2" cd_festa="<?= $festa->cd_festa ?>" id_buffet="<?= $festa->id_buffet ?>" nome_aniversariante="<?= $festa->nome_aniversariante ?>" data_aniversario="<?= $festa->data_aniversario ?>" convidados="<?= $festa->convidados ?>" nome_responsavel="<?= $festa->nome_responsavel ?>" cpf_responsavel="<?= $festa->cpf_responsavel ?>" date-start="<?= $data ?>" time-start="<?= $hora_inicio ?>" time-end="<?= $hora_fim ?>">
                                     Alterar
                                 </button>
                                 <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="deletar-festa bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2" cd_festa="<?= $festa->cd_festa ?>">

@@ -81,7 +81,7 @@
             <!-- Modal body -->
             <form class="p-4 md:p-5" id="editar" method="POST" action="/painel/festas/alterar">
                 <div class="grid gap-4 mb-4 grid-cols-2">
-                    <div class="col-span-2">
+                <div class="col-span-2">
                         <label for="aniversariante" class="block mb-2 text-sm font-medium text-white ">Nome do Aniversariante</label>
                         <input type="text" name="aniversariante" id="aniversariante" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
                     </div>
@@ -98,12 +98,17 @@
                         <input type="number" name="cpf-responsavel" id="cpf-responsavel" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="datetime-start" class="block mb-2 text-sm font-medium text-white ">Inicio Festa</label>
-                        <input type="datetime-local" name="datetime-start" id="datetime-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <label for="date-start" class="block mb-2 text-sm font-medium text-white ">Inicio Festa</label>
+                        <input type="date" name="date-start" id="date-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                    </div>
+                    
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="time-start" class="block mb-2 text-sm font-medium text-white ">Horário Inicio Festa</label>
+                        <input type="time" name="time-start" id="time-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="datetime-end" class="block mb-2 text-sm font-medium text-white ">Fim Festa</label>
-                        <input type="datetime-local" name="datetime-end" id="datetime-end" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <label for="time-end" class="block mb-2 text-sm font-medium text-white ">Horário Fim Festa</label>
+                        <input type="time" name="time-end" id="time-end" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="convidados" class="block mb-2 text-sm font-medium text-white ">Quantidade de Convidados</label>
@@ -166,11 +171,14 @@
         let cpf_responsavel = $(this).attr('cpf_responsavel')
         $('form#editar input#cpf-responsavel').val(cpf_responsavel)
 
-        let inicio = $(this).attr('inicio')
-        $('form#editar input#datetime-start').val(inicio)
+        let data_start = $(this).attr('date-start')
+        $('form#editar input#date-start').val(data_start)
 
-        let fim = $(this).attr('fim')
-        $('form#editar input#datetime-end').val(fim)
+        let time_start = $(this).attr('time-start')
+        $('form#editar input#time-start').val(time_start)
+
+        let time_end = $(this).attr('time-end')
+        $('form#editar input#time-end').val(time_end)
 
         $('form#editar').submit(function () {
             $("<input>").attr({
