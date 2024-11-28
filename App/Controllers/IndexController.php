@@ -15,10 +15,6 @@ class IndexController extends Controller {
         $this->renderView('landing');
     }
 
-    public function Cardapio() {
-        $this->renderView('cardapio');
-    }
-    
     public function Login() {
         if (isset($_SESSION['cd_buffet'])) {
             header('Location: /painel/produtos');
@@ -90,7 +86,7 @@ class IndexController extends Controller {
         die();
     }
 
-    public function Produtos() {
+    public function Cardapio() {
 
         $produtos = Produto::AllProdutos($this->buffet->cd_buffet);
 

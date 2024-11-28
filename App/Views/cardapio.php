@@ -31,7 +31,7 @@
     <header class="text-center main-font text-white font-bold">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#803469"><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path></svg>
     <div class="grid grid-cols-1 lg:grid lg:grid-cols-[1fr_3fr_1fr]">
-        <h1 class="ml-4 font-tittle text-4xl p-2 md:text-5xl lg:col-start-2 lg:text-6xl lg:p-0">Cardápio</h1>
+        <h1 class="ml-4 font-tittle text-4xl p-2 md:text-5xl lg:col-start-2 lg:text-6xl lg:p-0">Cardapio</h1>
         <form class="w-10/12 sm:col-start-3 sm:w-full mx-auto sm:pr-2">
                 <label for="search" class="mb-2 text-sm font-medium text-amber-300 sr-only">Pesquisar</label>
                 <div class="relative">
@@ -54,7 +54,7 @@
                         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                             <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                                 <p class="pb-3 text-amber-300"><?= $produto->nome_produto ?></p>
-                                <div class="rounded-lg shadow-2xl h-40 w-72" id="prod-img"></div>
+                                <div class="rounded-lg shadow-2xl h-24 w-44 sm: sm: md: md: lg: lg:xl:h-40 xl:w-72" id="prod-img"></div>
                             </header>
                             <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-base lg:text-lg">
                                 <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold"><?= $produto->quantidade_pote ?></span></p>
