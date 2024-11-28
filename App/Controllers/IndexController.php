@@ -86,10 +86,15 @@ class IndexController extends Controller {
         die();
     }
 
-    public function Cardapio() {
+    public function Cardapio($cd_buffet) {
 
-        $produtos = Produto::AllProdutos($this->buffet->cd_buffet);
+        $produtos = Produto::AllProdutos($cd_buffet);
 
         $this->renderView('cardapio', '', ['produtos' => $produtos]);
+    }
+
+    public function temp() {
+        header('Location: /cardapio/'.$_SESSION['cd_buffet']);
+        die();
     }
 }
