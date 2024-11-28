@@ -23,6 +23,13 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $routes['cardapio'] = [
+            'router' => '/cardapio',
+            'controller' => 'IndexController',
+            'action' => 'Cardapio',
+            'method' => ['GET']
+        ];
+
         $routes['login'] = [
             'router' => '/login',
             'controller' => 'IndexController',

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Buffet\Buffet;
+use App\Models\Buffet\Produto;
 use Core\Controller\Controller;
 use App\Models\Login;
 use App\Tools\Tools;
@@ -12,6 +13,10 @@ use App\Models\Modal;
 class IndexController extends Controller { 
     public function Index() {
         $this->renderView('landing');
+    }
+
+    public function Cardapio() {
+        $this->renderView('cardapio');
     }
     
     public function Login() {
@@ -83,5 +88,12 @@ class IndexController extends Controller {
         Login::Logout();
         header('Location: /login');
         die();
+    }
+
+    public function Produtos() {
+
+        $produtos = Produto::AllProdutos($this->buffet->cd_buffet);
+
+        $this->renderView('cardapio', '', ['produtos' => $produtos]);
     }
 }

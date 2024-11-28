@@ -12,13 +12,26 @@
                 }
             ?>
 </style>
-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffast</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+</head>
 <body>
-<main class="grid grid-rows-[2fr_6fr_1fr] ml-16 w-screen">
+<main class="grid grid-rows-[2fr_6fr] w-screen painel">
     <header class="text-center main-font text-white font-bold">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#803469"><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path></svg>
     <div class="grid grid-cols-1 lg:grid lg:grid-cols-[1fr_3fr_1fr]">
-        <h1 class="ml-4 font-tittle text-4xl p-2 md:text-5xl lg:col-start-2 lg:text-6xl lg:p-0">Produtos Cadastrados</h1>
+        <h1 class="ml-4 font-tittle text-4xl p-2 md:text-5xl lg:col-start-2 lg:text-6xl lg:p-0">Cardápio</h1>
         <form class="w-10/12 sm:col-start-3 sm:w-full mx-auto sm:pr-2">
                 <label for="search" class="mb-2 text-sm font-medium text-amber-300 sr-only">Pesquisar</label>
                 <div class="relative">
@@ -59,9 +72,6 @@
                 }
             ?>
         </div>
-    </div>
-    <div class="grid grid-rows-subgrid justify-center justify-items-center p-8 font-bold md: md:p-8 lg: lg:p-4">
-        <button data-modal-target="upload" data-modal-toggle="upload" class="row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Cadastrar</button>
     </div>
 </main>
 <?php $this->renderView('modal', 'Admin/produtos') ?>

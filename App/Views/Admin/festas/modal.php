@@ -35,12 +35,17 @@
                         <input type="number" name="cpf-responsavel" id="cpf-responsavel" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="datetime-start" class="block mb-2 text-sm font-medium text-white ">Inicio Festa</label>
-                        <input type="datetime-local" name="datetime-start" id="datetime-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <label for="date-start" class="block mb-2 text-sm font-medium text-white ">Inicio Festa</label>
+                        <input type="date" name="date-start" id="date-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                    </div>
+                    
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="time-start" class="block mb-2 text-sm font-medium text-white ">Horário Inicio Festa</label>
+                        <input type="time" name="time-start" id="time-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="datetime-end" class="block mb-2 text-sm font-medium text-white ">Fim Festa</label>
-                        <input type="datetime-local" name="datetime-end" id="datetime-end" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <label for="time-end" class="block mb-2 text-sm font-medium text-white ">Horário Fim Festa</label>
+                        <input type="time" name="time-end" id="time-end" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="convidados" class="block mb-2 text-sm font-medium text-white ">Quantidade de Convidados</label>
