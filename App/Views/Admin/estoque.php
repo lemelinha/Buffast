@@ -1,16 +1,9 @@
 <style>
-     <?php
-                foreach ($produtos as $produto) {
-                    ?>
-#prod-img {
-	background-image: url("<?= $produto->url_imagem ?>");
-	background-size: 100% 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-<?php
-                }
-            ?>
+    #prod-img {
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 </style>
 <body>
 <main class="grid grid-rows-[2fr_6fr] ml-16 w-screen">
@@ -43,7 +36,7 @@
                         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                                 <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
                                 <p class="pb-3"><?= $produto->nome_produto ?></p>
-                                <div class="rounded-lg shadow-2xl h-24 w-44 sm: sm: md: md: lg: lg:xl:h-40 xl:w-72" id="prod-img"></div>
+                                <div class="rounded-lg shadow-2xl h-24 w-44 sm: sm: md: md: lg: lg:xl:h-40 xl:w-72" id="prod-img" style="background-image: url('<?= $produto->url_imagem ?>');"></div>
                                 </header>
                                 <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
                                     <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> <?= $produto->quantidade_estoque ?></span></p>
