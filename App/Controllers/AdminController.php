@@ -142,7 +142,14 @@ class AdminController extends Controller {
 
     public function Estoque() {
         $this->ValidateAccount();
-        $this->render('estoque', 'AdminLayout', 'Admin');
+
+        $produtos = Produto::AllProdutos($this->buffet->cd_buffet);
+
+        $this->render('estoque', 'AdminLayout', 'Admin', '', ['produtos' => $produtos]);
+    }
+
+    public function EstoqueProcess($type, $cd_produto, $quantidade) {
+        echo json_encode(['ok' => true, 'msg' => 'Estoque atualizado!']);
     }
 
     public function Mesas() {

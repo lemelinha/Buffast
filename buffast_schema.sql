@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `db_buffast`.`tb_buffet` (
   `status_buffet` CHAR(1) NOT NULL DEFAULT 'P',
   `data_registro` DATETIME NOT NULL DEFAULT current_timestamp,
   PRIMARY KEY (`cd_buffet`),
-  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ASC) VISIBLE,
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
+  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ASC) ,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
 ENGINE = InnoDB;
 
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `db_buffast`.`tb_festa` (
   `id_buffet` VARCHAR(36) NOT NULL,
   `status_festa` CHAR(1) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`cd_festa`),
-  INDEX `fk_tb_festa_tb_buffet_idx` (`id_buffet` ASC) VISIBLE,
+  INDEX `fk_tb_festa_tb_buffet_idx` (`id_buffet` ASC) ,
   CONSTRAINT `fk_tb_festa_tb_buffet`
     FOREIGN KEY (`id_buffet`)
     REFERENCES `db_buffast`.`tb_buffet` (`cd_buffet`)
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `db_buffast`.`tb_produto` (
   `id_buffet` VARCHAR(36) NOT NULL,
   `status_produto` CHAR(1) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`cd_produto`),
-  INDEX `fk_tb_produto_tb_buffet1_idx` (`id_buffet` ASC) VISIBLE,
+  INDEX `fk_tb_produto_tb_buffet1_idx` (`id_buffet` ASC) ,
   CONSTRAINT `fk_tb_produto_tb_buffet1`
     FOREIGN KEY (`id_buffet`)
     REFERENCES `db_buffast`.`tb_buffet` (`cd_buffet`)
@@ -94,7 +94,7 @@ DROP TABLE IF EXISTS `db_buffast`.`tb_estoque` ;
 CREATE TABLE IF NOT EXISTS `db_buffast`.`tb_estoque` (
   `cd_estoque` VARCHAR(36) NOT NULL,
   `id_produto` VARCHAR(36) NOT NULL,
-  INDEX `fk_tb_estoque_tb_produto1_idx` (`id_produto` ASC) VISIBLE,
+  INDEX `fk_tb_estoque_tb_produto1_idx` (`id_produto` ASC) ,
   PRIMARY KEY (`cd_estoque`),
   CONSTRAINT `fk_tb_estoque_tb_produto1`
     FOREIGN KEY (`id_produto`)
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `db_buffast`.`tb_mesa` (
   `numero_mesa` TINYINT UNSIGNED NOT NULL,
   `id_buffet` VARCHAR(36) NOT NULL,
   PRIMARY KEY (`cd_mesa`),
-  INDEX `fk_tb_mesa_tb_buffet1_idx` (`id_buffet` ASC) VISIBLE,
+  INDEX `fk_tb_mesa_tb_buffet1_idx` (`id_buffet` ASC) ,
   CONSTRAINT `fk_tb_mesa_tb_buffet1`
     FOREIGN KEY (`id_buffet`)
     REFERENCES `db_buffast`.`tb_buffet` (`cd_buffet`)
@@ -135,8 +135,8 @@ CREATE TABLE IF NOT EXISTS `db_buffast`.`tb_pedido` (
   `id_mesa` VARCHAR(36) NULL,
   `id_festa` VARCHAR(36) NOT NULL,
   PRIMARY KEY (`cd_pedido`),
-  INDEX `fk_tb_pedido_tb_mesa1_idx` (`id_mesa` ASC) VISIBLE,
-  INDEX `fk_tb_pedido_tb_festa1_idx` (`id_festa` ASC) VISIBLE,
+  INDEX `fk_tb_pedido_tb_mesa1_idx` (`id_mesa` ASC) ,
+  INDEX `fk_tb_pedido_tb_festa1_idx` (`id_festa` ASC) ,
   CONSTRAINT `fk_tb_pedido_tb_mesa1`
     FOREIGN KEY (`id_mesa`)
     REFERENCES `db_buffast`.`tb_mesa` (`cd_mesa`)
@@ -159,8 +159,8 @@ CREATE TABLE IF NOT EXISTS `db_buffast`.`tb_produto_has_tb_pedido` (
   `id_produto` VARCHAR(36) NOT NULL,
   `id_pedido` VARCHAR(36) NOT NULL,
   PRIMARY KEY (`id_produto`, `id_pedido`),
-  INDEX `fk_tb_produto_has_tb_pedido_tb_pedido1_idx` (`id_pedido` ASC) VISIBLE,
-  INDEX `fk_tb_produto_has_tb_pedido_tb_produto1_idx` (`id_produto` ASC) VISIBLE,
+  INDEX `fk_tb_produto_has_tb_pedido_tb_pedido1_idx` (`id_pedido` ASC) ,
+  INDEX `fk_tb_produto_has_tb_pedido_tb_produto1_idx` (`id_produto` ASC) ,
   CONSTRAINT `fk_tb_produto_has_tb_pedido_tb_produto1`
     FOREIGN KEY (`id_produto`)
     REFERENCES `db_buffast`.`tb_produto` (`cd_produto`)

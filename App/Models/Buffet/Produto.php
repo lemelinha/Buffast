@@ -12,6 +12,8 @@ class Produto extends Model {
     public $url_imagem;
     public $status_produto;
 
+    public $quantidade_estoque;
+
     public function __construct($id_buffet, $cd_produto) {
         $this->id_buffet = $id_buffet;
         $this->cd_produto = $cd_produto;
@@ -74,6 +76,7 @@ class Produto extends Model {
             'cd_produto' => $this->cd_produto
         ];
         $this->executeStatement($sql, $params);
+        Tools::RemoveFile($this->url_imagem);
         $this->Data();
 
         return true;
@@ -81,7 +84,8 @@ class Produto extends Model {
 
     public function Data() {
         $sql = "SELECT
-                    *
+                    *,
+                    (SELECT IFNULL(COUNT(*), 0) FROM tb_estoque WHERE id_produto = :id) as quantidade_estoque
                 FROM
                     tb_produto
                 WHERE
@@ -97,7 +101,8 @@ class Produto extends Model {
 
     public static function AllProdutos($cd_buffet) {
         $sql = "SELECT
-                    *
+                    *,
+                    (SELECT IFNULL(COUNT(*), 0) FROM tb_estoque WHERE id_produto = :id) as quantidade_estoque
                 FROM
                     tb_produto
                 WHERE

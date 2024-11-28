@@ -1,4 +1,3 @@
-<?php $this->renderView('modal', 'Admin/estoque') ?>
 <body>
 <main class="grid grid-rows-[2fr_6fr] ml-16 w-screen">
     <header class="text-center main-font text-white font-bold h-1/5">
@@ -21,193 +20,29 @@
     </header>
     <div class="flex-1 overflow-auto">
         <div class="p-2">
-            <button data-modal-target="mdentrada" data-modal-toggle="mdentrada" class="bg-btn text-base h-16  p-2 ml-10 rounded-xl main-font text-amber-300 md:text-lg lg:text-xl lg:p-2">+Entrada</button> 
-            <button data-modal-target="mdsaida" data-modal-toggle="mdsaida" class="bg-btn text-base h-16 w-20 p-2 rounded-xl main-font text-amber-300 md:text-lg lg:text-xl lg:p-2">-Saida</button>
+            <button data-modal-target="mdentrada" data-modal-toggle="mdentrada" class="entrada-produto bg-btn text-base h-16  p-2 ml-10 rounded-xl main-font text-amber-300 md:text-lg lg:text-xl lg:p-2">+Entrada</button> 
+            <button data-modal-target="mdsaida" data-modal-toggle="mdsaida" class="saida-produto bg-btn text-base h-16 w-20 p-2 rounded-xl main-font text-amber-300 md:text-lg lg:text-xl lg:p-2">-Saida</button>
         </div>
         <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm xl:grid-cols-4 xl:text-base xl:gap-12 px-12 py-2">
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Coxinha</p>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Bolinha</p>
-                        <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Pastel de Queijo</p>
-                        <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                        <p><p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar 
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Pastel de Carne</p>
-                        <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="edit" data-modal-toggle="edit" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Coxinha</p>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Bolinha</p>
-                        <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Pastel de Queijo</p>
-                        <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                        <p><p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar 
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Pastel de Carne</p>
-                        <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="edit" data-modal-toggle="edit" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Coxinha</p>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Bolinha</p>
-                        <img src="/assets/images/queijo.jpg" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Pastel de Queijo</p>
-                        <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                        <p><p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="upload" data-modal-toggle="upload" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar 
-                            </button>
-                        </footer>
-                </div>
-                <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3">Pastel de Carne</p>
-                        <img src="/assets/images/pastel.jpg" class="rounded-lg shadow-2xl bg-cover">
-                        </header>
-                        <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                            <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> 500</span></p>
-                            <p><span class="text-amber-300">Quantidade minima Estoque:</span> <span class="font-bold"> 200</span></p>
-                        </section>
-                        <footer class="flex justify-end mt-auto">
-                            <button data-modal-target="edit" data-modal-toggle="edit" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Alterar
-                            </button>
-                        </footer>
-                </div>
+                <?php
+                    foreach ($produtos as $produto): ?>
+                        <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
+                                <header class="card-header grid justify-items-center text-base md:text-lg lg:text-2xl">
+                                <p class="pb-3"><?= $produto->nome_produto ?></p>
+                                <img src="<?= $produto->url_imagem ?>" class="rounded-lg shadow-2xl">
+                                </header>
+                                <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
+                                    <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> <?= $produto->quantidade_estoque ?></span></p>
+                                </section>
+                                <footer class="flex justify-end mt-auto">
+                                </footer>
+                        </div>
+                <?php endforeach; ?>
             </div>
         </div>
 </main>
+<?php $this->renderView('modal', 'Admin/estoque', ['produtos' => $produtos]) ?>
+
 <?php $this->renderView('footer', 'Admin') ?>
 </body>
 

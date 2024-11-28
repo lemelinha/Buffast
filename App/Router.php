@@ -137,6 +137,14 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $routes['painel saida/entrada'] = [
+            'router' => '/painel/estoque/[se]/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/[0-9]+',
+            'controller' =>'AdminController',
+            'action' => 'EstoqueProcess',
+            'method' => ['POST'],
+            'params' => ['type', 'cd_produto', 'quantidade']
+        ];
+
         $routes['painel mesas'] = [
             'router' => '/painel/mesas',
             'controller' =>'AdminController',
