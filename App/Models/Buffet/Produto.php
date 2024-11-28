@@ -44,7 +44,7 @@ class Produto extends Model {
         return true;
     }
 
-    public function Update(string $nome_produto, int $quantidade_pote, string $url_imagem) {
+    public function Update() {
         $sql = "UPDATE
                     tb_produto
                 SET
@@ -54,13 +54,12 @@ class Produto extends Model {
                 WHERE
                     cd_produto = :cd_produto";
         $params = Tools::encryptRecord('tb_produto', [
-            'nome_produto' => $nome_produto,
-            'quantidade_pote' => $quantidade_pote,
-            'url_imagem' => $url_imagem,
+            'nome_produto' => $this->nome_produto,
+            'quantidade_pote' => $this->quantidade_pote,
+            'url_imagem' => $this->url_imagem,
             'cd_produto' => $this->cd_produto
         ]);
         parent::executeStatement($sql, $params);
-        $this->Data();
 
         return true;
     }
@@ -99,19 +98,62 @@ class Produto extends Model {
         }
     }
 
-    public static function AllProdutos($cd_buffet) {
+    public static function AllProdutos(string $cd_buffet): array {
         $sql = "SELECT
-                    *,
-                    (SELECT IFNULL(COUNT(*), 0) FROM tb_estoque WHERE id_produto = :id) as quantidade_estoque
+                    p.*,
+                    (SELECT COUNT(*) 
+                    FROM tb_estoque e 
+                    WHERE e.id_produto = p.cd_produto) as quantidade_estoque
                 FROM
-                    tb_produto
+                    tb_produto p
                 WHERE
-                    status_produto = 'A' AND
-                    id_buffet = :id";
+                    p.status_produto = 'A' AND
+                    p.id_buffet = :cd_buffet";
         $params = [
-            'id' => $cd_buffet
+            'cd_buffet' => $cd_buffet
         ];
 
         return Tools::decryptRecord('tb_produto', parent::executeStatement($sql, $params)->fetchAll());
+    }
+
+    public function Entrada(int $quantidade): array {
+        $sql = "INSERT INTO
+                    tb_estoque
+                VALUES ";
+        for ($i=0; $i<$quantidade; $i++) {
+            if ($i > 0) $sql .= ', ';
+            $id = Tools::UUID();
+
+            $sql .= "(?, ?)";
+
+            $params[] = $id;
+            $params[] = $this->cd_produto;
+        }
+        $params = Tools::encryptRecord('tb_estoque', $params);
+
+        $this->executeStatement($sql, $params);
+        $this->Data();
+        return [true, 'Estoque Atualizado'];
+    }
+    
+    public function Saida(int $quantidade): array {
+        $quantidade = (int) $quantidade;
+        if ($quantidade > $this->quantidade_estoque) {
+            return [false, 'Quantidade maior que a do estoque'];
+        }
+        
+        $sql = "DELETE FROM
+                    tb_estoque
+                WHERE
+                    id_produto = :cd_produto
+                LIMIT " . $quantidade;
+        
+        $params = [
+            ':cd_produto' => $this->cd_produto
+        ];
+        
+        $this->executeStatement($sql, $params);
+        $this->Data();
+    return [true, 'Estoque Atualizado'];
     }
 }

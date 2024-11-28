@@ -77,7 +77,11 @@ class AdminController extends Controller {
             }
         }
 
-        $produto->Update($_POST['nome'], $_POST['quantidade'], $imagem['path']??$_POST['remover_imagem']);
+        $produto->nome_produto = $_POST['nome'];
+        $produto->quantidade_pote = $_POST['quantidade'];
+        $produto->url_imagem = $imagem['path']??$_POST['remover_imagem'];
+
+        $produto->Update();
         Modal::Success('Produto Alterado', '', '/painel/produtos');
         die();
     }
@@ -119,12 +123,20 @@ class AdminController extends Controller {
     public function AlterarFesta() {
         $this->ValidateAccount();
 
-        $produto = new Festa($this->buffet->cd_buffet, $_POST['cd_festa']);
+        $festa = new Festa($this->buffet->cd_buffet, $_POST['cd_festa']);
 
         $inicio = new DateTime($_POST['datetime-start']);
         $fim = new DateTime($_POST['datetime-end']);
 
-        $produto->Update($_POST['aniversariante'], $_POST['aniversario'], $_POST['convidados'], $_POST['responsavel'], $_POST['cpf-responsavel'], $inicio->format('Y-m-d H:i:s'), $fim->format('Y-m-d H:i:s'));
+        $festa->nome_aniversariante = $_POST['aniversariante'];
+        $festa->data_aniversario = $_POST['aniversario'];
+        $festa->convidados = $_POST['convidados'];
+        $festa->nome_responsavel = $_POST['responsavel'];
+        $festa->cpf_responsavel = $_POST['cpf-responsavel'];
+        $festa->inicio = $inicio->format('Y-m-d H:i:s');
+        $festa->fim = $fim->format('Y-m-d H:i:s');
+
+        $festa->Update();
         
         Modal::Success('Festa Alterada', '', '/painel/festas');
         die();
@@ -149,7 +161,24 @@ class AdminController extends Controller {
     }
 
     public function EstoqueProcess($type, $cd_produto, $quantidade) {
-        echo json_encode(['ok' => true, 'msg' => 'Estoque atualizado!']);
+        $this->ValidateAccount();
+
+        switch ($type) {
+            case 's':
+                $action = 'Saida';
+                break;
+            case 'e':
+                $action = 'Entrada';
+                break;
+            default:
+                echo json_encode(['ok' => false, 'msg' => 'Algo deu errado']);
+                die();
+        }
+
+        $produto = new Produto($this->buffet->cd_buffet, $cd_produto);
+        [$success, $msg] = $produto->$action($quantidade);
+        
+        echo json_encode(['ok' => $success, 'msg' => $msg, 'quantidade' => $produto->quantidade_estoque]);
     }
 
     public function Mesas() {

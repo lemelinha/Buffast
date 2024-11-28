@@ -53,7 +53,7 @@ class Festa extends Model {
         return true;
     }
 
-    public function Update(string $nome_aniversariante, string $data_aniversario, int $convidados, string $nome_responsavel, string $cpf_responsavel, string $inicio, string $fim) {
+    public function Update() {
         $sql = "UPDATE
                     tb_festa
                 SET
@@ -68,16 +68,15 @@ class Festa extends Model {
                     cd_festa = :cd_festa";
         $params = Tools::encryptRecord('tb_festa', [
             'cd_festa' => $this->cd_festa,
-            'nome_aniversariante' => $nome_aniversariante,
-            'data_aniversario' => $data_aniversario,
-            'convidados' => $convidados,
-            'nome_responsavel' => $nome_responsavel,
-            'cpf_responsavel' => $cpf_responsavel,
-            'inicio' => $inicio,
-            'fim' => $fim
+            'nome_aniversariante' => $this->nome_aniversariante,
+            'data_aniversario' => $this->data_aniversario,
+            'convidados' => $this->convidados,
+            'nome_responsavel' => $this->nome_responsavel,
+            'cpf_responsavel' => $this->cpf_responsavel,
+            'inicio' => $this->inicio,
+            'fim' => $this->fim
         ]);
         parent::executeStatement($sql, $params);
-        $this->Data();
 
         return true;
     }

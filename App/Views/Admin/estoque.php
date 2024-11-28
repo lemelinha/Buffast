@@ -39,7 +39,7 @@
                                 <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40" id="prod-img" style="background-image: url('<?= $produto->url_imagem ?>');"></div>
                                 </header>
                                 <section class="card-body grid justify-items-center text-center grid-cols-1 p-2 text-xs md:text-sm lg:text-lg">
-                                    <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold"> <?= $produto->quantidade_estoque ?></span></p>
+                                    <p><span class="text-amber-300">Quantidade Estoque:</span> <span class="font-bold" id="<?= $produto->cd_produto ?>"> <?= $produto->quantidade_estoque ?></span></p>
                                 </section>
                                 <footer class="flex justify-end mt-auto">
                                 </footer>

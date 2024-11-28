@@ -30,7 +30,7 @@
                         </select>
                     </div>
                         <label for="entrada" class="block mb-2 text-sm font-medium text-white ">Quantidade de Entrada</label>
-                        <input type="number" name="quantidade" id="entrada" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <input type="number" name="quantidade" id="entrada" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="" min="0">
                     </div>
                 </div>
                 <button type="submit" class="font-tittle inline-flex items-center bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
@@ -75,7 +75,7 @@
                         </select>
                     </div>
                         <label for="saida" class="block mb-2 text-sm font-medium text-white ">Quantidade de saida</label>
-                        <input type="number" name="quantidade" id="saida" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <input type="number" name="quantidade" id="saida" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="" min="0">
                     </div>
                 </div>
                 <button type="submit" class="font-tittle inline-flex items-center bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
@@ -102,6 +102,7 @@
         $('input#saida').val('')
         $('input#entrada').val('')
         $('select').val('')
+        $('p.retorno').text('')
     })
 
     $('form').submit(function (e) {
@@ -124,6 +125,7 @@
                 $('input#entrada').val('')
                 $('select').val('')
             }
+            $('span#'+produto).text(data.quantidade)
             $('form p.retorno').text(data.msg)
         })
         .catch(function (a) {
