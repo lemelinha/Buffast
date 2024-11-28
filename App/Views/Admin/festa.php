@@ -26,7 +26,7 @@
                 foreach ($festas as $festa) {
                     $data = (new DateTime($festa->inicio))->format('Y-m-d');
                     $hora_inicio = (new DateTime($festa->inicio))->format('H:i');
-                    $hora_fim = (new DateTime($festa->inicio))->format('H:i');
+                    $hora_fim = (new DateTime($festa->fim))->format('H:i');
                     ?>
                         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                             <header class="card-header text-base md:text-lg lg:text-lg">
@@ -64,6 +64,9 @@
     </div>
     
 </main>
+<script>
+    let horarios = <?= json_encode($horarios) ?>;
+</script>
 <?php $this->renderView('modal', 'Admin/festas') ?>
 <?php $this->renderView('footer', 'Admin') ?>
 </body>

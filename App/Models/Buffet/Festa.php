@@ -121,7 +121,8 @@ class Festa extends Model {
                     tb_festa
                 WHERE
                     status_festa = 'A' AND
-                    id_buffet = :id";
+                    id_buffet = :id AND
+                    inicio > curdate()";
         $params = [
             'id' => $cd_buffet
         ];
@@ -129,6 +130,11 @@ class Festa extends Model {
         $smt = parent::executeStatement($sql, $params)->fetchAll();
 
         $festas = Tools::decryptRecord('tb_festa', $smt);
-        return $festas;
+        $horarios = [];
+        foreach ($festas as $festa) {
+            $horarios[] = [$festa->inicio, $festa->fim];
+        }
+
+        return [$festas, $horarios];
     }
 }

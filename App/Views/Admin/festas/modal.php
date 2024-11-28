@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="date-start" class="block mb-2 text-sm font-medium text-white ">Inicio Festa</label>
-                        <input type="date" name="date-start" id="date-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <input type="date" name="date-start" id="date-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="" min="<?= date('Y-m-d', (time() + 24*60*60*2)) ?>">
                     </div>
                     
                     <div class="col-span-2 sm:col-span-1">
@@ -100,7 +100,7 @@
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="date-start" class="block mb-2 text-sm font-medium text-white ">Inicio Festa</label>
-                        <input type="date" name="date-start" id="date-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <input type="date" name="date-start" id="date-start" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="" min="<?= date('Y-m-d') ?>">
                     </div>
                     
                     <div class="col-span-2 sm:col-span-1">
@@ -118,7 +118,7 @@
                 </div>
                 <button type="submit" class="font-tittle inline-flex items-center bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                     <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                    Adicionar
+                    Alterar
                 </button>
                 <p class="retorno"></p>
             </form>
@@ -179,23 +179,20 @@
         $('form#editar input#time-start').val(time_start)
 
         let time_end = $(this).attr('time-end')
+        $('form#editar input#time-end').attr('min', time_start)
         $('form#editar input#time-end').val(time_end)
 
-        $('form#editar').submit(function () {
-            $("<input>").attr({
-                type: "hidden",
-                name: "id_buffet",
-                value: id_buffet
-            }).appendTo(this);
+        $("<input>").attr({
+            type: "hidden",
+            name: "id_buffet",
+            value: id_buffet
+        }).appendTo('form#editar');
 
-            $("<input>").attr({
-                type: "hidden",
-                name: "cd_festa",
-                value: cd_festa
-            }).appendTo(this);
-
-            return True
-        })
+        $("<input>").attr({
+            type: "hidden",
+            name: "cd_festa",
+            value: cd_festa
+        }).appendTo('form#editar');
     })
 
     $('button.deletar-festa').click(function () {
@@ -207,9 +204,9 @@
                 type: "hidden",
                 name: "cd_festa",
                 value: cd_festa
-            }).appendTo(this);
+            }).appendTo('form#deletar');
 
-            return True
+            return true
         })
     })
 
@@ -266,6 +263,96 @@
             $('p.retorno').text('CPF inválido');
             return false;
         }
-        return true;
+
+        let data = $(`form#${form} #date-start`).val()
+        let hora_inicio = $(`form#${form} #time-start`).val()
+        let hora_fim = $(`form#${form} #time-end`).val()
+
+        let inicio = data + ' ' + hora_inicio
+        let fim = data + ' ' + hora_fim
+        let id_festa = null
+
+        if (form == 'editar') {
+            id_festa = $(`form#${form} input[name="cd_festa"]`).val()
+        }
+
+        if (verificarData(id_festa, inicio, fim)) {
+            $('p.retorno').text('Já tem uma data nessa data');
+            return false;
+        }
+
+        return false;
+    });
+
+    function verificarData(id_festa, inicio, fim) {
+        console.log(id_festa)
+        let existe = false
+        horarios.forEach(function (festa) {
+            if (id_festa === null || festa.cd_festa == id_festa) {
+                return
+            }
+            if (inicio > festa.inicio && inicio < festa.fim) {
+                existe = true
+            }
+            if (fim > festa.inicio && fim < festa.fim) {
+                existe = true
+            }
+        })
+
+        return existe
+    }
+
+    $('form#editar #time-start').on('change', function() {
+        // Obtém o horário de início
+        let startTime = $(this).val();
+        
+        // Configura o input de fim para ter o atributo min
+        $('form#editar #time-end').attr('min', startTime);
+        
+        // Limpa o valor do input de fim se estiver antes do início
+        let endTime = $('form#editar #time-end').val();
+        if (endTime && endTime < startTime) {
+            $('form#editar #time-end').val('');
+        }
+    });
+
+    // Validação adicional para o input de fim
+    $('form#editar #time-end').on('change', function() {
+        let startTime = $('form#editar #time-start').val();
+        let endTime = $(this).val();
+        
+        // Se não tiver selecionado o horário de início, impede a seleção do fim
+        if (!startTime) {
+            alert('Selecione primeiro o horário de início');
+            $(this).val('');
+            return;
+        }
+    });
+
+    $('form#cadastrar #time-start').on('change', function() {
+        // Obtém o horário de início
+        let startTime = $(this).val();
+        
+        // Configura o input de fim para ter o atributo min
+        $('form#cadastrar #time-end').attr('min', startTime);
+        
+        // Limpa o valor do input de fim se estiver antes do início
+        let endTime = $('form#cadastrar #time-end').val();
+        if (endTime && endTime < startTime) {
+            $('form#cadastrar #time-end').val('');
+        }
+    });
+
+    // Validação adicional para o input de fim
+    $('form#cadastrar #time-end').on('change', function() {
+        let startTime = $('form#cadastrar #time-start').val();
+        let endTime = $(this).val();
+        
+        // Se não tiver selecionado o horário de início, impede a seleção do fim
+        if (!startTime) {
+            alert('Selecione primeiro o horário de início');
+            $(this).val('');
+            return;
+        }
     });
 </script>

@@ -99,9 +99,9 @@ class AdminController extends Controller {
     public function Festas() {
         $this->ValidateAccount();
 
-        $festas = Festa::AllFestas($this->buffet->cd_buffet);
+        [$festas, $horarios] = Festa::AllFestas($this->buffet->cd_buffet);
 
-        $this->render('festa', 'AdminLayout', 'Admin', '', ['festas' => $festas]);
+        $this->render('festa', 'AdminLayout', 'Admin', '', ['festas' => $festas, 'horarios' => $horarios]);
     }
 
 
