@@ -255,7 +255,7 @@
         return digitoVerificador2 === parseInt(cpf.charAt(10));
     }
 
-    $('form').submit(function () {
+    $('form#editar, form#cadastrar').submit(function (e) {
         let form = $(this).attr('id')
         let cpf = $(`form#${form} input#cpf-responsavel`).val();
         let cpfvalido = validarCPF(cpf + "");
@@ -268,39 +268,50 @@
         let hora_inicio = $(`form#${form} #time-start`).val()
         let hora_fim = $(`form#${form} #time-end`).val()
 
-        let inicio = data + ' ' + hora_inicio
-        let fim = data + ' ' + hora_fim
+        let inicio_str = data + ' ' + hora_inicio
+        let fim_str = data + ' ' + hora_fim
+        const inicio = new Date(inicio_str)
+        const fim = new Date(fim_str)
+        
         let id_festa = null
-
+        
         if (form == 'editar') {
             id_festa = $(`form#${form} input[name="cd_festa"]`).val()
         }
 
         if (verificarData(id_festa, inicio, fim)) {
-            $('p.retorno').text('Já tem uma data nessa data');
+            $('p.retorno').text('Já tem uma festa nessa data');
             return false;
         }
-
-        return false;
+        return true;
     });
 
     function verificarData(id_festa, inicio, fim) {
-        console.log(id_festa)
-        let existe = false
-        horarios.forEach(function (festa) {
-            if (id_festa === null || festa.cd_festa == id_festa) {
-                return
+        // Usando 'some' para interromper o loop quando encontrar uma coincidência
+        return horarios.some(function(festa) {
+            // Verifica se a festa não é a mesma (para o caso de edição)
+            if (id_festa !== null && festa[0] == id_festa) {
+                return false; // Se for a mesma festa, ignora
             }
-            if (inicio > festa.inicio && inicio < festa.fim) {
-                existe = true
-            }
-            if (fim > festa.inicio && fim < festa.fim) {
-                existe = true
-            }
-        })
 
-        return existe
+            // Converte as datas da festa para objetos Date, se necessário
+            const inicioFesta = new Date(festa[1]);
+            const fimFesta = new Date(festa[2]);
+
+            // Verifica se há sobreposição de horários
+            if (
+                (inicio >= inicioFesta && inicio <= fimFesta) ||  // Novo início dentro do intervalo
+                (fim >= inicioFesta && fim <= fimFesta) ||        // Novo fim dentro do intervalo
+                (inicio <= inicioFesta && fim >= fimFesta)         // Novo intervalo cobre o intervalo da festa
+            ) {
+                return true; // Encontra sobreposição
+            }
+
+            return false; // Se não houver sobreposição
+        });
     }
+
+
 
     $('form#editar #time-start').on('change', function() {
         // Obtém o horário de início

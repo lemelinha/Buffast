@@ -132,9 +132,8 @@ class Festa extends Model {
         $festas = Tools::decryptRecord('tb_festa', $smt);
         $horarios = [];
         foreach ($festas as $festa) {
-            $horarios[] = [$festa->inicio, $festa->fim];
+            $horarios[] = [$festa->cd_festa, $festa->inicio, $festa->fim];
         }
-
         return [$festas, $horarios];
     }
 }
