@@ -219,6 +219,28 @@ class AdminController extends Controller {
         die();
     }
 
+    public function AtualizarInfo() {
+        $this->ValidateAccount();
+
+        if ($_POST['cnpj'] != $this->buffet->cnpj && Tools::CNPJExists($_POST['cnpj'])) {
+            echo json_encode(['ok' => false, 'msg' => "CNPJ já cadastrado"]);
+            die();
+        }
+
+        if ($_POST['email'] != $this->buffet->email && Tools::EmailExists($_POST['email'])) {
+            echo json_encode(['ok' => false, 'msg' => "Email já cadastrado"]);
+            die();
+        }
+
+        $this->buffet->nome_buffet = $_POST['nome'];
+        $this->buffet->email = $_POST['email'];
+        $this->buffet->cnpj = $_POST['cnpj'];
+        $this->buffet->Update();
+
+        echo json_encode(['ok' => true, 'msg' => 'Informações alteradas com sucesso!']);
+        die();
+    }
+
     private function ValidateAccount() {
         if (!isset($_SESSION['cd_buffet'])) {
             header('Location: /login');

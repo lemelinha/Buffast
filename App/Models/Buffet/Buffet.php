@@ -7,7 +7,7 @@ use App\Tools\Tools;
 class Buffet extends Model {
     public $cd_buffet;
     public $nome_buffet;
-    private $cnpj;
+    public $cnpj;
     public $url_pfp;
     private $senha;
     public $email;

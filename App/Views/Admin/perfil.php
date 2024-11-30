@@ -59,6 +59,7 @@
               class="bg-amber-300 text-sm  p-2 rounded-xl main-font font-tittle md:text-lg  lg:p-2">Alterar
               Senha</button>
           </div>
+          <p class="retorno"></p>
         </div>
       </div>
       <div>
@@ -80,13 +81,63 @@
 
 <script>
   $('button.btn-alterar').click(function () {
-    $(this).css('display', 'none')
+    $('button.btn-alterar').css('display', 'none')
     $('button.btn-cancelar').css('display', 'inline-block')
     $('button.btn-salvar').css('display', 'inline-block')
+
+    $('input[name="nome"]').removeAttr('readonly')
+    $('input[name="cnpj"]').removeAttr('readonly')
+    $('input[name="email"]').removeAttr('readonly')
+
+    let nome = $('input[name="nome"]').val()
+    let cnpj = $('input[name="cnpj"]').val()
+    let email = $('input[name="email"]').val()
+    
+    $('button.btn-cancelar').click(function () {
+      $('button.btn-alterar').css('display', 'inline-block')
+      $('button.btn-cancelar').css('display', 'none')
+      $('button.btn-salvar').css('display', 'none')
+
+      $('input[name="nome"]').attr('readonly', 'readonly')
+      $('input[name="cnpj"]').attr('readonly', 'readonly')
+      $('input[name="email"]').attr('readonly', 'readonly')
+
+      $('input[name="nome"]').val(nome)
+      $('input[name="cnpj"]').val(cnpj)
+      $('input[name="email"]').val(email)
+    })
   })
 
-  $('button.btn-cancelar').click(function () {
-    window.location.reload()
+  $('button.btn-salvar').click(async function () {
+    $('body').click(function(){return false})
+
+    let nome = $('input[name="nome"]').val()
+    let cnpj = $('input[name="cnpj"]').val()
+    let email = $('input[name="email"]').val()
+
+    await $.ajax({
+      'url': '/painel/perfil/atualizar-info',
+      'data': {
+        'nome': nome,
+        'cnpj': cnpj,
+        'email': email
+      },
+      'type': 'post',
+      'dataType': 'json'
+    })
+    .done(function (data) {
+      $('button.btn-alterar').css('display', 'inline-block')
+      $('button.btn-cancelar').css('display', 'none')
+      $('button.btn-salvar').css('display', 'none')
+
+      $('input[name="nome"]').attr('readonly', 'readonly')
+      $('input[name="cnpj"]').attr('readonly', 'readonly')
+      $('input[name="email"]').attr('readonly', 'readonly')
+
+      $('p.retorno').text(data.msg)
+    })
+
+    $('body').click(function(){return true})
   })
 
   function previewFile() {
