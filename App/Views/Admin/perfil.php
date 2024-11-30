@@ -59,7 +59,7 @@
               class="bg-amber-300 text-sm  p-2 rounded-xl main-font font-tittle md:text-lg  lg:p-2">Alterar
               Senha</button>
           </div>
-          <p class="retorno"></p>
+          <p class="retorno" style="height: 1rem;"></p>
         </div>
       </div>
       <div>
@@ -109,8 +109,6 @@
   })
 
   $('button.btn-salvar').click(async function () {
-    $('body').click(function(){return false})
-
     let nome = $('input[name="nome"]').val()
     let cnpj = $('input[name="cnpj"]').val()
     let email = $('input[name="email"]').val()
@@ -136,8 +134,9 @@
 
       $('p.retorno').text(data.msg)
     })
-
-    $('body').click(function(){return true})
+    .catch(function (a) {
+      console.log(a)
+    })
   })
 
   function previewFile() {
@@ -179,8 +178,6 @@
   })
 
   $('button.btn-confirmar-pfp').click(async function () {
-    $('body').click(function(){return false})
-
     let form = new FormData()
     form.append('pfp', $('#fileInput')[0].files[0])
 
@@ -203,8 +200,6 @@
     .catch(function (a) {
       console.log(a)
     })
-    
-    $('body').click(function(){return true})
   })
 </script>
 

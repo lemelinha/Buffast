@@ -36,7 +36,7 @@ class Buffet extends Model {
             'nome_buffet' => $nome_buffet,
             'cnpj' => $cnpj,
             'url_pfp' => $url_pfp,
-            'senha' => password_hash($senha, PASSWORD_BCRYPT),
+            'senha' => $senha,
             'email' => $email
         ]);
         parent::executeStatement($sql, $params);
@@ -62,7 +62,7 @@ class Buffet extends Model {
             'nome_buffet' => $this->nome_buffet,
             'cnpj' => $this->cnpj,
             'url_pfp' => $this->url_pfp,
-            'senha' => password_hash($this->senha, PASSWORD_BCRYPT),
+            'senha' => $this->senha,
             'email' => $this->email
         ]);
         parent::executeStatement($sql, $params);
@@ -113,5 +113,17 @@ class Buffet extends Model {
                     cd_buffet = :id";
         parent::executeStatement($sql, ['id' => $id]);
         return true;
+    }
+
+    public function UpdatePassword(string $senha_atual, string $nova_senha) {
+        if (!$this->VerifyPassword($senha_atual)) return false;
+
+        $this->senha = password_hash($nova_senha, PASSWORD_BCRYPT);
+        $this->Update();
+        return true;
+    }
+
+    private function VerifyPassword(string $senha): bool {
+        return password_verify($senha, $this->senha);
     }
 }

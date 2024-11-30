@@ -241,6 +241,18 @@ class AdminController extends Controller {
         die();
     }
 
+    public function AtualizarSenha() {
+        $this->ValidateAccount();
+
+        if (!$this->buffet->UpdatePassword($_POST['senha-atual'], $_POST['nova-senha'])) {
+            echo json_encode(['ok' => false, 'msg' => 'Sua senha antiga está incorreta']);
+            die();
+        }
+
+        echo json_encode(['ok' => true, 'msg' => 'Senha alterada!']);
+        die();
+    }
+
     private function ValidateAccount() {
         if (!isset($_SESSION['cd_buffet'])) {
             header('Location: /login');

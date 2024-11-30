@@ -8,7 +8,7 @@
                 <h3 class="text-lg font-semibold text-white">
                     Alterar Senha
                 </h3>
-                <button type="button" class="text-white bg-transparent hover:bg-amber-300 hover:text-white rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="novasenha">
+                <button type="button" class="fechar-senha text-white bg-transparent hover:bg-amber-300 hover:text-white rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="novasenha">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -16,26 +16,61 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5">
+            <div class="p-4 md:p-5">
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
                         <label for="Asenha" class="block mb-2 text-sm font-medium text-white ">Senha Atual</label>
-                        <input type="password" name="Asenha" id="Asenha" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+                        <input type="password" name="senha-atual" id="Asenha" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
                     </div>
                     <div class="col-span-2">
                         <label for="Nsenha" class="block mb-2 text-sm font-medium text-white ">Nova Senha</label>
-                        <input type="password" name="Nsenha" id="Nsenha" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <input type="password" name="nova-senha" id="Nsenha" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                     <div class="col-span-2">
                         <label for="N2senha" class="block mb-2 text-sm font-medium text-white ">Repita a Nova Senha</label>
-                        <input type="password" name="N2senha" id="N2senha" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                        <input type="password" name="nova-senha-confirmacao" id="N2senha" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                 </div>
-                <button type="submit" class="font-tittle inline-flex items-center bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                <button type="button" class="alterar-senha font-tittle inline-flex items-center bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                     <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                     Alterar
                 </button>
-            </form>
+                <p class="retorno-senha" style="height: 1rem;"></p>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    $('button.alterar-senha').click(async function () {
+        let senha_atual = $('input[name="senha-atual"]').val()
+        let nova_senha = $('input[name="nova-senha"]').val()
+        let nova_senha_confirmacao = $('input[name="nova-senha-confirmacao"]').val()
+
+        if (nova_senha != nova_senha_confirmacao) {
+            $('p.retorno-senha').text('As senhas não coincidem')
+            return
+        }
+
+        await $.ajax({
+            'url': '/painel/perfil/atualizar-senha',
+            'type': 'POST',
+            'dataType': 'json',
+            'data': {
+                'senha-atual': senha_atual,
+                'nova-senha': nova_senha
+            }
+        })
+        .done(function (data) {
+            if (data.ok) {
+                $('p.retorno').text(data.msg)
+                $('button.fechar-senha').trigger( "click" )
+                return
+            }
+            $('p.retorno-senha').text(data.msg)
+        })
+        .catch(function (a) {
+            console.log(a)
+        })
+    })
+</script>

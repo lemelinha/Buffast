@@ -195,6 +195,13 @@ abstract class Router {
             'method' => ['POST']
         ];
 
+        $routes['painel perfil atualizar senha'] = [ // ajax
+            'router' => '/painel/perfil/atualizar-senha',
+            'controller' =>'AdminController',
+            'action' => 'AtualizarSenha',
+            'method' => ['POST']
+        ];
+
         $this->routes = array_merge($this->routes, $routes);
     }
 }
