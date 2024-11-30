@@ -173,8 +173,9 @@ abstract class Tools {
                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
     }
 
-    public static function CNPJExists(string $cnpj): bool {
+    public static function CNPJExists(string $cnpj): bool|string {
         $sql = "SELECT
+                    cd_buffet,
                     cnpj
                 FROM
                     tb_buffet
@@ -184,13 +185,14 @@ abstract class Tools {
         $conn = Connection::connect();
         $results = $conn->query($sql)->fetchAll();
         foreach($results as $result) {
-            if (self::decrypt($result->cnpj) == $cnpj) return true;
+            if (self::decrypt($result->cnpj) == $cnpj) return $result->cd_buffet;
         }
         return false;
     }
 
-    public static function EmailExists(string $email): bool {
+    public static function EmailExists(string $email): bool|string {
         $sql = "SELECT
+                    cd_buffet,
                     email
                 FROM
                     tb_buffet
@@ -200,7 +202,7 @@ abstract class Tools {
         $conn = Connection::connect();
         $results = $conn->query($sql)->fetchAll();
         foreach($results as $result) {
-            if (self::decrypt($result->email) == $email) return true;
+            if (self::decrypt($result->email) == $email) return $result->cd_buffet;
         }
         return false;
     }

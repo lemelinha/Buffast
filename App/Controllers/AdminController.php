@@ -28,10 +28,10 @@ class AdminController extends Controller {
 
     public function Validate($id) {
         if (Buffet::Validate($id)) {
-            $this->renderView('emailValidado');
+            $this->renderView('emailValidado', 'email');
             die();
         }
-        $this->renderView('validacaoExpirada');
+        $this->renderView('linkExpirado');
         die();
     }
 
@@ -260,7 +260,7 @@ class AdminController extends Controller {
         }
         $this->buffet = new Buffet($_SESSION['cd_buffet']);
         if ($this->buffet->status_buffet != 'V') {
-            $this->renderView('valideEmail');
+            $this->renderView('valideEmail', 'email');
             die();
         }
     }

@@ -9,6 +9,7 @@ use App\Models\Login;
 use App\Tools\Tools;
 use App\Models\Register;
 use App\Models\Modal;
+use App\Models\Email;
 
 class IndexController extends Controller { 
     public function Index() {
@@ -95,6 +96,50 @@ class IndexController extends Controller {
 
     public function temp() {
         header('Location: /cardapio/'.$_SESSION['cd_buffet']);
+        die();
+    }
+
+    public function EsqueciMinhaSenha() {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $this->renderView('esqueciMinhaSenha', 'senha');
+            die();
+        }
+
+        if (!($cd_buffet = Tools::EmailExists($_POST['email']))) {
+            Modal::Error('Erro', 'Email não cadastrado', '/esqueci-minha-senha');
+            die();
+        }
+
+        $link = "https://buffast.com.br/redefinir-senha/" . $cd_buffet . "/" . time();
+        $subject = "Redefinição de senha";
+        $body = "Foi solicitado uma troca de senha em sua conta. <br>Para a redefinição acesse o link: $link <br>Caso não tenha sido você ignore este email.";
+
+        if (Email::SendEmail($_POST['email'], $subject, $body)) {
+            Modal::Success('Email enviado', 'Foi enviado um email para a redefinição da senha', '/login');
+            die();
+        }
+
+        Modal::Error('Algo deu errado', 'Algo deu errado em enviar o email. Tente mais tarde', '/esqueci-minha-senha');
+        die();
+    }
+
+    public function RedefinirSenha($cd_buffet, $time) {
+        if (time() - $time > (24*60*60)) {
+            $this->renderView('linkExpirado');
+            die();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $this->renderView('redefinirSenha', 'senha');
+            die();
+        }
+
+        if (Login::RedefinirSenha($cd_buffet, $_POST['senha'])) {
+            Modal::Success('Sucesso!', 'Senha redefinida!', '/login');
+            die();
+        }
+
+        Modal::Error('Algo deu errado', 'Algo deu errado ao redefinir senha. Tente mais tarde', '/esqueci-minha-senha');
         die();
     }
 }

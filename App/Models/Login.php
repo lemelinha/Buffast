@@ -37,4 +37,23 @@ abstract class Login extends Model {
         }
         session_destroy();
     }
+
+    public static function RedefinirSenha($cd_buffet, $senha) {
+        $sql = "UPDATE
+                    tb_buffet
+                SET
+                    senha = :senha
+                WHERE
+                    cd_buffet = :cd_buffet";
+        $params = [
+            'senha' => password_hash($senha, PASSWORD_BCRYPT),
+            'cd_buffet' => $cd_buffet
+        ];
+        try {
+            parent::executeStatement($sql, $params);
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

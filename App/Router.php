@@ -74,6 +74,21 @@ abstract class Router {
             'params' => ['id']
         ];
 
+        $routes['esqueci minha senhaaaa'] = [
+            'router' => '/esqueci-minha-senha',
+            'controller' =>'IndexController',
+            'action' => 'EsqueciMinhaSenha',
+            'method' => ['GET', 'POST']
+        ];
+
+        $routes['redefinit senhaaaa'] = [
+            'router' => '/redefinir-senha/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/[0-9]+',
+            'controller' =>'IndexController',
+            'action' => 'RedefinirSenha',
+            'method' => ['GET', 'POST'],
+            'params' => ['cd_buffet', 'time']
+        ];
+
         $routes['logout'] = [
             'router' => '/logout',
             'controller' =>'IndexController',

@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 class Email {
     public static function SendEmail(string $email, string $subject, string $body): bool {
         $mail = new PHPMailer();
+        $mail->CharSet = "UTF-8";
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;

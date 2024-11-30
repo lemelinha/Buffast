@@ -43,7 +43,7 @@
         </div>
 
         <div class="text-right mt-2">
-          <a href="#" class="text-sm font-semibold text-white hover:text-amber-300 focus:text-amber-300">Esqueceu a Senha?</a>
+          <a href="/esqueci-minha-senha" class="text-sm font-semibold text-white hover:text-amber-300 focus:text-amber-300">Esqueceu a Senha?</a>
         </div>
 
         <p class="mt-8 text-white"><?php if (isset($_SESSION['msg'])) { echo $_SESSION['msg']; unset($_SESSION['msg']); } ?></p>
