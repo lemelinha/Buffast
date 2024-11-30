@@ -243,6 +243,7 @@ abstract class Tools {
         $fileExtension = pathinfo($image['name'], PATHINFO_EXTENSION);
         if ($isPFP) {
             $fileName = 'pfp';
+            if (!empty($imageToRemove)) self::RemoveFile($imageToRemove);
         } else {
             $fileName = hash('sha256', time() . $id);
         }

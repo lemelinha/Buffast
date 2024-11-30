@@ -181,6 +181,13 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $routes['painel perfil atualizar pfp'] = [ // ajax
+            'router' => '/painel/perfil/atualizar-pfp',
+            'controller' =>'AdminController',
+            'action' => 'AtualizarPFP',
+            'method' => ['POST']
+        ];
+
         $this->routes = array_merge($this->routes, $routes);
     }
 }

@@ -20,7 +20,7 @@
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
                         <label for="imagem" class="block mb-2 text-sm font-medium text-white ">Imagem</label>
-                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="">
+                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="" accept="image/*">
                     </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>
@@ -62,7 +62,7 @@
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
                         <label for="imagem" class="block mb-2 text-sm font-medium text-white ">Imagem (vazio para manter)</label>
-                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600">
+                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600" accept="image/*">
                     </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>

@@ -103,7 +103,6 @@ class AdminController extends Controller {
         $this->render('festa', 'AdminLayout', 'Admin', '', ['festas' => $festas, 'horarios' => $horarios]);
     }
 
-
     public function CadastrarFesta() {
         $this->ValidateAccount();
 
@@ -201,6 +200,23 @@ class AdminController extends Controller {
     public function Perfil() {
         $this->ValidateAccount();
         $this->render('perfil', 'AdminLayout', 'Admin');
+    }
+
+    public function AtualizarPFP() {
+        $this->ValidateAccount();
+
+        $pfp = '/assets/images/test2.jpg';
+        if ($_FILES['pfp']['error'] != 4) {
+            $pfp = Tools::UploadImage($this->buffet->cd_buffet, $_FILES['pfp'], true, $this->buffet->url_pfp);
+            if (!$pfp['ok']) {
+                echo json_encode(['ok' => false, 'msg' => 'Algo deu errado ao alterar a imagem']);
+                die();
+            }
+        }
+        $this->buffet->url_pfp = $pfp['path']??$pfp;
+        $this->buffet->Update();
+        echo json_encode(['ok' => true, 'msg' => 'Imagem Alterada com sucesso']);
+        die();
     }
 
     private function ValidateAccount() {

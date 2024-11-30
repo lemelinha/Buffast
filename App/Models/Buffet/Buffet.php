@@ -47,7 +47,27 @@ class Buffet extends Model {
     }
 
     public function Update() {
+        $sql = "UPDATE
+                    tb_buffet
+                SET
+                    nome_buffet = :nome_buffet,
+                    cnpj = :cnpj,
+                    url_pfp = :url_pfp,
+                    senha = :senha,
+                    email = :email
+                WHERE
+                    cd_buffet = :cd_buffet";
+        $params = Tools::encryptRecord('tb_buffet', [
+            'cd_buffet' => $this->cd_buffet,
+            'nome_buffet' => $this->nome_buffet,
+            'cnpj' => $this->cnpj,
+            'url_pfp' => $this->url_pfp,
+            'senha' => password_hash($this->senha, PASSWORD_BCRYPT),
+            'email' => $this->email
+        ]);
+        parent::executeStatement($sql, $params);
 
+        return true;
     }
 
     public function Data() {
