@@ -1,7 +1,7 @@
 <style>
-    #prod-img {
-        background-size: 100% 100%;
-        background-position: center;
+    .prod-img {
+        background-size: cover;
+        background-position: center center;
         background-repeat: no-repeat;
     }
 </style>
@@ -34,7 +34,7 @@
                         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                             <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                                 <p class="pb-3 text-amber-300"><?= $produto->nome_produto ?></p>
-                                <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40" id="prod-img" style="background-image: url('<?= $produto->url_imagem ?>');"></div>
+                                <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40 prod-img" style="background-image: url('<?= $produto->url_imagem ?>');"></div>
                             </header>
                             <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-base lg:text-lg">
                                 <p><span class="text-amber-300">Quantidade por Pote:</span> <span class="font-bold"><?= $produto->quantidade_pote ?></span></p>

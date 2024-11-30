@@ -17,10 +17,11 @@
             </div>
             <!-- Modal body -->
             <form class="p-4 md:p-5" action="/painel/produtos/cadastrar" method="POST" enctype="multipart/form-data">
-                <div class="grid gap-4 mb-4 grid-cols-2">
+                <div class="grid gap-4 mb-4 grid-cols-1">
+                    <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40 prod-img" id="prod-img-cadastrar" style="background-image: url('/assets/images/Logo-Buffast2.png');"></div>
                     <div class="col-span-2">
-                        <label for="imagem" class="block mb-2 text-sm font-medium text-white ">Imagem</label>
-                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="" accept="image/*">
+                        <label for="imagem-cadastrar" class="block mb-2 text-sm font-medium text-white ">Imagem</label>
+                        <input type="file" name="imagem" id="imagem-cadastrar" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="" accept="image/*" onchange="previewFile('cadastrar')">
                     </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>
@@ -59,10 +60,11 @@
             </div>
             <!-- Modal body -->
             <form class="p-4 md:p-5" id="editar" action="/painel/produtos/alterar" method="POST" enctype="multipart/form-data">
-                <div class="grid gap-4 mb-4 grid-cols-2">
+                <div class="grid gap-4 mb-4 grid-cols-1">
+                    <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40 prod-img" id="prod-img-alterar"></div>
                     <div class="col-span-2">
-                        <label for="imagem" class="block mb-2 text-sm font-medium text-white ">Imagem (vazio para manter)</label>
-                        <input type="file" name="imagem" id="imagem" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600" accept="image/*">
+                        <label for="imagem-alterar" class="block mb-2 text-sm font-medium text-white ">Imagem (vazio para manter)</label>
+                        <input type="file" name="imagem" id="imagem-alterar" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600" accept="image/*" onchange="previewFile('alterar')">
                     </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>
@@ -111,9 +113,10 @@
     $('button.editar-produto').click(function () {
         $('form#editar input#nome').val($(this).attr('nome_produto'))
         $('form#editar input#quantidade').val($(this).attr('quantidade_pote'))
-
+        
         let id_buffet = $(this).attr('id_buffet')
         let url_imagem = $(this).attr('url_imagem')
+        $('form#editar div#prod-img-alterar').css('background-image', `url("${url_imagem}")`)
         let cd_produto = $(this).attr('cd_produto')
 
         $('form#editar').submit(function (e) {
@@ -152,4 +155,31 @@
             return True
         })
     })
+
+    function previewFile(type) {
+        const preview = document.getElementById('prod-img-'+type);
+        const file = document.getElementById('imagem-'+type).files[0];
+
+        if (file) {
+            if (!file.type.startsWith('image/')) {
+                alert('Por favor, selecione apenas arquivos de imagem.');
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert('A imagem deve ter no máximo 5MB.');
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onloadend = function() {
+                preview.style.backgroundImage = `url(${reader.result})`;
+            }
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.style.backgroundImage = "url(/assets/images/Logo-Buffast2.png)";
+        }
+    }
 </script>
