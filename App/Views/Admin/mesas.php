@@ -21,167 +21,75 @@
 
     <div class="flex-1 overflow-auto">
     <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 px-12 py-2">
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">1</span></p>
-                    <div class="flex justify-center items-center">
-                        <img
-                       class="h-16 sm:h-16"
-                        src="/assets/images/table.svg"/>
+            <?php
+                foreach ($mesas as $mesa): 
+                    $link = "https://buffast.com.br/cardapio/" . $mesa->id_buffet . "/m/" . hash('sha256', $mesa->numero_mesa);
+                    $qrcode = (new \chillerlan\QRCode\QRCode)->render($link);
+                    ?>
+                    <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
+                        <header class="card-header text-base md:text-lg lg:text-2xl">
+                        <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold"><?= $mesa->numero_mesa ?></span></p>
+                        <div class="flex justify-center items-center">
+                            <img
+                            class="h-16 sm:h-16"
+                            src="/assets/images/table.svg"/>
+                        </div>
+                        </header>
+                        <div class="flex flex-col items-start">
+                        <label class="text-lg">QR-Code</label>
+                            <img
+                            class="h-16 sm:h-20 mb-5 mx-auto"
+                            src="<?= $qrcode ?>"/>
+                        </div>
+                        <footer class="flex justify-end mt-auto">
+                            <button class="deletar-mesa bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
+                                Deletar
+                            </button>
+                        </footer>
                     </div>
-                    </header>
-                    <div class="flex flex-col items-start">
-                    <label class="text-lg">QR-Code</label>
-                        <img
-                        class="h-16 sm:h-20 mb-5 mx-auto"
-                        src="/assets/images/qr_code.png"/>
-                    </div>
-                    <footer class="flex justify-end mt-auto">
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                            Deletar
-                        </button>
-                    </footer>
-            </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">2</span></p>
-                    <div class="flex justify-center items-center">
-                        <img
-                       class="h-16 sm:h-16"
-                        src="/assets/images/table.svg"/>
-                    </div>
-                    </header>
-                    <div class="flex flex-col items-start">
-                    <label class="text-lg">QR-Code</label>
-                        <img
-                         class="h-16 sm:h-20 mb-5 mx-auto"
-                        src="/assets/images/qr_code.png"/>
-                    </div>
-                    <footer class="flex justify-end mt-auto">
-
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                            Deletar
-                        </button>
-                    </footer>
-            </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">3</span></p>
-                    <div class="flex justify-center items-center">
-                        <img
-                       class="h-16 sm:h-16"
-                        src="/assets/images/table.svg"/>
-                    </div>
-                    </header>
-                    <div class="flex flex-col items-start">
-                    <label class="text-lg">QR-Code</label>
-                        <img
-                         class="h-16 sm:h-20 mb-5 mx-auto"
-                        src="/assets/images/qr_code.png"/>
-                    </div>
-                    <footer class="flex justify-end mt-auto">
-
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                            Deletar
-                        </button>
-                    </footer>
-            </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">4</span></p>
-                    <div class="flex justify-center items-center">
-                        <img
-                       class="h-16 sm:h-16"
-                        src="/assets/images/table.svg"/>
-                    </div>
-                    </header>
-                    <div class="flex flex-col items-start">
-                    <label class="text-lg">QR-Code</label>
-                        <img
-                         class="h-16 sm:h-20 mb-5 mx-auto"
-                        src="/assets/images/qr_code.png"/>
-                    </div>
-                    <footer class="flex justify-end mt-auto">
-
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                            Deletar
-                        </button>
-                    </footer>
-            </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">5</span></p>
-                    <div class="flex justify-center items-center">
-                        <img
-                       class="h-16 sm:h-16"
-                        src="/assets/images/table.svg"/>
-                    </div>
-                    </header>
-                    <div class="flex flex-col items-start">
-                    <label class="text-lg">QR-Code</label>
-                        <img
-                         class="h-16 sm:h-20 mb-5 mx-auto"
-                        src="/assets/images/qr_code.png"/>
-                    </div>
-                    <footer class="flex justify-end mt-auto">
-
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                            Deletar
-                        </button>
-                    </footer>
-            </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">6</span></p>
-                    <div class="flex justify-center items-center">
-                        <img
-                       class="h-16 sm:h-16"
-                        src="/assets/images/table.svg"/>
-                    </div>
-                    </header>
-                    <div class="flex flex-col items-start">
-                    <label class="text-lg">QR-Code</label>
-                        <img
-                         class="h-16 sm:h-20 mb-5 mx-auto"
-                        src="/assets/images/qr_code.png"/>
-                    </div>
-                    <footer class="flex justify-end mt-auto">
-
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                            Deletar
-                        </button>
-                    </footer>
-            </div>
-            <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                    <header class="card-header text-base md:text-lg lg:text-2xl">
-                    <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold">7</span></p>
-                    <div class="flex justify-center items-center">
-                        <img
-                       class="h-16 sm:h-16"
-                        src="/assets/images/table.svg"/>
-                    </div>
-                    </header>
-                    <div class="flex flex-col items-start">
-                    <label class="text-lg">QR-Code</label>
-                        <img
-                         class="h-16 sm:h-20 mb-5 mx-auto"
-                        src="/assets/images/qr_code.png"/>
-                    </div>
-                    <footer class="flex justify-end mt-auto">
-
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                            Deletar
-                        </button>
-                    </footer>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 
     <div class="ml-4 grid grid-rows-subgrid  justify-center justify-items-center h-1/5 p-8 font-bold md: md:p-8 lg: lg:p-4">
-        <button data-modal-target="upload" data-modal-toggle="upload"class="row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Adicionar</button>
+        <button class="adicionar-mesa row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Adicionar</button>
     </div>
    
 </main>
+<script>
+    $('button.adicionar-mesa').click(function () {
+        $.ajax({
+            'url': '/painel/mesas/cadastrar',
+            'type': 'POST',
+            'dataType': 'html'
+        })
+        .done(function (data) {
+            $('.cards').append(data)
+        })
+    })
+
+    $('button.deletar-mesa').click(async function () {
+        $('button.deletar-mesa').attr('disabled', 'disabled')
+        
+        await $.ajax({
+            
+        })
+
+        $('button.deletar-mesa').removeAttr('disabled')
+    })
+
+    function downloadQRCode() {
+        // Cria um link de download diretamente da URL do QR Code
+        const link = document.createElement('a');
+        link.href = 'a';
+        link.download = 'QRCode_Mesa.png';
+        
+        // Simula o clique para download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
 <?php $this->renderView('footer', 'Admin') ?>
 </body>
 

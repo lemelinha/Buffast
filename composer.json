@@ -7,7 +7,8 @@
             "App\\": "App/",
             "Core\\": "App/Core/",
             "Dotenv\\": "vendor/vlucas/phpdotenv/src",
-            "PHPMailer\\": "vendor/phpmailer/phpmailer/src"
+            "PHPMailer\\": "vendor/phpmailer/phpmailer/src",
+            "QRCode\\": "vendor/chillerlan/php-qrcode/src"
         }
     },
     "authors": [
@@ -19,6 +20,7 @@
     "require": {
         "vlucas/phpdotenv": "^5.6",
         "ramsey/uuid": "^4.7",
-        "phpmailer/phpmailer": "^6.9"
+        "phpmailer/phpmailer": "^6.9",
+        "chillerlan/php-qrcode": "^5.0"
     }
 }

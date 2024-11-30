@@ -182,6 +182,13 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $routes['painel mesas cadastrar'] = [
+            'router' => '/painel/mesas/cadastrar',
+            'controller' =>'AdminController',
+            'action' => 'CadastrarMesa',
+            'method' => ['POST']
+        ];
+
         $routes['painel pedidos'] = [
             'router' => '/painel/pedidos',
             'controller' =>'AdminController',
