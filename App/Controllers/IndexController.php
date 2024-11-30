@@ -72,7 +72,7 @@ class IndexController extends Controller {
         $buffet = new Buffet($id);
         $buffet->Insert($_POST['nome'], $_POST['cnpj'], $pfp['path']??$pfp, $_POST['senha'], $_POST['email']);
 
-        if (Register::SendValidation($buffet->cd_buffet, $buffet->email)) {
+        if (Register::SendValidation($buffet->cd_buffet, $buffet->nome_buffet, $buffet->email)) {
             Modal::Success('Email Enviado!', '', '/painel/produtos');
             die();
         };

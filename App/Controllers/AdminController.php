@@ -8,18 +8,17 @@ use App\Models\Buffet\Festa;
 use App\Tools\Tools;
 use App\Models\Modal;
 use App\Models\Register;
-use DateTime;
 
 class AdminController extends Controller {
     private $buffet;
 
-    public function ReenviarEmail() {
+    public function ReenviarEmailAutentificacao() {
         if (!isset($_SESSION['cd_buffet'])) {
             header('Location: /login');
             die();
         }
         $this->buffet = new Buffet($_SESSION['cd_buffet']);
-        if (Register::SendValidation($this->buffet->cd_buffet, $this->buffet->email)) {
+        if (Register::SendValidation($this->buffet->cd_buffet, $this->buffet->nome_buffet, $this->buffet->email)) {
             Modal::Success('Email Enviado!', '', '/painel/produtos');
             die();
         };

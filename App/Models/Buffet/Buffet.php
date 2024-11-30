@@ -3,7 +3,6 @@
 namespace App\Models\Buffet;
 use Core\Model\Model;
 use App\Tools\Tools;
-use App\Models\Register;
 
 class Buffet extends Model {
     public $cd_buffet;

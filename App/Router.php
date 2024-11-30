@@ -59,10 +59,10 @@ abstract class Router {
             'method' => ['GET', 'POST']
         ];
 
-        $routes['reenviar email'] = [
-            'router' => '/reenviar-email',
+        $routes['reenviar email autentificacao'] = [
+            'router' => '/reenviar-email-autentificacao',
             'controller' =>'AdminController',
-            'action' => 'ReenviarEmail',
+            'action' => 'ReenviarEmailAutentificacao',
             'method' => ['GET']
         ];
 
