@@ -268,7 +268,7 @@ class AdminController extends Controller {
         $this->ValidateAccount();
 
         if (!$this->buffet->UpdatePassword($_POST['senha-atual'], $_POST['nova-senha'])) {
-            echo json_encode(['ok' => false, 'msg' => 'Sua senha antiga está incorreta']);
+            echo json_encode(['ok' => false, 'msg' => 'Sua senha atual está incorreta']);
             die();
         }
 

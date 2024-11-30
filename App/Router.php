@@ -23,19 +23,12 @@ abstract class Router {
             'method' => ['GET']
         ];
 
-        $routes['cardapio temp'] = [ //temporario
-            'router' => '/cardapio',
-            'controller' => 'IndexController',
-            'action' => 'temp',
-            'method' => ['GET']
-        ];
-
         $routes['cardapio'] = [ 
-            'router' => '/cardapio/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}',
+            'router' => '/cardapio/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/m/[a-fA-F0-9]{64}',
             'controller' => 'IndexController',
             'action' => 'Cardapio',
             'method' => ['GET'],
-            'params' => ['cd_buffet']
+            'params' => ['cd_buffet', 'numero_mesa_hash']
         ];
 
         $routes['login'] = [

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Buffet\Buffet;
+use App\Models\Buffet\Mesa;
 use App\Models\Buffet\Produto;
 use Core\Controller\Controller;
 use App\Models\Login;
@@ -87,16 +88,17 @@ class IndexController extends Controller {
         die();
     }
 
-    public function Cardapio($cd_buffet) {
+    public function Cardapio($cd_buffet, $numero_mesa_hash) {
 
+        $numero_mesa = Mesa::GetNumeroByHash($cd_buffet, $numero_mesa_hash);
+        
+        if ($numero_mesa === false) {
+            require_once ERRO404;
+            die();
+        }
         $produtos = Produto::AllProdutos($cd_buffet);
 
-        $this->renderView('cardapio', '', ['produtos' => $produtos]);
-    }
-
-    public function temp() {
-        header('Location: /cardapio/'.$_SESSION['cd_buffet']);
-        die();
+        $this->renderView('cardapio', '', ['produtos' => $produtos, 'numero_mesa' => $numero_mesa]);
     }
 
     public function EsqueciMinhaSenha() {
