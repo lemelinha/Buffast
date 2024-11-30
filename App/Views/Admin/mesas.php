@@ -21,33 +21,7 @@
 
     <div class="flex-1 overflow-auto">
     <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 px-12 py-2">
-            <?php
-                foreach ($mesas as $mesa): 
-                    $link = "https://buffast.com.br/cardapio/" . $mesa->id_buffet . "/m/" . hash('sha256', $mesa->numero_mesa);
-                    $qrcode = (new \chillerlan\QRCode\QRCode)->render($link);
-                    ?>
-                    <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
-                        <header class="card-header text-base md:text-lg lg:text-2xl">
-                        <p class="pb-3"><span class="text-amber-300">Mesa:</span><span class="font-bold"><?= $mesa->numero_mesa ?></span></p>
-                        <div class="flex justify-center items-center">
-                            <img
-                            class="h-16 sm:h-16"
-                            src="/assets/images/table.svg"/>
-                        </div>
-                        </header>
-                        <div class="flex flex-col items-start">
-                        <label class="text-lg">QR-Code</label>
-                            <img
-                            class="h-16 sm:h-20 mb-5 mx-auto"
-                            src="<?= $qrcode ?>"/>
-                        </div>
-                        <footer class="flex justify-end mt-auto">
-                            <button class="deletar-mesa bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                Deletar
-                            </button>
-                        </footer>
-                    </div>
-            <?php endforeach; ?>
+            <?php $this->renderView('listMesas', 'Admin/mesa', ['mesas' => $mesas]); ?>
         </div>
     </div>
 
@@ -64,25 +38,15 @@
             'dataType': 'html'
         })
         .done(function (data) {
-            $('.cards').append(data)
+            $('.cards').html(data)
         })
     })
 
-    $('button.deletar-mesa').click(async function () {
-        $('button.deletar-mesa').attr('disabled', 'disabled')
-        
-        await $.ajax({
-            
-        })
-
-        $('button.deletar-mesa').removeAttr('disabled')
-    })
-
-    function downloadQRCode() {
+    function downloadQRCode(qrcode, numero) {
         // Cria um link de download diretamente da URL do QR Code
         const link = document.createElement('a');
-        link.href = 'a';
-        link.download = 'QRCode_Mesa.png';
+        link.href = qrcode;
+        link.download = `QRCode_Mesa_${numero}.png`;
         
         // Simula o clique para download
         document.body.appendChild(link);

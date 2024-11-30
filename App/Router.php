@@ -189,6 +189,14 @@ abstract class Router {
             'method' => ['POST']
         ];
 
+        $routes['painel mesas deletar'] = [
+            'router' => '/painel/mesas/deletar/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/[0-9]+',
+            'controller' =>'AdminController',
+            'action' => 'DeletarMesa',
+            'method' => ['POST'],
+            'params' => ['cd_mesa', 'numero_mesa']
+        ];
+
         $routes['painel pedidos'] = [
             'router' => '/painel/pedidos',
             'controller' =>'AdminController',
