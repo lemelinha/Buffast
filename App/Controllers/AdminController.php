@@ -232,7 +232,7 @@ class AdminController extends Controller {
         if ($_FILES['pfp']['error'] != 4) {
             $pfp = Tools::UploadImage($this->buffet->cd_buffet, $_FILES['pfp'], true, $this->buffet->url_pfp);
             if (!$pfp['ok']) {
-                echo json_encode(['ok' => false, 'msg' => 'Algo deu errado ao alterar a imagem']);
+                echo json_encode(['ok' => false, 'msg' => $pfp['msg']]);
                 die();
             }
         }
