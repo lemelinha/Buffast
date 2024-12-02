@@ -12,6 +12,7 @@ class Produto extends Model {
     public $url_imagem;
     public $status_produto;
 
+    public $bebida;
     public $quantidade_estoque;
 
     public function __construct($id_buffet, $cd_produto) {
@@ -20,7 +21,7 @@ class Produto extends Model {
         $this->Data();
     }
 
-    public function Insert(string $nome_produto, int $quantidade_pote, string $url_imagem) {
+    public function Insert(string $nome_produto, int $quantidade_pote, string $url_imagem, int $bebida) {
         $sql = "INSERT INTO
                     tb_produto
                 VALUES
@@ -29,14 +30,16 @@ class Produto extends Model {
                     :quantidade_pote, 
                     :url_imagem, 
                     :id_buffet, 
-                    default)";
+                    default,
+                    :bebida)";
 
         $params = Tools::encryptRecord('tb_produto', [
             'cd_produto' => $this->cd_produto,
             'nome_produto' => $nome_produto,
             'quantidade_pote' => $quantidade_pote,
             'url_imagem' => $url_imagem,
-            'id_buffet' => $this->id_buffet
+            'id_buffet' => $this->id_buffet,
+            'bebida' => $bebida
         ]);
         parent::executeStatement($sql, $params);
         $this->Data();

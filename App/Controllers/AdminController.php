@@ -59,7 +59,7 @@ class AdminController extends Controller {
             }
         }
 
-        $produto->Insert($_POST['nome'], $_POST['quantidade'], $imagem['path']??$imagem);
+        $produto->Insert($_POST['nome'], $_POST['quantidade'], $imagem['path']??$imagem, $_POST['bebida']);
         Modal::Success('Produto Cadastrado', '', '/painel/produtos');
         die();
     }

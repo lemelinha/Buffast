@@ -16,7 +16,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5" action="/painel/produtos/cadastrar" method="POST" enctype="multipart/form-data">
+            <form class="p-4 md:p-5" action="/painel/produtos/cadastrar" method="POST" enctype="multipart/form-data" id="cadastrar">
                 <div class="grid gap-4 mb-4 grid-cols-1">
                     <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40 prod-img" id="prod-img-cadastrar" style="background-image: url('/assets/images/Logo-Buffast2.png');"></div>
                     <div class="col-span-2">
@@ -28,8 +28,13 @@
                         <input type="text" name="nome" id="nome" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade por Pote</label>
+                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade</label>
                         <input type="number" name="quantidade" id="quantidade" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
+                    </div>
+                    <div class="col-span-2">
+                        <label for="" class="block mb-2 text-sm font-medium text-white ">Tipo</label>
+                        <input type="radio" name="bebida" value="0" checked="checked"> <span class="inline-block mb-2 text-sm font-medium text-white ">Comida</span>
+                        <input type="radio" name="bebida" value="1" id="bebida"> <span class="inline-block mb-2 text-sm font-medium text-white ">Bebida</span>
                     </div>
                 </div>
                 <button type="submit" class="font-tittle inline-flex items-center bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
@@ -71,7 +76,7 @@
                         <input type="text" name="nome" id="nome" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade por Pote</label>
+                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade</label>
                         <input type="number" name="quantidade" id="quantidade" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                 </div>
@@ -110,6 +115,17 @@
 </div>
 
 <script>
+    $('form#cadastrar input[name="bebida"]').change(function () {
+        let quantidade = $('form#cadastrar input[name="quantidade"]')
+
+        if ($(this).attr('id') == 'bebida') {
+            quantidade.val('1')
+            quantidade.attr('readonly', 'readonly')
+        } else {
+            quantidade.removeAttr('readonly')
+        }
+    })
+
     $('button.editar-produto').click(function () {
         $('form#editar input#nome').val($(this).attr('nome_produto'))
         $('form#editar input#quantidade').val($(this).attr('quantidade_pote'))
