@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#803469">
     <title>Buffast</title>
     <link href="/assets/css/style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/assets/images/Logo-Buffast2.png" class="h-8 w-8">
 </head>
 <section class="flex flex-col md:flex-row h-screen items-center">
 
-  <div class="hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen" id="login-img">
+  <div class="hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen" id="register-img">
   </div>
 
   <div class="bg-landing w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12

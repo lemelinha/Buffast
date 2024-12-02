@@ -10,7 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#803469">
     <title>Buffast</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -18,6 +19,7 @@
     <link href="/assets/css/style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/assets/images/Logo-Buffast2.png" class="h-8 w-8">
 </head>
 <body>
 <main class="grid grid-rows-[2fr_6fr] w-screen painel">
@@ -27,7 +29,7 @@
     
         <h1 class="ml-4 font-tittle text-4xl p-2 md:text-5xl lg:col-start-2 lg:text-6xl lg:p-0">Cardapio Mesa <?= $numero_mesa ?></h1>
         <div class="sm:col-start-3 p-2">
-            <button data-modal-target="Carrinho" data-modal-toggle="Carrinho"><img src="../assets/images/cart.svg" class="h-20 p-3 bg-card rounded-2xl"></button>
+            <button data-modal-target="Carrinho" data-modal-toggle="Carrinho"><img src="/assets/images/cart.svg" class="h-20 p-3 bg-card rounded-2xl"></button>
             </div>
         </div>
     </header>
@@ -60,6 +62,23 @@
 
 <?php $this->renderView('footer', 'Admin') ?>
 </body>
+
+<script>
+     document.getElementById("search").addEventListener("input", function () {
+    const searchTerm = this.value.toLowerCase(); // Texto digitado no campo de busca
+    const cards = document.querySelectorAll(".cards > div"); // Seleciona todos os cards
+
+    cards.forEach(card => {
+        const cardText = card.querySelector(".card-header p").textContent.toLowerCase(); // Conteúdo do nome do produto
+        if (cardText.includes(searchTerm)) {
+            card.style.display = "block"; // Mostra o card
+        } else {
+            card.style.display = "none"; // Esconde o card
+        }
+    });
+});
+
+</script>
 
 
     

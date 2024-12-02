@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#803469">
     <title>Buffast</title>
     <link href="/assets/css/style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/assets/images/Logo-Buffast2.png" class="h-8 w-8">
 </head>
 <body class="bg-landing w-screen">
   <nav class="grid grid-cols-2 p-3 bg-amber-300">
@@ -32,17 +34,18 @@
         <article class=" text-center main-font">
           <p class="text-2xl lg:text-6xl text-amber-300">Mais Agilidade e Flexibilidade para Seus Eventos!</p>
           <p class="p-4 text-xs lg:text-xl text-amber-400">Gestao de Pedidos Mais Precisas, Clientes Mais Felizes: Transforme Seu Buffet com Facilidade e Rapidez!</p>
-          <button class="p-2 text-base lg:text-5xl font-tittle border border-gray-300 rounded-3xl btn-landing focus:ring-blue-500 focus:border-blue-500"><a
-          href="/login">Comece Agora</button>
+          <a
+          href="/registro">
+          <button class="p-2 text-base lg:text-5xl font-tittle border border-gray-300 rounded-3xl btn-landing focus:ring-blue-500 focus:border-blue-500">Comece Agora</button></a>
         </article>
       </section>
       <aside>
         <img src="/assets/images/balloons-2.svg" class="h-44 lg:h-56 justify-self-center">
       </aside>
     </div>
-    <div class="grid grid-cols-2 place-items-center mx-4 p-2 border-amber-300 border-2 rounded-3xl">
+    <div class="grid grid-cols-2 gap-2 place-items-center mx-4 p-2 border-amber-300 border-2 rounded-3xl">
       <figure class="hidden sm:block" >
-        <img src="/assets/images/balloons-2.svg" class="h-44 lg:h-56 justify-self-center">
+        <img src="/assets/images/land-party.webp" class="rounded-2xl justify-self-center">
       </figure>
       <section class="col-span-2 sm:col-span-1">
         <article class="main-font p-4 btn-landing rounded-3xl">
@@ -51,15 +54,19 @@
           <p class="pt-3 text-xs lg:text-xl font-tittle">Planejar uma festa de aniversario pode ser estressante, especialmente quando se trata de gerenciar os salgados e garantir que tudo esteja no lugar certo, na hora certa. E por isso que criamos um sistema unico para buffets que permite uma gestaoo rapida de pedidos, personalizacao de cardapio e relatorios dos status dos pedidos em tempo real.
           <p class="py-3 text-xs lg:text-xl font-tittle">
           Com todos esses beneficios, as tarefas manuais reduzem e voce pode focar no que importa: criar experiencias incriveis.</p>
-          <button class="p-2 text-base lg:text-5xl text-amber-300 border border-gray-300 rounded-3xl bg-card-modal focus:ring-blue-500 focus:border-blue-500">Saiba Mais</button>
-          <button class="p-2 text-base lg:text-5xl text-amber-300 border border-gray-300 rounded-3xl bg-card-modal focus:ring-blue-500 focus:border-blue-500"><a
-          href="/login">Comece Agora</button>
+          <a
+          href="#saiba-mais">
+          <button class="p-2 text-base lg:text-5xl text-amber-300 border border-gray-300 rounded-3xl bg-card-modal focus:ring-blue-500 focus:border-blue-500">Saiba Mais</button></a>
+          <a
+          href="/registro">
+          <button class="p-2 text-base lg:text-5xl text-amber-300 border border-gray-300 rounded-3xl bg-card-modal focus:ring-blue-500 focus:border-blue-500">
+          Comece Agora</button></a>
         </article>
       </section>
     </div>
     <div class="font-tittle main-font my-10 lg:p-4 btn-landing ">
       <div>
-        <header class="grid grid-cols-1 items-center justify-center p-6">
+        <header id="saiba-mais" class="grid grid-cols-1 items-center justify-center p-6">
           <div>
             <p class="text-center text-xl lg:text-5xl font-tittle">Buffast: Transforme Suas Festas em 
               <br>Experiencias Inesqueciveis </p>
