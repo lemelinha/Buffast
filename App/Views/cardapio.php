@@ -63,5 +63,22 @@
 <?php $this->renderView('footer', 'Admin') ?>
 </body>
 
+<script>
+     document.getElementById("search").addEventListener("input", function () {
+    const searchTerm = this.value.toLowerCase(); // Texto digitado no campo de busca
+    const cards = document.querySelectorAll(".cards > div"); // Seleciona todos os cards
+
+    cards.forEach(card => {
+        const cardText = card.querySelector(".card-header p").textContent.toLowerCase(); // Conteúdo do nome do produto
+        if (cardText.includes(searchTerm)) {
+            card.style.display = "block"; // Mostra o card
+        } else {
+            card.style.display = "none"; // Esconde o card
+        }
+    });
+});
+
+</script>
+
 
     
