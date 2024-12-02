@@ -8,6 +8,7 @@
     <link href="/assets/css/style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/assets/images/Logo-Buffast2.png" class="h-8 w-8">
 </head>
 <body>
   <div class="center bg-landing h-screen w-screen text-center place-content-center main-font">
