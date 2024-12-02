@@ -52,7 +52,22 @@
 
 <?php $this->renderView('footer', 'Admin') ?>
 </body>
+<script>
+     document.getElementById("search").addEventListener("input", function () {
+    const searchTerm = this.value.toLowerCase(); // Texto digitado no campo de busca
+    const cards = document.querySelectorAll(".cards > div"); // Seleciona todos os cards
 
+    cards.forEach(card => {
+        const cardText = card.querySelector(".card-header p").textContent.toLowerCase(); // Conteúdo do nome do produto
+        if (cardText.includes(searchTerm)) {
+            card.style.display = "block"; // Mostra o card
+        } else {
+            card.style.display = "none"; // Esconde o card
+        }
+    });
+});
+
+</script>
 <!-- <div class="grid h-screen p-8 grid-cols-1 lg:pr-24 lg:pl-24 pt-4 lg:min-h-3.5">
         <div class="bg-card-cad rounded-lg shadow-2xl p-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDeR4BcH8f1klSkGe46EDlwMn3AiJrs_vnw&s" class="rounded-lg shadow-2xl">
