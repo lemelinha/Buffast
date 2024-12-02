@@ -100,7 +100,7 @@
 			<a href="/painel/perfil"><img class="session bg-white border-2 border-amber-300 rounded-full h-14 w-14" src="<?= $_SESSION['url_pfp'] ?>"></a>
 		</div>
 			<button
-				class="h-16 w-10 mb-2 mx-auto flex flex justify-center items-center
+				class="h-16 w-10 mb-16 sm:mb-2 mx-auto flex flex justify-center items-center
 				w-full focus:text-orange-500 hover:bg-amber-300 focus:outline-none" onclick="window.location.href='/logout'">
 				<svg
 					class="h-5 w-5 text-red-700"
