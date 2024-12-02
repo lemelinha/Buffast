@@ -29,7 +29,7 @@
     
         <h1 class="ml-4 font-tittle text-4xl p-2 md:text-5xl lg:col-start-2 lg:text-6xl lg:p-0">Cardapio Mesa <?= $numero_mesa ?></h1>
         <div class="sm:col-start-3 p-2">
-            <button data-modal-target="Carrinho" data-modal-toggle="Carrinho"><img src="/assets/images/cart.svg" class="h-20 p-3 bg-card rounded-2xl"></button>
+            <button data-modal-target="Carrinho" data-modal-toggle="Carrinho" onclick="gerarHtmlCarrinho()"><img src="/assets/images/cart.svg" class="h-20 p-3 bg-card rounded-2xl"></button>
             </div>
         </div>
     </header>
@@ -41,16 +41,22 @@
                         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                             <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                                 <p class="pb-3 text-amber-300"><?= $produto->nome_produto ?></p>
-                                <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40" id="prod-img" style="background-image: url('<?= $produto->url_imagem ?>');"></div>
+                                <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10 md:h-28 lg:h-32 xl:h-40" id="prod-img" style="background-image: url('<?= $produto->url_imagem ?>');"></div>
                             </header>
                             <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-base lg:text-lg">
                                 <p><span class="text-amber-300">Quantidade:</span> <span class="font-bold"><?= $produto->quantidade_pote ?></span></p>
+                                
+                                <!-- Controles de quantidade -->
+                                <div class="flex items-center space-x-2 mt-2">
+                                    <button onclick="alterarQuantidade('<?= $produto->cd_produto ?>', 'diminuir', <?= $produto->bebida ? 'true' : 'false' ?>)" 
+                                            class="bg-red-500 text-white px-2 py-1 rounded">-</button>
+                                    
+                                    <span id="quantidade-<?= $produto->cd_produto ?>" class="quantidade-produto">0/<?= $produto->bebida? '1':'3' ?></span>
+                                    
+                                    <button onclick="alterarQuantidade('<?= $produto->cd_produto ?>', 'aumentar', <?= $produto->bebida ? 'true' : 'false' ?>)" 
+                                            class="bg-green-500 text-white px-2 py-1 rounded">+</button>
+                                </div>
                             </section>
-                            <footer class="flex justify-end mt-auto">
-                                <button class="editar-produto bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2">
-                                    Adicionar
-                                </button>
-                            </footer>
                         </div>
                     <?php
                 }
@@ -58,27 +64,114 @@
         </div>
     </div>
 </main>
+    <script>
+        let $produtos = <?= json_encode($produtos) ?>;
+        let carrinho = []
+
+        function gerarHtmlCarrinho() {
+            $('p.retorno').text('')
+            let display_produtos = $('#Carrinho #display-produtos')
+
+            let html = '';
+
+            // Percorre os itens do carrinho
+            for (const [cdProduto, quantidade] of Object.entries(carrinho)) {
+                // Busca as informações do produto
+                const produto = $produtos.find(p => p.cd_produto === cdProduto);
+
+                if (produto && quantidade > 0) {
+                html += `
+                    <div class="grid grid-cols-2 border-amber-300 border-4 rounded-2xl p-3 mb-3">
+                    <p class="text-slate-200">Nome: <span class="text-white">${produto.nome_produto}</span></p>
+                    <p class="text-slate-200">Qtd: <span class="text-white">${quantidade}</span></p>
+                    </div>
+                `;
+                }
+            }
+
+            display_produtos.html(html)
+        }
+
+        // Variável global para armazenar o carrinho
+        function alterarQuantidade(cdProduto, acao, ehBebida) {
+            // Converte o cdProduto para string para garantir a consistência
+            cdProduto = String(cdProduto);
+
+            // Inicializa o produto no carrinho se não existir
+            if (!carrinho[cdProduto]) {
+                carrinho[cdProduto] = 0;
+            }
+
+            // Lógica para bebidas (máximo 1)
+            if (ehBebida) {
+                if (acao === 'aumentar' && carrinho[cdProduto] < 1) {
+                    carrinho[cdProduto] = 1;
+                } else if (acao === 'diminuir') {
+                    carrinho[cdProduto] = 0;
+                }
+            } 
+            // Lógica para comidas (máximo 3)
+            else {
+                if (acao === 'aumentar' && carrinho[cdProduto] < 3) {
+                    carrinho[cdProduto]++;
+                } else if (acao === 'diminuir' && carrinho[cdProduto] > 0) {
+                    carrinho[cdProduto]--;
+                }
+            }
+
+            // Atualiza o display da quantidade
+            atualizarDisplayQuantidade(cdProduto);
+        }
+
+        function atualizarDisplayQuantidade(cdProduto) {
+            const displayElement = document.getElementById(`quantidade-${cdProduto}`);
+            const quantidade = carrinho[cdProduto];
+            
+            // Determina o máximo baseado no tipo de produto
+            const ehBebida = displayElement.textContent.includes('/1');
+            const maximo = ehBebida ? 1 : 3;
+            
+            displayElement.textContent = `${quantidade}/${maximo}`;
+        }
+
+        function finalizarPedido() {
+            // Converte o carrinho para um array de objetos
+            const itensPedido = Object.entries(carrinho)
+                .filter(([_, quantidade]) => quantidade > 0)
+                .map(([cdProduto, quantidade]) => ({
+                    cdProduto: cdProduto, // Mantém como string
+                    quantidade: quantidade
+                }));
+
+            // Resto do código permanece o mesmo
+            fetch('processar_pedido.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ itens: itensPedido })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.sucesso) {
+                    alert('Pedido enviado com sucesso!');
+                    // Limpar carrinho ou redirecionar
+                    carrinho = {};
+                } else {
+                    alert('Erro ao processar pedido: ' + data.mensagem);
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao enviar pedido');
+            });
+        }    
+    </script>
 <?php $this->renderView('modal', 'cardapio') ?>
 
 <?php $this->renderView('footer', 'Admin') ?>
 </body>
 
-<script>
-     document.getElementById("search").addEventListener("input", function () {
-    const searchTerm = this.value.toLowerCase(); // Texto digitado no campo de busca
-    const cards = document.querySelectorAll(".cards > div"); // Seleciona todos os cards
-
-    cards.forEach(card => {
-        const cardText = card.querySelector(".card-header p").textContent.toLowerCase(); // Conteúdo do nome do produto
-        if (cardText.includes(searchTerm)) {
-            card.style.display = "block"; // Mostra o card
-        } else {
-            card.style.display = "none"; // Esconde o card
-        }
-    });
-});
-
-</script>
 
 
     

@@ -20,10 +20,10 @@
         </button>
       </div>
       <!-- Modal body -->
-      <form class="p-4 md:p-5" action="/painel/produtos/cadastrar" method="POST" enctype="multipart/form-data">
+      <form class="p-4 md:p-5" action="/painel/produtos/cadastrar" method="POST">
         <div class="grid gap-4 mb-4 grid-cols-2">
           <label for="produto" class="block mb-2 text-sm font-medium text-white ">Produtos Adicionados</label>
-          <div class="col-span-2">
+          <div class="col-span-2" id="display-produtos">
             <div class="grid grid-cols-2 border-amber-300 border-4 rounded-2xl p-3 mb-3">
               <p class="text-slate-200">Nome: <span class="text-white">Coxinha</span> </p>
               <p class="text-slate-200">Qtd: <span class="text-white">5</span> </p>
@@ -43,7 +43,20 @@
           </svg>
           Finalizar pedido
         </button>
+        <p class="retorno" style="min-height: 2rem;"></p>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+  $('form').submit(function (e) {
+    e.preventDefault()
+
+    if (Object.keys(carrinho).length === 0) {
+      $('p.retorno').text('Você precisa adicionar pelo menos um item ao carrinho.');
+      return
+    }
+    //$(this).submit()
+  })
+</script>
