@@ -18,7 +18,7 @@
         <?php
             if (Tools::emFesta($_SESSION['cd_buffet'])) {
                 ?>
-                <p>Não é autorizado essa pagina enquanto estivermos em festa</p>
+                <p>Não é autorizado alterações nas mesas enquanto estivermos em festa</p>
                 <?php
             } else {
                 ?>
