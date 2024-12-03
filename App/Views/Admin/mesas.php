@@ -56,26 +56,37 @@
     })
 
     function downloadQRCode(qrcodeUrl, numero) {
-        fetch(qrcodeUrl)
-            .then(response => response.blob())
-            .then(blob => {
-                // Create a link element
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = `QRCode_Mesa_${numero}.png`;
-                
-                // Append to body, click, and remove
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                // Clean up the object URL
-                URL.revokeObjectURL(link.href);
-            })
-            .catch(error => {
-                console.error('Error downloading QR Code:', error);
-                alert('Não foi possível baixar o QR Code');
-            });
+        // Cria um novo elemento SVG
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("width", "700");
+        svg.setAttribute("height", "700");
+        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+        // Cria uma imagem dentro do SVG
+        const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+        image.setAttributeNS("http://www.w3.org/1999/xlink", "href", qrcodeUrl);
+        image.setAttribute("width", "700");
+        image.setAttribute("height", "700");
+        
+        // Adiciona a imagem ao SVG
+        svg.appendChild(image);
+
+        // Converte o SVG para uma string
+        const svgString = new XMLSerializer().serializeToString(svg);
+        const blob = new Blob([svgString], {type: "image/svg+xml"});
+
+        // Cria um link para download
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `QRCode_Mesa_${numero}.svg`;
+        
+        // Adiciona, clica e remove o link
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Limpa o objeto URL
+        URL.revokeObjectURL(link.href);
     }
 </script>
 <?php $this->renderView('footer', 'Admin') ?>
