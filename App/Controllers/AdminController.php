@@ -192,9 +192,11 @@ class AdminController extends Controller {
     public function Mesas() {
         $this->ValidateAccount();
 
+        $cd_festa = Tools::EmFesta();
+
         $mesas = Mesa::AllMesas($this->buffet->cd_buffet);
 
-        $this->render('mesas', 'AdminLayout', 'Admin', '', ['mesas' => $mesas]);
+        $this->render('mesas', 'AdminLayout', 'Admin', '', ['mesas' => $mesas, 'cd_festa' => $cd_festa]);
     }
 
     public function CadastrarMesa() {

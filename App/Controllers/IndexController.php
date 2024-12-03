@@ -90,13 +90,20 @@ class IndexController extends Controller {
     }
 
     public function Cardapio($cd_buffet, $numero_mesa_hash) {
-
         $mesa = Mesa::GetMesaByHash($cd_buffet, $numero_mesa_hash);
         
         if ($mesa === false) {
             require_once ERRO404;
             die();
         }
+
+        $cd_festa = Tools::EmFesta();
+
+        if (!$cd_festa) {
+            $this->renderView('naoEstamosEmFesta');
+            die();
+        }
+
         $produtos = Produto::AllProdutos($cd_buffet);
 
         $this->renderView('cardapio', '', ['produtos' => $produtos, 'numero_mesa' => $mesa->numero_mesa, 'cd_buffet' => $cd_buffet]);

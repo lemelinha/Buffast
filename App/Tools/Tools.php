@@ -313,7 +313,20 @@ abstract class Tools {
             $params = [
                 'cd_festa' => $smt->cd_festa
             ];
-            $con->execute($sql, $params);
+            $smt = $con->prepare($sql);
+            $smt->execute($params);
+            $sql = "UPDATE
+                        tb_pedido
+                    SET
+                        status_pedido = 'C',
+                        id_mesa = null
+                    WHERE
+                        cd_festa = :cd_festa";
+            $params = [
+                'cd_festa' => $smt->cd_festa
+            ];
+            $smt = $con->prepare($sql);
+            $smt->execute($params);
         }
 
         if ($em_festa) {

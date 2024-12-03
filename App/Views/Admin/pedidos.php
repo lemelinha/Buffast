@@ -30,11 +30,11 @@
                                     <p><span class="text-amber-300">Salgados:</span> <?php
                                         $first = true;
                                         foreach ($pedido->itens as $item) {
-                                            echo "{$item['quantidade']}x {$item['nome_produto']}";
-                                            if ($first) {
+                                            if (!$first) {
                                                 echo ", ";
                                                 $first = false;
                                             }
+                                            echo "{$item['quantidade']}x {$item['nome_produto']}";
                                         }
                                     ?></p>
                                 </section>
