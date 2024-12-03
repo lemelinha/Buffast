@@ -57,7 +57,7 @@
     </div>
 </main>
 <script>
-    let ultimo_pedido = '<?= end($pedidos)->data_pedido ?>'
+    let ultimo_pedido = '<?= end($pedidos)->data_pedido??date_create()->format('Y-m-d H:i:s') ?>'
 
     $('button.cancelar-pedido').click(function () {
         let cd_pedido = $(this).attr('cd_pedido')

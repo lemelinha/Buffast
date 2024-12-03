@@ -121,7 +121,7 @@ class IndexController extends Controller {
                 $segundosRestantes = max(0, $tempoMaximoSegundos - $totalSegundosDecorridos);
 
                 $minutosRestantes = floor($segundosRestantes / 60);
-                $segundosRestantesParciais = $segundosRestantes % 60;
+                $segundosRestantesParciais = ($segundosRestantes+5) % 60;
 
                 // Formata o tempo inicial
                 $tempoInicial = sprintf('%02d:%02d', $minutosRestantes, $segundosRestantesParciais);

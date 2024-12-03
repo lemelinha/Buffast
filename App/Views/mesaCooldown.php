@@ -44,6 +44,6 @@
 
     // Inicializa o timer com os segundos calculados no PHP
     document.addEventListener('DOMContentLoaded', () => {
-        startCountdownTimer(<?= $segundosRestantes ?>);
+        startCountdownTimer(<?= $segundosRestantes+5 ?>);
     })
 </script>
