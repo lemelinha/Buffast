@@ -2,6 +2,7 @@
 
 namespace App\Tools;
 use App\Connection;
+use App\Models\Buffet\Festa;
 use Ramsey\Uuid\Uuid;
 
 abstract class Tools {
@@ -279,6 +280,29 @@ abstract class Tools {
                     status_buffet = 'P' AND
                     DATEDIFF(NOW(), data_registro) > 2";
         Connection::connect()->query($sql);
+    }
+
+    public static function ResetMesas() {
+        $conn = Connection::connect();
+        $sql = "SELECT
+                    cd_festa,
+                    fim
+                FROM
+                    tb_festa";
+        $festas = $conn->query($sql)->fetchAll();
+        foreach ($festas as $festa) {
+            if (date_create($festa->fim)->format('Y-m-d H:i') < date_create()->format('Y-m-d H:i')) {
+                $sql = "UPDATE
+                            tb_pedido
+                        SET
+                            status_pedido = 'C',
+                            id_mesa = null
+                        WHERE
+                            id_festa = '{$festa->cd_festa}' AND
+                            status_pedido = 'P'";
+                $conn->query($sql);
+            }
+        }
     }
 
     public static function EmFesta($cd_buffet) {

@@ -15,6 +15,7 @@ class Bootstrap extends Router{
 
         $uri = $this->getUri();
         Tools::DeletePendentAccounts();
+        Tools::ResetMesas();
         $this->run($uri);
     }
     
