@@ -27,7 +27,7 @@ class Pedido extends Model {
                     tb_pedido
                 VALUES
                     (:cd_pedido, 
-                    default, 
+                    " . date_create()->format('Y-m-d H:i:s') . ", 
                     default, 
                     :id_mesa,
                     :id_festa)";
