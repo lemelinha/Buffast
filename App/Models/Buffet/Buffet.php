@@ -30,7 +30,7 @@ class Buffet extends Model {
                     :senha, 
                     :email, 
                     default, 
-                    " . date_create()->format('Y-m-d H:i:s') . ")";
+                    '" . date_create()->format('Y-m-d H:i:s') . "')";
         $params = Tools::encryptRecord('tb_buffet', [
             'cd_buffet' => $this->cd_buffet,
             'nome_buffet' => $nome_buffet,
