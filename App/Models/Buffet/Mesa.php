@@ -75,7 +75,7 @@ class Mesa extends Model {
     public static function GetNumeroByHash($cd_buffet, $numero_mesa_hash) {
         $mesas = self::AllMesas($cd_buffet);
         foreach ($mesas as $mesa) {
-            if (hash('sha256', $mesa->numero_mesa) == $numero_mesa_hash) return $mesa->numero_mesa;
+            if (hash('sha256', $mesa->id_buffet . $mesa->numero_mesa) == $numero_mesa_hash) return $mesa->numero_mesa;
         }
         return false;
     }

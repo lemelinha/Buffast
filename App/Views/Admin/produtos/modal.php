@@ -28,7 +28,7 @@
                         <input type="text" name="nome" id="nome" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade máxima</label>
+                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade máxima por pedido</label>
                         <input type="number" name="quantidade" id="quantidade" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                     <div class="col-span-2">
@@ -76,7 +76,7 @@
                         <input type="text" name="nome" id="nome" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade máxima</label>
+                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade máxima por pedido</label>
                         <input type="number" name="quantidade" id="quantidade" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                 </div>

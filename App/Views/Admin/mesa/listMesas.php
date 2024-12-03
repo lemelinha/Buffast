@@ -1,7 +1,7 @@
 <?php
 
 foreach ($mesas as $mesa): 
-    $link = "https://buffast.com.br/cardapio/" . $mesa->id_buffet . "/m/" . hash('sha256', $mesa->numero_mesa);
+    $link = "https://buffast.com.br/cardapio/" . $mesa->id_buffet . "/m/" . hash('sha256', $mesa->id_buffet . $mesa->numero_mesa);
     $qrcode = (new \chillerlan\QRCode\QRCode)->render($link);
     ?>
     <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col" id="<?= $mesa->cd_mesa ?>">

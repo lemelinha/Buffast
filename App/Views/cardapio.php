@@ -51,7 +51,7 @@
                                     <button onclick="alterarQuantidade('<?= $produto->cd_produto ?>', 'diminuir', <?= $produto->bebida ? 'true' : 'false' ?>)" 
                                             class="bg-red-500 text-white px-2 py-1 rounded">-</button>
                                     
-                                    <span id="quantidade-<?= $produto->cd_produto ?>" class="quantidade-produto">0/<?= $produto->bebida? '1':'3' ?></span>
+                                    <span id="quantidade-<?= $produto->cd_produto ?>" class="quantidade-produto">0/<?= $produto->bebida? '1':$produto->quantidade_maxima ?></span>
                                     
                                     <button onclick="alterarQuantidade('<?= $produto->cd_produto ?>', 'aumentar', <?= $produto->bebida ? 'true' : 'false' ?>)" 
                                             class="bg-green-500 text-white px-2 py-1 rounded">+</button>
@@ -112,7 +112,7 @@
             } 
             // Lógica para comidas (máximo 3)
             else {
-                if (acao === 'aumentar' && carrinho[cdProduto] < 3) {
+                if (acao === 'aumentar' && carrinho[cdProduto] < $produtos.find(p => p.cd_produto === cdProduto).quantidade_maxima) {
                     carrinho[cdProduto]++;
                 } else if (acao === 'diminuir' && carrinho[cdProduto] > 0) {
                     carrinho[cdProduto]--;
@@ -120,16 +120,15 @@
             }
 
             // Atualiza o display da quantidade
-            atualizarDisplayQuantidade(cdProduto);
+            atualizarDisplayQuantidade(cdProduto, ehBebida);
         }
 
-        function atualizarDisplayQuantidade(cdProduto) {
+        function atualizarDisplayQuantidade(cdProduto, ehBebida) {
             const displayElement = document.getElementById(`quantidade-${cdProduto}`);
             const quantidade = carrinho[cdProduto];
             
             // Determina o máximo baseado no tipo de produto
-            const ehBebida = displayElement.textContent.includes('/1');
-            const maximo = ehBebida ? 1 : 3;
+            const maximo = ehBebida ? 1 : ($produtos.find(p => p.cd_produto === cdProduto).quantidade_maxima);
             
             displayElement.textContent = `${quantidade}/${maximo}`;
         }

@@ -37,7 +37,7 @@
                                 <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40 prod-img" style="background-image: url('<?= $produto->url_imagem ?>');"></div>
                             </header>
                             <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-base lg:text-lg">
-                                <p><span class="text-amber-300">Quantidade:</span> <span class="font-bold"><?= $produto->quantidade_maxima ?></span></p>
+                                <p><span class="text-amber-300">Quantidade máxima por pedido:</span> <span class="font-bold"><?= $produto->quantidade_maxima ?></span></p>
                             </section>
                             <footer class="flex justify-end mt-auto">
                                 <button data-modal-target="editar" data-modal-toggle="editar" class="editar-produto bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2" cd_produto="<?= $produto->cd_produto ?>" url_imagem="<?= $produto->url_imagem ?>" nome_produto="<?= $produto->nome_produto ?>" quantidade_maxima="<?= $produto->quantidade_maxima ?>" id_buffet="<?= $produto->id_buffet ?>">
