@@ -223,6 +223,61 @@ class AdminController extends Controller {
 
         $cd_festa = Tools::EmFesta($this->buffet->cd_buffet);
 
+        if (Tools::isAjax() && isset($_GET['ultimo_pedido']) && !empty($_GET['ultimo_pedido'])) {
+            if (!$cd_festa) die();
+            $novos_pedidos = Pedido::UltimosPedidos($_GET['ultimo_pedido'], $cd_festa);
+            ob_start();
+            
+            foreach ($novos_pedidos as $novos_pedido) {
+                ?>
+                <div id="<?= $novos_pedido->cd_pedido ?>" class="card-pedido bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
+                                <header class="card-header text-base md:text-lg lg:text-lg">
+                                <p class="pb-3"><span class="text-amber-300">Festa de:</span> <?= $novos_pedido->nome_aniversariante ?> </p>
+                                <div class="flex justify-center items-center">
+                                    <img
+                                    class="h-12"
+                                    src="/assets/images/snack.svg"/>
+                                </div>
+                                </header>
+                                <div class="flex align-end justify-end">
+                                    <button class="p-1 bg-<?= $novos_pedido->status_pedido=='P'?'red':'green' ?>-600 text-xs rounded-md">
+                                        <p><?= $novos_pedido->status_pedido=='P'?'Pendente':'Entregue' ?></p>
+                                    </button>            
+                                </div>
+                                <section class="card-body grid grid-cols-1 p-2 text-xs md:text-sm lg:text-sm">
+                                    <p><span class="text-amber-300">Mesa:</span> <span class="font-bold"><?= $novos_pedido->numero_mesa ?></span></p>
+                                    <p><span class="text-amber-300">Horario do pedido</span> : <span class="font-bold"><?= date_create($novos_pedido->data_pedido)->format('H:i') ?></span></p>
+                                    <p><span class="text-amber-300">Salgados:</span> <?php
+                                        $first = true;
+                                        $virgula = false;
+                                        foreach ($novos_pedido->itens as $item) {
+                                            if ($virgula) {
+                                                echo ", ";
+                                            }
+                                            if ($first) {
+                                                $first = false;
+                                                $virgula = true;
+                                            }
+                                            echo "{$item['quantidade']}x {$item['nome_produto']}";
+                                        }
+                                    ?></p>
+                                </section>
+                                <div class="flex align-center justify-center">
+                                    <button class="concluir-pedido p-1 bg-amber-300 text-sm rounded-md font-tittle mr-5" cd_pedido="<?= $novos_pedido->cd_pedido ?>">
+                                        <p>Concluir</p>
+                                    </button>            
+                                    <button class="cancelar-pedido p-1 bg-amber-300 text-sm rounded-md font-tittle" cd_pedido="<?= $novos_pedido->cd_pedido ?>">
+                                        <p>Cancelar</p>
+                                    </button>            
+                                </div>
+                        </div>
+                <?php
+            }
+            $html_novos_pedidos = ob_get_clean();
+            echo json_encode(['html' => $html_novos_pedidos, 'ultimo_pedido' => end($novos_pedidos)->data_pedido]);
+            die();
+        }
+
         $pedidos = Pedido::AllPedidos($cd_festa);
 
         $this->render('pedidos', 'AdminLayout', 'Admin', '', ['pedidos' => $pedidos]);

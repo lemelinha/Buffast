@@ -164,6 +164,41 @@ class Pedido extends Model {
         return $pedidos;
     }
 
+    public static function UltimosPedidos($ultimo_pedido, $id_festa){
+        $sql = "SELECT
+                    *
+                FROM
+                    tb_pedido
+                INNER JOIN
+                    tb_festa
+                    ON
+                        id_festa = cd_festa
+                INNER JOIN
+                    tb_mesa
+                    ON
+                        id_mesa = cd_mesa
+                WHERE
+                    id_festa = :id_festa AND
+                    status_pedido = 'P' AND
+                    data_pedido > :ultimo_pedido
+                ORDER BY
+                    data_pedido ASC";
+        $params = [
+            'id_festa' => $id_festa,
+            'ultimo_pedido' => $ultimo_pedido
+        ];
+        $smt = parent::executeStatement($sql, $params)->fetchAll();
+
+        $pedidos = [];
+        foreach ($smt as $item) {
+            $pedido = new Pedido($item->cd_pedido);
+            $pedido->nome_aniversariante = Tools::decrypt($item->nome_aniversariante);
+            $pedido->numero_mesa = $item->numero_mesa;
+            $pedidos[] = $pedido;
+        }
+        return $pedidos;
+    }
+
     public function CancelarPedido() {
         $this->status_pedido = 'C';
         $this->Update();

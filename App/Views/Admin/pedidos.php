@@ -10,7 +10,7 @@
         <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm xl:grid-cols-6 xl:text-base xl:gap-12 px-12 py-2">
                 <?php
                     foreach ($pedidos as $pedido): ?>
-                        <div id="<?= $pedido->cd_pedido ?>" class="card-pedido bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
+                        <div id="<?= $pedido->cd_pedido ?>" class="card-pedido bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col" style="transition: all 0.5s ease">
                                 <header class="card-header text-base md:text-lg lg:text-lg">
                                 <p class="pb-3"><span class="text-amber-300">Festa de:</span> <?= $pedido->nome_aniversariante ?> </p>
                                 <div class="flex justify-center items-center">
@@ -57,6 +57,8 @@
     </div>
 </main>
 <script>
+    let ultimo_pedido = '<?= end($pedidos)->data_pedido ?>'
+
     $('button.cancelar-pedido').click(function () {
         let cd_pedido = $(this).attr('cd_pedido')
         console.log(`/painel/pedidos/cancelar/${cd_pedido}`)
@@ -89,6 +91,23 @@
             console.log(a)
         })
     })
+
+    setInterval(() => {
+        console.log('as')
+        $.ajax({
+            'url': `/painel/pedidos`,
+            'type': 'GET',
+            'dataType': 'json',
+            'data': {ultimo_pedido: ultimo_pedido}
+        })
+        .done(function (data) {
+            $('.cards').append(data.html)
+            ultimo_pedido = data.ultimo_pedido
+        })
+        .catch(function (a) {
+            console.log(a)
+        })
+    }, 3000)
 </script>
 
 <?php $this->renderView('footer', 'Admin') ?>
