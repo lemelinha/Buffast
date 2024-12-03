@@ -20,7 +20,7 @@
         </button>
       </div>
       <!-- Modal body -->
-      <form class="p-4 md:p-5" action="/painel/produtos/cadastrar" method="POST">
+      <form class="p-4 md:p-5" method="POST">
         <div class="grid gap-4 mb-4 grid-cols-2">
           <label for="produto" class="block mb-2 text-sm font-medium text-white ">Produtos Adicionados</label>
           <div class="col-span-2" id="display-produtos">
@@ -57,6 +57,26 @@
       $('p.retorno').text('Você precisa adicionar pelo menos um item ao carrinho.');
       return
     }
-    //$(this).submit()
+
+    const itensPedido = Object.entries(carrinho)
+      .filter(([_, [, quantidade]]) => quantidade > 0)
+      .map(([cdProduto, [nome_produto, quantidade]]) => ({
+        cd_produto: cdProduto,
+        nome_produto,
+        quantidade
+      }));
+
+    $.ajax({
+      'url': '/cardapio/<?= $cd_buffet ?>/m/<?= hash('sha256', $cd_buffet . $numero_mesa) ?>/fazer-pedido',
+      'type': 'POST',
+      'data': {'itens':itensPedido},
+      'dataType': 'json'
+    })
+    .done(function (data) {
+      console.log(data.msg)
+    })
+    .catch(function (a) {
+      console.log(a)
+    })
   })
 </script>

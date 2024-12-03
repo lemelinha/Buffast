@@ -6,6 +6,7 @@ use App\Models\Buffet\Buffet;
 use App\Models\Buffet\Produto;
 use App\Models\Buffet\Festa;
 use App\Models\Buffet\Mesa;
+use App\Models\Pedido;
 use App\Tools\Tools;
 use App\Models\Modal;
 use App\Models\Register;
@@ -217,7 +218,12 @@ class AdminController extends Controller {
 
     public function Pedidos() {
         $this->ValidateAccount();
-        $this->render('pedidos', 'AdminLayout', 'Admin');
+
+        $cd_festa = Tools::EmFesta();
+
+        $pedidos = Pedido::AllPedidos($cd_festa);
+
+        $this->render('pedidos', 'AdminLayout', 'Admin', '', ['pedidos' => $pedidos]);
     }
 
     public function Perfil() {

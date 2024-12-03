@@ -7,6 +7,8 @@
 
     ini_set('display_errors', true);
 
+    date_default_timezone_set('America/Sao_Paulo');
+
     session_start();
     require '../vendor/autoload.php';
 

@@ -280,4 +280,45 @@ abstract class Tools {
                     DATEDIFF(NOW(), data_registro) > 2";
         Connection::connect()->query($sql);
     }
+
+    public static function EmFesta() {
+        $con = Connection::connect();
+        $sql = "SELECT
+                    *
+                FROM
+                    tb_festa
+                WHERE
+                    status_festa = 'A'
+                ORDER BY
+                    inicio
+                LIMIT 1";
+        $smt = $con->query($sql)->fetch();
+        
+        $inicio = date_create($smt->inicio)->format('Y-m-d H:i');
+        $fim = date_create($smt->fim)->format('Y-m-d H:i');
+        $agora = date_create()->format('Y-m-d H:i');
+
+        $em_festa = false;
+        $cd_festa = null;
+        if ($inicio < $agora && $fim > $agora) {
+            $em_festa = true;
+            $cd_festa = $smt->cd_festa;
+        } else if ($inicio < $agora && $fim < $agora) {
+            $sql = "UPDATE
+                        tb_festa
+                    SET
+                        status_festa = 'F'
+                    WHERE
+                        cd_festa = :cd_festa";
+            $params = [
+                'cd_festa' => $smt->cd_festa
+            ];
+            $con->execute($sql, $params);
+        }
+
+        if ($em_festa) {
+            return $cd_festa;
+        }
+        return false;
+    }
 }

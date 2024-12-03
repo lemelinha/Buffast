@@ -11,6 +11,7 @@ use App\Tools\Tools;
 use App\Models\Register;
 use App\Models\Modal;
 use App\Models\Email;
+use App\Models\Pedido;
 
 class IndexController extends Controller { 
     public function Index() {
@@ -90,15 +91,34 @@ class IndexController extends Controller {
 
     public function Cardapio($cd_buffet, $numero_mesa_hash) {
 
-        $numero_mesa = Mesa::GetNumeroByHash($cd_buffet, $numero_mesa_hash);
+        $mesa = Mesa::GetMesaByHash($cd_buffet, $numero_mesa_hash);
         
-        if ($numero_mesa === false) {
+        if ($mesa === false) {
             require_once ERRO404;
             die();
         }
         $produtos = Produto::AllProdutos($cd_buffet);
 
-        $this->renderView('cardapio', '', ['produtos' => $produtos, 'numero_mesa' => $numero_mesa]);
+        $this->renderView('cardapio', '', ['produtos' => $produtos, 'numero_mesa' => $mesa->numero_mesa, 'cd_buffet' => $cd_buffet]);
+    }
+
+    public function FazerPedido($cd_buffet, $numero_mesa_hash) {
+        $cd_festa = Tools::EmFesta($cd_buffet);
+        if (!$cd_festa) {
+            echo json_encode(['ok' => false, 'msg' => 'Não estamos em festa']);  
+            die();
+        }  
+
+        $mesa = Mesa::GetMesaByHash($cd_buffet, $numero_mesa_hash);
+        
+        if ($mesa === false) {
+            echo json_encode(['ok' => false, 'msg' => 'Mesa ou buffet não encontrado']);
+            die();
+        }
+        $itens = $_POST['itens'];
+        $pedido = new Pedido(Tools::UUID());
+        $pedido->Insert($mesa->cd_mesa, $cd_festa, $itens);
+        echo json_encode(['ok' => false, 'msg' => 'Pedido Realizado!']);
     }
 
     public function EsqueciMinhaSenha() {

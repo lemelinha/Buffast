@@ -122,7 +122,9 @@ class Festa extends Model {
                 WHERE
                     status_festa = 'A' AND
                     id_buffet = :id AND
-                    inicio > curdate()";
+                    inicio > curdate()
+                ORDER BY
+                    inicio";
         $params = [
             'id' => $cd_buffet
         ];

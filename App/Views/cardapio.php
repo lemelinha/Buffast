@@ -37,21 +37,34 @@
         <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 px-12 py-2">
             <?php
                 foreach ($produtos as $produto) {
+                    $maxima = $produto->quantidade_maxima;
+                    if ($produto->quantidade_maxima > $produto->quantidade_estoque) {
+                        $maxima = $produto->quantidade_estoque;
+                        $produto->quantidade_maxima = $maxima;
+                    }
                     ?>
                         <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                             <header class="card-header grid justify-items-center text-base md:text-lg lg:text-xl">
                                 <p class="pb-3 text-amber-300"><?= $produto->nome_produto ?></p>
-                                <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10 md:h-28 lg:h-32 xl:h-40" id="prod-img" style="background-image: url('<?= $produto->url_imagem ?>');"></div>
+                                <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10 md:h-28 lg:h-32 xl:h-40 flex justify-center items-center" id="prod-img" style="background-image: url('<?= $produto->url_imagem ?>'); <?= $produto->quantidade_estoque == 0?'backdrop-filter: blur(20px);':'' ?>">
+                                    <?php 
+                                        if ($produto->quantidade_estoque == 0) {
+                                            ?>
+                                            <img src="/assets/images/carimbo-esgotado.avif" alt="">
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
                             </header>
                             <section class="card-body grid justify-items-center grid-cols-1 p-2 text-xs md:text-base lg:text-lg">
-                                <p><span class="text-amber-300">Quantidade máxima:</span> <span class="font-bold"><?= $produto->quantidade_maxima ?></span></p>
+                                <p><span class="text-amber-300">Quantidade máxima:</span> <span class="font-bold"><?= $maxima ?></span></p>
                                 
                                 <!-- Controles de quantidade -->
                                 <div class="flex items-center space-x-2 mt-2">
                                     <button onclick="alterarQuantidade('<?= $produto->cd_produto ?>', 'diminuir', <?= $produto->bebida ? 'true' : 'false' ?>)" 
                                             class="bg-red-500 text-white px-2 py-1 rounded">-</button>
                                     
-                                    <span id="quantidade-<?= $produto->cd_produto ?>" class="quantidade-produto">0/<?= $produto->bebida? '1':$produto->quantidade_maxima ?></span>
+                                    <span id="quantidade-<?= $produto->cd_produto ?>" class="quantidade-produto">0/<?= $produto->bebida? '1':$maxima ?></span>
                                     
                                     <button onclick="alterarQuantidade('<?= $produto->cd_produto ?>', 'aumentar', <?= $produto->bebida ? 'true' : 'false' ?>)" 
                                             class="bg-green-500 text-white px-2 py-1 rounded">+</button>
@@ -75,7 +88,7 @@
             let html = '';
 
             // Percorre os itens do carrinho
-            for (const [cdProduto, quantidade] of Object.entries(carrinho)) {
+            for (const [cdProduto, [nome_produto, quantidade]] of Object.entries(carrinho)) {
                 // Busca as informações do produto
                 const produto = $produtos.find(p => p.cd_produto === cdProduto);
 
@@ -99,23 +112,23 @@
 
             // Inicializa o produto no carrinho se não existir
             if (!carrinho[cdProduto]) {
-                carrinho[cdProduto] = 0;
+                carrinho[cdProduto] = [$produtos.find(p => p.cd_produto === cdProduto).nome_produto, 0];
             }
 
             // Lógica para bebidas (máximo 1)
             if (ehBebida) {
                 if (acao === 'aumentar' && carrinho[cdProduto] < 1) {
-                    carrinho[cdProduto] = 1;
+                    carrinho[cdProduto] = [$produtos.find(p => p.cd_produto === cdProduto).nome_produto, 1];
                 } else if (acao === 'diminuir') {
-                    carrinho[cdProduto] = 0;
+                    carrinho[cdProduto] = [$produtos.find(p => p.cd_produto === cdProduto).nome_produto, 0];
                 }
             } 
             // Lógica para comidas (máximo 3)
             else {
-                if (acao === 'aumentar' && carrinho[cdProduto] < $produtos.find(p => p.cd_produto === cdProduto).quantidade_maxima) {
-                    carrinho[cdProduto]++;
-                } else if (acao === 'diminuir' && carrinho[cdProduto] > 0) {
-                    carrinho[cdProduto]--;
+                if (acao === 'aumentar' && carrinho[cdProduto][1] < $produtos.find(p => p.cd_produto === cdProduto).quantidade_maxima) {
+                    carrinho[cdProduto][1]++;
+                } else if (acao === 'diminuir' && carrinho[cdProduto][1] > 0) {
+                    carrinho[cdProduto][1]--;
                 }
             }
 
@@ -125,48 +138,15 @@
 
         function atualizarDisplayQuantidade(cdProduto, ehBebida) {
             const displayElement = document.getElementById(`quantidade-${cdProduto}`);
-            const quantidade = carrinho[cdProduto];
+            const quantidade = carrinho[cdProduto][1];
             
             // Determina o máximo baseado no tipo de produto
             const maximo = ehBebida ? 1 : ($produtos.find(p => p.cd_produto === cdProduto).quantidade_maxima);
             
             displayElement.textContent = `${quantidade}/${maximo}`;
         }
-
-        function finalizarPedido() {
-            // Converte o carrinho para um array de objetos
-            const itensPedido = Object.entries(carrinho)
-                .filter(([_, quantidade]) => quantidade > 0)
-                .map(([cdProduto, quantidade]) => ({
-                    cdProduto: cdProduto, // Mantém como string
-                    quantidade: quantidade
-                }));
-
-            // Resto do código permanece o mesmo
-            fetch('processar_pedido.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ itens: itensPedido })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.sucesso) {
-                    alert('Pedido enviado com sucesso!');
-                    // Limpar carrinho ou redirecionar
-                    carrinho = {};
-                } else {
-                    alert('Erro ao processar pedido: ' + data.mensagem);
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('Erro ao enviar pedido');
-            });
-        }    
     </script>
-<?php $this->renderView('modal', 'cardapio') ?>
+<?php $this->renderView('modal', 'cardapio', ['numero_mesa' => $numero_mesa, 'cd_buffet' => $cd_buffet]) ?>
 
 <?php $this->renderView('footer', 'Admin') ?>
 </body>

@@ -31,6 +31,14 @@ abstract class Router {
             'params' => ['cd_buffet', 'numero_mesa_hash']
         ];
 
+        $routes['cardapio fazer pedido'] = [ 
+            'router' => '/cardapio/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/m/[a-fA-F0-9]{64}/fazer-pedido',
+            'controller' => 'IndexController',
+            'action' => 'FazerPedido',
+            'method' => ['POST'],
+            'params' => ['cd_buffet', 'numero_mesa_hash']
+        ];
+
         $routes['login'] = [
             'router' => '/login',
             'controller' => 'IndexController',

@@ -23,6 +23,9 @@
         <div class="cards grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm lg:grid-cols-4 lg:text-base lg:gap-12 px-12 py-2">
             <!-- Card component -->
             <?php
+
+use App\Tools\Tools;
+
                 foreach ($festas as $festa) {
                     $data = (new DateTime($festa->inicio))->format('Y-m-d');
                     $hora_inicio = (new DateTime($festa->inicio))->format('H:i');
@@ -45,12 +48,22 @@
                                 <p><span class="text-amber-300">Quantidade de Convidados:</span> <span class="font-bold"> <?= $festa->convidados ?></span></p>
                             </section>
                             <footer class="flex justify-end mt-auto">
-                                <button data-modal-target="editar" data-modal-toggle="editar" class="editar-festa bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2" cd_festa="<?= $festa->cd_festa ?>" id_buffet="<?= $festa->id_buffet ?>" nome_aniversariante="<?= $festa->nome_aniversariante ?>" data_aniversario="<?= $festa->data_aniversario ?>" convidados="<?= $festa->convidados ?>" nome_responsavel="<?= $festa->nome_responsavel ?>" cpf_responsavel="<?= $festa->cpf_responsavel ?>" date-start="<?= $data ?>" time-start="<?= $hora_inicio ?>" time-end="<?= $hora_fim ?>">
-                                    Alterar
-                                </button>
-                                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="deletar-festa bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2" cd_festa="<?= $festa->cd_festa ?>">
-                                    Deletar
-                                </button>
+                                <?php
+                                    if (Tools::EmFesta($festa->id_buffet) != $festa->cd_festa) { 
+                                        ?>
+                                            <button data-modal-target="editar" data-modal-toggle="editar" class="editar-festa bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2" cd_festa="<?= $festa->cd_festa ?>" id_buffet="<?= $festa->id_buffet ?>" nome_aniversariante="<?= $festa->nome_aniversariante ?>" data_aniversario="<?= $festa->data_aniversario ?>" convidados="<?= $festa->convidados ?>" nome_responsavel="<?= $festa->nome_responsavel ?>" cpf_responsavel="<?= $festa->cpf_responsavel ?>" date-start="<?= $data ?>" time-start="<?= $hora_inicio ?>" time-end="<?= $hora_fim ?>">
+                                                Alterar
+                                            </button>
+                                            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="deletar-festa bg-amber-300 font-tittle w-16 rounded-lg p-2  text-xs mr-2" cd_festa="<?= $festa->cd_festa ?>">
+                                                Deletar
+                                            </button>
+                                        <?php
+                                    } else {
+                                        ?>
+                                            Em execucao
+                                        <?php
+                                    }
+                                ?>
                             </footer>
                         </div>
                     <?php
