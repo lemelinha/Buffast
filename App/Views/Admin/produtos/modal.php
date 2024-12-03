@@ -28,7 +28,7 @@
                         <input type="text" name="nome" id="nome" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade</label>
+                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade máxima</label>
                         <input type="number" name="quantidade" id="quantidade" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                     <div class="col-span-2">
@@ -76,7 +76,7 @@
                         <input type="text" name="nome" id="nome" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"  required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade</label>
+                        <label for="quantidade" class="block mb-2 text-sm font-medium text-white ">Quantidade máxima</label>
                         <input type="number" name="quantidade" id="quantidade" class="bg-amber-300 border border-gray-300 font-tittle text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"required="">
                     </div>
                 </div>
@@ -128,7 +128,7 @@
 
     $('button.editar-produto').click(function () {
         $('form#editar input#nome').val($(this).attr('nome_produto'))
-        $('form#editar input#quantidade').val($(this).attr('quantidade_pote'))
+        $('form#editar input#quantidade').val($(this).attr('quantidade_maxima'))
         
         let id_buffet = $(this).attr('id_buffet')
         let url_imagem = $(this).attr('url_imagem')

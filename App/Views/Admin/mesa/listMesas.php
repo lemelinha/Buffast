@@ -23,28 +23,6 @@ foreach ($mesas as $mesa):
             <button class="bg-amber-300 font-tittle w-10 rounded-lg p-2  text-sm mr-2" onclick="downloadQRCode('<?= $qrcode ?>', '<?= $mesa->numero_mesa ?>')">
                 <img src="/assets/images/donwload-icon.svg" alt="">
             </button>
-            <button class="deletar-mesa bg-amber-300 font-tittle w-20 rounded-lg p-2  text-sm mr-2" cd_mesa="<?= $mesa->cd_mesa ?>" numero_mesa="<?= $mesa->numero_mesa ?>">
-                Deletar
-            </button>
         </footer>
     </div>
 <?php endforeach; ?>
-
-<script>
-    $('button.deletar-mesa').click(function () {
-        $('button.deletar-mesa').attr('disabled', 'disabled')
-        
-        let cd_mesa     = $(this).attr('cd_mesa')
-        let numero_mesa = $(this).attr('numero_mesa')
-
-        $.ajax({
-            'url': `/painel/mesas/deletar/${cd_mesa}/${numero_mesa}`,
-            'type': 'POST',
-            'dataType': 'html'
-        })
-        .done(function (data) {
-            $('.cards').html(data)
-            $('button.deletar-mesa').removeAttr('disabled')
-        })
-    })
-</script>

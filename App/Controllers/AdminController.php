@@ -78,7 +78,7 @@ class AdminController extends Controller {
         }
 
         $produto->nome_produto = $_POST['nome'];
-        $produto->quantidade_pote = $_POST['quantidade'];
+        $produto->quantidade_maxima = $_POST['quantidade'];
         $produto->url_imagem = $imagem['path']??$_POST['remover_imagem'];
 
         $produto->Update();
@@ -205,10 +205,10 @@ class AdminController extends Controller {
         $this->renderView('listMesas', 'Admin/mesa', ['mesas' => $mesas]);
     }
 
-    public function DeletarMesa($cd_mesa, $numero_mesa) {
+    public function DeletarMesa() {
         $this->ValidateAccount();
 
-        Mesa::DeletarMesa($cd_mesa, $numero_mesa, $this->buffet->cd_buffet);
+        Mesa::DeletarMesa($this->buffet->cd_buffet);
 
         $mesas = Mesa::AllMesas($this->buffet->cd_buffet);
         $this->renderView('listMesas', 'Admin/mesa', ['mesas' => $mesas]);
