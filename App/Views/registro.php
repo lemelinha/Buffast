@@ -45,7 +45,7 @@
                     Foto
                 </label>
                 <input type="file" name="pfp"  autofocus autocomplete required
-                    class="w-full rounded-lg bg-amber-300 border placeholder-black focus:border-blue-500 focus:bg-amber-200 focus:outline-none" accept="image/*"/>
+                    class="w-full rounded-lg bg-amber-300 border placeholder-black focus:border-blue-500 focus:bg-amber-200 focus:outline-none" accept=".png, .jpg, .jpeg"/>
             </div>
             <div class="mb-3">
                 <label for="email" class="mb-3 block text-base text-white">

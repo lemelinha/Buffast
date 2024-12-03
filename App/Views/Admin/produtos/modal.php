@@ -21,7 +21,7 @@
                     <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40 prod-img" id="prod-img-cadastrar" style="background-image: url('/assets/images/Logo-Buffast2.png');"></div>
                     <div class="col-span-2">
                         <label for="imagem-cadastrar" class="block mb-2 text-sm font-medium text-white ">Imagem</label>
-                        <input type="file" name="imagem" id="imagem-cadastrar" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="" accept="image/*" onchange="previewFile('cadastrar')">
+                        <input type="file" name="imagem" id="imagem-cadastrar" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600"  required="" accept=".png, .jpg, .jpeg" onchange="previewFile('cadastrar')">
                     </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>
@@ -69,7 +69,7 @@
                     <div class="rounded-lg shadow-2xl h-32 w-full sm:h-10  md:h-28  lg:h-32 xl:h-40 prod-img" id="prod-img-alterar"></div>
                     <div class="col-span-2">
                         <label for="imagem-alterar" class="block mb-2 text-sm font-medium text-white ">Imagem (vazio para manter)</label>
-                        <input type="file" name="imagem" id="imagem-alterar" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600" accept="image/*" onchange="previewFile('alterar')">
+                        <input type="file" name="imagem" id="imagem-alterar" class="block w-full text-sm font-tittle border border-gray-300 rounded-lg cursor-pointer bg-amber-300 placeholder-gray-400 focus:ring-primary-600" accept=".png, .jpg, .jpeg" onchange="previewFile('alterar')">
                     </div>
                     <div class="col-span-2">
                         <label for="produto" class="block mb-2 text-sm font-medium text-white ">Nome do Produto</label>

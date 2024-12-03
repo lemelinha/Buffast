@@ -9,7 +9,7 @@
           <img src="<?= $_SESSION['url_pfp'] ?>" id="pfp" class="h-36 w-36 rounded-full justify-self-center" id="login-img">
         </figure>
         <div>
-            <input type="file" name="pfp" id="fileInput" accept="image/*"
+            <input type="file" name="pfp" id="fileInput" accept=".png, .jpg, .jpeg"
                 style="display: none;" onchange="previewFile()">
             <div style="column-gap:5px">
                 <button type="button" class="btn-alterar-pfp bg-amber-300 text-sm p-2 rounded-xl main-font font-tittle md:text-lg  lg:p-2"
