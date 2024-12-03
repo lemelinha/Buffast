@@ -22,8 +22,8 @@
                 <?php
             } else {
                 ?>
-                <button class="deletar-mesa row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2 mr-10">-Remover</button>
-                <button class="adicionar-mesa row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Adicionar</button>
+                <button class="deletar-mesa row-start-3 bg-btn text-4xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2 mr-10">-<span class="invisible sm:visible">Remover</span></button>
+                <button class="adicionar-mesa row-start-3 bg-btn text-xl h-16 p-2 rounded-full main-font text-amber-300 md:text-5xl lg:text-6xl lg:p-2">+Adicionar</button>
                 <?php
             }
         ?>
