@@ -1,6 +1,23 @@
-<div id="timer-container">
-    Tempo restante: <span id="timer"><?= $tempoInicial  ?></span>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffast</title>
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/assets/images/Logo-Buffast2.png" class="h-8 w-8">
+</head>
+<body>
+  <div class="center bg-landing h-screen w-screen text-center place-content-center main-font">
+  <div id="timer-container"><span class="text-amber-300 text-5xl">
+    Tempo restante:</span> <span id="timer" class="text-white text-5xl"><?= $tempoInicial  ?></span>
+    </div>
+  </div>
+</body>
+
 <script>
     function startCountdownTimer(totalSegundosRestantes) {
         let remainingSeconds = totalSegundosRestantes;

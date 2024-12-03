@@ -1,5 +1,5 @@
-<div class="grid-cols-1 h-screen w-screen ml-20 p-5 sm:p-14">
-  <div class=" h-full w-full bg-card rounded-2xl p-5">
+<div class="grid-cols-1 h-screen w-screen ml-20 p-5 ">
+  <div class=" h-full w-full bg-perfil  rounded-2xl p-5">
     <h1 class="text-amber-300 main-font text-lg lg:text-4xl">
       Editar Perfil
     </h1>
