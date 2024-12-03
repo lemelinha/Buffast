@@ -261,6 +261,9 @@ abstract class Tools {
         $ref = $ref . $fileName;
 
         if (move_uploaded_file($image['tmp_name'], $filePath)) {
+            if ($isPFP) {
+                $_SESSION['url_pfp'] = $ref;
+            }
             return ['ok' => true, 'path' => $ref];
         } else {
             return ['ok' => false, 'msg' => 'Erro ao salvar o arquivo'];

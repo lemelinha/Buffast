@@ -59,7 +59,7 @@
 <script>
     let ultimo_pedido = '<?= end($pedidos)->data_pedido??date_create()->format('Y-m-d H:i:s') ?>'
 
-    $('button.cancelar-pedido').click(function () {
+    $(document).on('click', 'button.cancelar-pedido', function () {
         let cd_pedido = $(this).attr('cd_pedido')
         console.log(`/painel/pedidos/cancelar/${cd_pedido}`)
 
@@ -76,8 +76,9 @@
         })
     })
 
-    $('button.concluir-pedido').click(function () {
+    $(document).on('click', 'button.concluir-pedido', function () {
         let cd_pedido = $(this).attr('cd_pedido')
+        console.log(`/painel/pedidos/concluir/${cd_pedido}`)
 
         $.ajax({
             'url': `/painel/pedidos/concluir/${cd_pedido}`,
