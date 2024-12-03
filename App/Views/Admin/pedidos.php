@@ -10,7 +10,7 @@
         <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm xl:grid-cols-6 xl:text-base xl:gap-12 px-12 py-2">
                 <?php
                     foreach ($pedidos as $pedido): ?>
-                        <div class="bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
+                        <div id="<?= $pedido->cd_pedido ?>" class="card-pedido bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                                 <header class="card-header text-base md:text-lg lg:text-lg">
                                 <p class="pb-3"><span class="text-amber-300">Festa de:</span> <?= $pedido->nome_aniversariante ?> </p>
                                 <div class="flex justify-center items-center">
@@ -43,10 +43,10 @@
                                     ?></p>
                                 </section>
                                 <div class="flex align-center justify-center">
-                                    <button class="p-1 bg-amber-300 text-sm rounded-md font-tittle mr-5" cd_pedido="<?= $pedido->cd_pedido ?>">
+                                    <button class="concluir-pedido p-1 bg-amber-300 text-sm rounded-md font-tittle mr-5" cd_pedido="<?= $pedido->cd_pedido ?>">
                                         <p>Concluir</p>
                                     </button>            
-                                    <button class="p-1 bg-amber-300 text-sm rounded-md font-tittle" cd_pedido="<?= $pedido->cd_pedido ?>">
+                                    <button class="cancelar-pedido p-1 bg-amber-300 text-sm rounded-md font-tittle" cd_pedido="<?= $pedido->cd_pedido ?>">
                                         <p>Cancelar</p>
                                     </button>            
                                 </div>
@@ -56,6 +56,41 @@
         </div>
     </div>
 </main>
+<script>
+    $('button.cancelar-pedido').click(function () {
+        let cd_pedido = $(this).attr('cd_pedido')
+        console.log(`/painel/pedidos/cancelar/${cd_pedido}`)
+
+        $.ajax({
+            'url': `/painel/pedidos/cancelar/${cd_pedido}`,
+            'type': 'POST',
+            'dataType': 'text'
+        })
+        .done(function (data) {
+            $(`.card-pedido#${cd_pedido}`).remove()
+        })
+        .catch(function (a) {
+            console.log(a)
+        })
+    })
+
+    $('button.concluir-pedido').click(function () {
+        let cd_pedido = $(this).attr('cd_pedido')
+
+        $.ajax({
+            'url': `/painel/pedidos/concluir/${cd_pedido}`,
+            'type': 'POST',
+            'dataType': 'text'
+        })
+        .done(function (data) {
+            $(`.card-pedido#${cd_pedido}`).remove()
+        })
+        .catch(function (a) {
+            console.log(a)
+        })
+    })
+</script>
+
 <?php $this->renderView('footer', 'Admin') ?>
 </body>
 <!-- <div class="grid h-screen p-8 grid-cols-1 lg:pr-24 lg:pl-24 pt-4 lg:min-h-3.5">

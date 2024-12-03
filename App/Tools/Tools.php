@@ -281,19 +281,28 @@ abstract class Tools {
         Connection::connect()->query($sql);
     }
 
-    public static function EmFesta() {
+    public static function EmFesta($cd_buffet) {
         $con = Connection::connect();
         $sql = "SELECT
                     *
                 FROM
                     tb_festa
                 WHERE
-                    status_festa = 'A'
+                    status_festa = 'A' AND
+                    id_buffet = :id_buffet
                 ORDER BY
                     inicio
                 LIMIT 1";
-        $smt = $con->query($sql)->fetch();
+        $params = [
+            'id_buffet' => $cd_buffet
+        ];
+
+        $smt = $con->prepare($sql);
+        $smt->execute($params);
+        $smt = $smt->fetch();
         
+        if (!$smt) return false;
+
         $inicio = date_create($smt->inicio)->format('Y-m-d H:i');
         $fim = date_create($smt->fim)->format('Y-m-d H:i');
         $agora = date_create()->format('Y-m-d H:i');

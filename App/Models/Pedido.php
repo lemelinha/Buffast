@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Buffet\Produto;
 use Core\Model\Model;
 use App\Tools\Tools;
 
@@ -59,6 +60,20 @@ class Pedido extends Model {
                 parent::executeStatement($sql, $params);
             }
         }
+    }
+
+    public function Update() {
+        $sql = "UPDATE
+                    tb_pedido
+                SET
+                    status_pedido = :status_pedido
+                WHERE
+                    cd_pedido = :cd_pedido";
+        $params = [
+            'status_pedido' => $this->status_pedido,
+            'cd_pedido' => $this->cd_pedido
+        ];
+        parent::executeStatement($sql, $params);
     }
 
     public function Data() {
@@ -147,5 +162,20 @@ class Pedido extends Model {
             $pedidos[] = $pedido;
         }
         return $pedidos;
+    }
+
+    public function CancelarPedido() {
+        $this->status_pedido = 'C';
+        $this->Update();
+    }
+
+    public function ConcluirPedido() {
+        $this->status_pedido = 'E';
+        $this->Update();
+
+        foreach ($this->itens as $item) {
+            $produto = new Produto($_SESSION['cd_buffet'], $item['cd_produto']);
+            $produto->Saida($item['quantidade']);
+        }
     }
 }

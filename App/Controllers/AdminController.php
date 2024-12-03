@@ -192,7 +192,7 @@ class AdminController extends Controller {
     public function Mesas() {
         $this->ValidateAccount();
 
-        $cd_festa = Tools::EmFesta();
+        $cd_festa = Tools::EmFesta($this->buffet->cd_buffet);
 
         $mesas = Mesa::AllMesas($this->buffet->cd_buffet);
 
@@ -221,11 +221,25 @@ class AdminController extends Controller {
     public function Pedidos() {
         $this->ValidateAccount();
 
-        $cd_festa = Tools::EmFesta();
+        $cd_festa = Tools::EmFesta($this->buffet->cd_buffet);
 
         $pedidos = Pedido::AllPedidos($cd_festa);
 
         $this->render('pedidos', 'AdminLayout', 'Admin', '', ['pedidos' => $pedidos]);
+    }
+
+    public function CancelarPedido($cd_pedido) {
+        $this->ValidateAccount();
+
+        $pedido = new Pedido($cd_pedido);
+        $pedido->CancelarPedido();
+    }
+    
+    public function ConcluirPedido($cd_pedido) {
+        $this->ValidateAccount();
+        
+        $pedido = new Pedido($cd_pedido);
+        $pedido->ConcluirPedido();
     }
 
     public function Perfil() {

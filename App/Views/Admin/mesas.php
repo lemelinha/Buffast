@@ -16,7 +16,7 @@
 
     <div class="ml-4 grid grid-rows-subgrid  justify-center justify-items-center h-1/5 p-8 font-bold md: md:p-8 lg: lg:p-4">
         <?php
-            if (Tools::emFesta()) {
+            if (Tools::emFesta($_SESSION['cd_buffet'])) {
                 ?>
                 <p>Não é autorizado essa pagina enquanto estivermos em festa</p>
                 <?php

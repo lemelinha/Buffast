@@ -90,7 +90,7 @@ class IndexController extends Controller {
     }
 
     public function Cardapio($cd_buffet, $numero_mesa_hash) {
-        $cd_festa = Tools::EmFesta();
+        $cd_festa = Tools::EmFesta($cd_buffet);
 
         if (!$cd_festa) {
             $this->renderView('naoEstamosEmFesta');

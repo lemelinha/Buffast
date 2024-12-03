@@ -204,6 +204,22 @@ abstract class Router {
             'method' => ['GET']
         ];
 
+        $routes['painel pedidos cancelar'] = [
+            'router' => '/painel/pedidos/cancelar/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}',
+            'controller' =>'AdminController',
+            'action' => 'CancelarPedido',
+            'method' => ['POST'],
+            'params' => ['cd_pedido']
+        ];
+
+        $routes['painel pedidos concluir'] = [
+            'router' => '/painel/pedidos/concluir/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}',
+            'controller' =>'AdminController',
+            'action' => 'ConcluirPedido',
+            'method' => ['POST'],
+            'params' => ['cd_pedido']
+        ];
+
         $routes['painel perfil'] = [
             'router' => '/painel/perfil',
             'controller' =>'AdminController',
