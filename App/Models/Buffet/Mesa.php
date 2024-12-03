@@ -94,8 +94,6 @@ class Mesa extends Model {
                 if ($ultimo_pedido) {
                     $ultimo_pedido = $ultimo_pedido->data_pedido;
                 }
-                var_dump($ultimo_pedido);
-                die();
 
                 return (object) ['cd_mesa' => $mesa->cd_mesa, 'numero_mesa' => $mesa->numero_mesa, 'ultimo_pedido' => $ultimo_pedido];
             }
