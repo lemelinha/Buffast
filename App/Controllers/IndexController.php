@@ -90,19 +90,47 @@ class IndexController extends Controller {
     }
 
     public function Cardapio($cd_buffet, $numero_mesa_hash) {
-        $mesa = Mesa::GetMesaByHash($cd_buffet, $numero_mesa_hash);
-        
-        if ($mesa === false) {
-            require_once ERRO404;
-            die();
-        }
-
         $cd_festa = Tools::EmFesta();
 
         if (!$cd_festa) {
             $this->renderView('naoEstamosEmFesta');
             die();
         }
+            
+        $mesa = Mesa::GetMesaByHash($cd_buffet, $numero_mesa_hash, $cd_festa);
+        
+        if ($mesa === false) {
+            require_once ERRO404;
+            die();
+        }
+
+        if ($mesa->ultimo_pedido) {
+            $hora_pedido = new \DateTime($mesa->ultimo_pedido);
+            $agora = new \DateTime();
+            
+            if (abs($agora->getTimestamp() - $hora_pedido->getTimestamp()) < 360) {
+                $diferenca = $agora->diff($hora_pedido);
+
+                $totalSegundosDecorridos = 
+                    $diferenca->h * 3600 + 
+                    $diferenca->i * 60 + 
+                    $diferenca->s;
+
+                $tempoMaximoSegundos = 6 * 60;
+
+                $segundosRestantes = max(0, $tempoMaximoSegundos - $totalSegundosDecorridos);
+
+                $minutosRestantes = floor($segundosRestantes / 60);
+                $segundosRestantesParciais = $segundosRestantes % 60;
+
+                // Formata o tempo inicial
+                $tempoInicial = sprintf('%02d:%02d', $minutosRestantes, $segundosRestantesParciais);
+    
+                $this->renderView('mesaCooldown', '', ['segundosRestantes' => $segundosRestantes, 'tempoInicial' => $tempoInicial]);
+                die();
+            }
+        }
+
 
         $produtos = Produto::AllProdutos($cd_buffet);
 
@@ -116,7 +144,7 @@ class IndexController extends Controller {
             die();
         }  
 
-        $mesa = Mesa::GetMesaByHash($cd_buffet, $numero_mesa_hash);
+        $mesa = Mesa::GetMesaByHash($cd_buffet, $numero_mesa_hash, $cd_festa);
         
         if ($mesa === false) {
             echo json_encode(['ok' => false, 'msg' => 'Mesa ou buffet não encontrado']);
@@ -125,7 +153,7 @@ class IndexController extends Controller {
         $itens = $_POST['itens'];
         $pedido = new Pedido(Tools::UUID());
         $pedido->Insert($mesa->cd_mesa, $cd_festa, $itens);
-        echo json_encode(['ok' => false, 'msg' => 'Pedido Realizado!']);
+        echo json_encode(['ok' => true, 'msg' => 'Pedido Realizado!']);
     }
 
     public function EsqueciMinhaSenha() {

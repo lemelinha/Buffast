@@ -111,7 +111,9 @@ class Produto extends Model {
                     tb_produto p
                 WHERE
                     p.status_produto = 'A' AND
-                    p.id_buffet = :cd_buffet";
+                    p.id_buffet = :cd_buffet
+                ORDER BY
+                    bebida, nome_produto";
         $params = [
             'cd_buffet' => $cd_buffet
         ];

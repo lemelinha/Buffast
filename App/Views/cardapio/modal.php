@@ -73,7 +73,11 @@
       'dataType': 'json'
     })
     .done(function (data) {
-      console.log(data.msg)
+      if (data.ok) {
+        window.location.reload()
+        return
+      }
+      $('p.retorno').text(data.msg)
     })
     .catch(function (a) {
       console.log(a)

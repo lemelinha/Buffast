@@ -117,7 +117,7 @@
 
             // Lógica para bebidas (máximo 1)
             if (ehBebida) {
-                if (acao === 'aumentar' && carrinho[cdProduto] < 1) {
+                if (acao === 'aumentar' && carrinho[cdProduto][1] < 1) {
                     carrinho[cdProduto] = [$produtos.find(p => p.cd_produto === cdProduto).nome_produto, 1];
                 } else if (acao === 'diminuir') {
                     carrinho[cdProduto] = [$produtos.find(p => p.cd_produto === cdProduto).nome_produto, 0];

@@ -72,10 +72,31 @@ class Mesa extends Model {
         parent::executeStatement($sql, $params);
     }
 
-    public static function GetMesaByHash($cd_buffet, $numero_mesa_hash) {
+    public static function GetMesaByHash($cd_buffet, $numero_mesa_hash, $cd_festa) {
         $mesas = self::AllMesas($cd_buffet);
         foreach ($mesas as $mesa) {
-            if (hash('sha256', $mesa->id_buffet . $mesa->numero_mesa) == $numero_mesa_hash) return (object) ['cd_mesa' => $mesa->cd_mesa, 'numero_mesa' => $mesa->numero_mesa];
+            if (hash('sha256', $mesa->id_buffet . $mesa->numero_mesa) == $numero_mesa_hash) {
+                $sql = "SELECT
+                            data_pedido
+                        FROM
+                            tb_pedido
+                        WHERE
+                            id_mesa = :mesa AND
+                            id_festa = :festa
+                        ORDER BY
+                            data_pedido DESC
+                        LIMIT 1";
+                $params = [
+                    'mesa' => $mesa->cd_mesa,
+                    'festa' => $cd_festa
+                ];
+                $ultimo_pedido = parent::executeStatement($sql, $params)->fetch();
+                if ($ultimo_pedido) {
+                    $ultimo_pedido = $ultimo_pedido->data_pedido;
+                }
+
+                return (object) ['cd_mesa' => $mesa->cd_mesa, 'numero_mesa' => $mesa->numero_mesa, 'ultimo_pedido' => $ultimo_pedido];
+            }
         }
         return false;
     }

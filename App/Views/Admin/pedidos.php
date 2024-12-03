@@ -29,10 +29,14 @@
                                     <p><span class="text-amber-300">Horario do pedido</span> : <span class="font-bold"><?= date_create($pedido->data_pedido)->format('H:i') ?></span></p>
                                     <p><span class="text-amber-300">Salgados:</span> <?php
                                         $first = true;
+                                        $virgula = false;
                                         foreach ($pedido->itens as $item) {
-                                            if (!$first) {
+                                            if ($virgula) {
                                                 echo ", ";
+                                            }
+                                            if ($first) {
                                                 $first = false;
+                                                $virgula = true;
                                             }
                                             echo "{$item['quantidade']}x {$item['nome_produto']}";
                                         }
