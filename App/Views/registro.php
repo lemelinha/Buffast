@@ -61,12 +61,14 @@
                 <input type="password" name="senha"  autofocus autocomplete required
                     class="w-full py-2 px-6 rounded-lg bg-amber-300 border placeholder-black focus:border-blue-500 focus:bg-amber-200 focus:outline-none" />
             </div>
+            <p class="text-white">
             <?php
                 if (isset($_SESSION['msg'])) {
                     echo $_SESSION['msg'];
                     unset($_SESSION['msg']);
                 }
             ?>
+            </p>
             <div>
                 <input type="submit" value="Registrar"
                 class="w-full block bg-amber-300 hover:bg-amber-400 focus:bg-amber-400 font-semibold rounded-lg
