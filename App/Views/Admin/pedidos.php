@@ -10,7 +10,7 @@
         <div class="cards scroll-container h-auto grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-12 md:grid-cols-3 md:gap-12 md:text-sm xl:grid-cols-6 xl:text-base xl:gap-12 px-12 py-2">
                 <?php
                     foreach ($pedidos as $pedido): ?>
-                        <div id="<?= $pedido->cd_pedido ?>" class="card-pedido bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col" style="transition: all 0.5s ease">
+                        <div id="<?= $pedido->cd_pedido ?>" class="card-pedido bg-card rounded-lg shadow-2xl p-3 text-white main-font flex flex-col">
                                 <header class="card-header text-base md:text-lg lg:text-lg">
                                 <p class="pb-3"><span class="text-amber-300">Festa de:</span> <?= $pedido->nome_aniversariante ?> </p>
                                 <div class="flex justify-center items-center">
